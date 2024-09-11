@@ -29,14 +29,14 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
-      primary: green
-      accent: light green 
+      primary: blue
+      accent: light blue
     - scheme: slate 
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode    
-      primary: green
-      accent: light green
+      primary: blue
+      accent: light blue
   font:
     text: Roboto
     code: Roboto Mono
