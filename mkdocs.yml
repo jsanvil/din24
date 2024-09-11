@@ -1,8 +1,15 @@
 site_name: Desarrollo de Interfaces 2024/25
 
 nav:
-  - Home: index.md
-  - UD1: ud1_1.md
+  - Inicio:
+    - index.md
+    - entorno.md
+  - 0 Intro:
+    - 00intro/01_electron_intro.md
+    - 00intro/02_electron_firstapp.md
+    - 00intro/021_actividad.md
+  # - Bloque1 JS:
+    # - 01js/intro.md
 
 theme:
   name: material
