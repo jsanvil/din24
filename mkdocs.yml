@@ -9,8 +9,9 @@ nav:
     - 00intro/02_electron_firstapp.md
     - 00intro/021_actividad.md
     - 00intro/03_intro_interfaces.md
-  # - Bloque1 JS:
-    # - 01js/intro.md
+  - Bloque1 JS:
+    - 01js/01_sintaxis.md
+    - 01js/011_actividades.md
 
 theme:
   name: material
@@ -69,7 +70,8 @@ markdown_extensions:
   - pymdownx.mark
   - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
+      # emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - md_in_html
   - pymdownx.arithmatex:
