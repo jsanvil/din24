@@ -260,11 +260,11 @@ Mostrará en la consola:
 
 ### Boolean
 
-Los valores booleanos son **true** y **false**. Para convertir algo a booleano se usar **Boolean(valor)** aunque también puede hacerse con la doble negación (**`!!`**). Cualquier valor se evaluará a _`true`_ excepto `0`, `NaN`, `null`, `undefined` o una cadena vacía ('') que se evaluarán a _`false`_.
+Los valores booleanos son **`true`** y **`false`**. Para convertir algo a booleano se usar **Boolean(valor)** aunque también puede hacerse con la doble negación (**`!!`**). Cualquier valor se evaluará a _`true`_ excepto `0`, `NaN`, `null`, `undefined` o una cadena vacía (`''`) que se evaluarán a _`false`_.
 
-Los operadores lógicos son `!` (negación), `&&` (and), `\\` (or).
+Los operadores lógicos son **`!`** (negación), **`&&`** (and), **`||`** (or).
 
-Para comparar valores tenemos **`==`** y **`===`**. La triple igualdad devuelve _`true`_ si son igual valor y del mismo tipo. Como *Javascript* hace conversiones de tipos automáticas conviene usar la **`===`** para evitar cosas como:
+Para comparar valores tenemos **`==`** y **`===`**. La triple igualdad devuelve _`true`_ si son igual valor y del mismo tipo. Como *Javascript* hace conversiones de tipos automáticas, conviene usar la **`===`** para evitar cosas como:
 
 * `'3' == 3` true
 * `3 == 3.0` true
@@ -276,15 +276,15 @@ Para comparar valores tenemos **`==`** y **`===`**. La triple igualdad devuelve 
 * `undefined == false` false
 * `undefined == null` true
 
-También existen dos operadores de _diferente_: **!=** y **!==** que se comportan de forma similar a los anteriores.
+También existen dos operadores de _diferente_: **`!=`** y **`!==`** que se comportan de forma similar a los anteriores.
 
-Los operadores relacionales son `>`, `>=`, `<`, `<=`. Cuando se compara un número y una cadena ésta se convierte a número y no al revés (`23 > '5'` devuelve _true_, aunque `'23' < '5'` devuelve _false_) 
+Los operadores relacionales son **`>`**, **`>=`**, **`<`**, **`<=`**. Cuando se compara un número y una cadena ésta se convierte a número y no al revés (`23 > '5'` devuelve _true_, aunque `'23' < '5'` devuelve _false_) 
 
 ## Control de flujo
 
 ### `if`
 
-El **if** es como en la mayoría de lenguajes. Puede tener asociado un **else** y pueden anidarse varios con **else if**.
+El **if** es como en la mayoría de lenguajes. Puede tener asociado un **else** y pueden concatenarse varias condiciones con **else if**.
 
 ```javascript
 if (condicion) {
@@ -346,7 +346,7 @@ switch(colorLetra) {
 }
 ```
 
-*Javascript* permite que el _switch_ en vez de evaluar valores pueda evaluar expresiones. En este caso se pone como condición _true_:
+*Javascript* permite que los _case_ en lugar de evaluar valores pueda evaluar condiciones lógicas.
 
 ```js linenums="1"
 switch (true) {
@@ -365,7 +365,7 @@ switch (true) {
 
 ### _while_
 
-Se ejecuta 0 o más veces.
+Realiza el bloque de operaciones mientras se cumpla la condición indicada. Se ejecuta 0 o más veces.
 
 Sintaxis:
 
@@ -386,7 +386,7 @@ while (value <= 5) { // Imprime 1 2 3 4 5
 
 ### _do .. while_
 
-Se ejecuta 1 o más veces.
+Igual que _while_ pero se ejecuta, al menos, 1 o más veces.
 
 Sintaxis:
 
@@ -407,7 +407,7 @@ do { // Imprime 1 2 3 4 5
 
 ### for
 
-La forma típica de utilizar un bucle for, es creando una variable contador que controla las veces que se ejecuta bucle:
+La forma típica de utilizar un bucle `for`, es creando una variable **contador** que controla las veces que se ejecuta bucle:
 
 Sintaxis:
 
@@ -477,7 +477,7 @@ Es similar al _`for .. in`_ pero la variable contador en vez de tomar como valor
 Sintaxis:
 
 ```javascript
-for (let contador of array) {
+for (let valor of array) {
     // sentencias
 }
 ```
