@@ -156,7 +156,7 @@ let cadena = a.join('-')       // cadena = 'Lunes-Martes-2-4-6'
 cadena = a.join()              // cadena = 'Lunes,Martes,2,4,6'
 ```
 
-Este método es el contrario del m `.split()` que convierte una cadena en un array.
+Este método es el contrario del `.split()` que convierte una cadena en un array.
 
 ```js linenums="1" title="Ejemplo de split"
 let notas = '5-3.9-6-9.75-7.5-3'
@@ -178,14 +178,14 @@ let b = a.sort()       // b = [13, 2, 45, 5, "Bien", "Mal", "adios", "hola"]
 También podemos pasarle una función que le indique cómo ordenar que devolverá un valor negativo si el primer elemento es mayor, positivo si es mayor el segundo o 0 si son iguales. Ejemplo: ordenar un array de cadenas sin tener en cuenta si son mayúsculas o minúsculas:
 
 ```js linenums="1" title="Ejemplo de sort con función"
-let a = ['hola','adios','Bien','Mal']
-let b = a.sort(function(elem1, elem2) {
-  if (elem1.toLocaleLowerCase > elem2.toLocaleLowerCase)
-    return -1
-  if (elem1.toLocaleLowerCase < elem2.toLocaleLowerCase)
+let a = ['hola','adios','Bien','Mal'];
+let test = a.sort(function(elem1, elem2) {
+  if (elem1.toLocaleLowerCase() > elem2.toLocaleLowerCase())
     return 1
+  if (elem1.toLocaleLowerCase() < elem2.toLocaleLowerCase())
+    return -1
   return 0
-})       // b = ["adios", "Bien", "hola", "Mal"]
+});       // b = ["adios", "Bien", "hola", "Mal"]
 ```
 
 Como más se utiliza esta función es para ordenar arrays de objetos. Por ejemplo si tenemos un objeto _alumno_ con los campos _name_ y _age_, para ordenar un array de objetos _alumno_ por su edad haremos:
