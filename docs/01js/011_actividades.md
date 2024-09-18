@@ -111,7 +111,7 @@ Es un palíndromo
 
 Crea un fichero **`password.js`** que, dada una cadena de texto, muestre por consola si es una contraseña segura o no.
 
-Una contraseña es segura si tiene al menos 8 caracteres, contiene al menos una letra mayúscula, una letra minúscula, un número y un carácter especial.
+Una contraseña es segura si tiene al menos 8 caracteres, contiene al menos una letra mayúscula, una letra minúscula, un número y un carácter especial '`#@/?¿!*+_-&%$`' (aunque no se ha visto todavía, si sabes hacerlo con expresiones regulares, también será válido).
 
 Por ejemplo, si la cadena es `Abc123$`, el programa mostrará `La contraseña es segura`.
 
