@@ -161,6 +161,9 @@ function factorial(n) {
 console.log(factorial(5)); // Salida: 120
 ```
 
+!!!warning "Recursión"
+    Se recomienda tener cuidado con las funciones recursivas, ya que pueden llevar a un desbordamiento de pila si no se manejan adecuadamente. Por lo que es buena práctica evitar la recursión, y si es posible, buscar una solución iterativa.
+
 ## Alcance de las funciones
 
 El alcance de una función se refiere a la visibilidad de las variables dentro de la función. Las variables definidas dentro de una función son locales y no son accesibles fuera de ella.

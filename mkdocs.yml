@@ -9,7 +9,8 @@ nav:
     - 00intro/02_electron_firstapp.md
     - 00intro/021_actividad.md
     - 00intro/03_intro_interfaces.md
-  - Bloque1 JS:
+  - UD 1 JS:
+    - 01js/index.md
     - 01js/01_sintaxis.md
     - 01js/011_actividades.md
     - 01js/02_funciones.md
