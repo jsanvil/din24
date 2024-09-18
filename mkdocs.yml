@@ -12,6 +12,9 @@ nav:
   - Bloque1 JS:
     - 01js/01_sintaxis.md
     - 01js/011_actividades.md
+    - 01js/02_funciones.md
+    - 01js/03_objetos.md
+    - 01js/04_arrays.md
 
 theme:
   name: material

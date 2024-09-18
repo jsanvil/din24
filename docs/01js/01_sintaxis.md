@@ -219,25 +219,145 @@ El operador de concatenación de cadenas es **`+`**.
 
 Algunos métodos y propiedades de las cadenas son:
 
-* **`.length`**: devuelve la longitud de una cadena. Ej.: `'Hola mundo'.length` devuelve `10`
-* **`.charAt(position)`**: `'Hola mundo'.charAt(0)` devuelve `'H'`
-* **`.indexOf(character)`**: `'Hola mundo'.indexOf('l')` devuelve `2`. Si no se encontrara devolvería `-1`
-* **`.lastIndexOf(character)`**: `'Hola mundo'.lastIndexOf('o')` devuelve `9`
-* **`.substring(from, to)`**: `'Hola mundo'.substring(2,4)` devuelve `'la'`
-* **`.substr(from, num chars)`**: `'Hola mundo'.substr(2,4)` devuelve `'la m'`
-* **`.replace(search, replace)`**: `'Hola mundo'.replace('Hola', 'Adiós')` devuelve `'Adiós mundo'`
-* **`.toLocaleLowerCase()`**: `'Hola mundo'.toLocaleLowerCase()` devuelve `'hola mundo'`
-* **`.toLocaleUpperCase()`**: `'Hola mundo'.toLocaleUpperCase()` devuelve `'HOLA MUNDO'`
-* **`.localeCompare(string)`**: devuelve `-1` si la cadena a que se aplica el método es anterior alfabéticamente, `1` si es posterior y `0` si ambas son iguales. Tiene en cuenta caracteres locales como acentos `ñ`, `ç`, etc.
-* **`.trim(string)`**: `'   Hola mundo   '.trim()` devuelve `'Hola mundo'`
-* **`.startsWith(string)`**: `'Hola mundo'.startsWith('Hol')` devuelve _`true`_
-* **`.endsWith(string)`**: `'Hola mundo'.endsWith('Hol')` devuelve _`false`_
-* **`.includes(string)`**: `'Hola mundo'.includes('mun')` devuelve _`true`_
-* **`.repeat(times)`**: `'Hola mundo'.repeat(3)` devuelve `'Hola mundoHola mundoHola mundo'`
-* **`.split(separator)`**: `'Hola mundo'.split(' ')` devuelve el array `['Hola', 'mundo']`.
-    
-    `'Hola mundo'.split('')` devuelve el array `['H', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']`
+* **`.length`**: propiedad que almacena la longitud de la cadena, es decir, el número de caracteres que contiene.
 
+    ```js
+    'Hola mundo'.length // devuelve 10
+    ```
+
+* **`.at(index)`**: devuelve el carácter en la posición indicada (puede ser negativa).
+
+    ```js
+    'Hola mundo'.at(-2) // devuelve 'd'
+    ```
+
+* **`.charAt(position)`**: devuelve el carácter en la posición indicada, si la posición no existe devuelve `''` (cadena vacía).
+
+    ```js
+    'Hola mundo'.charAt(2) // devuelve 'l'
+    // OJO: Si la posición no existe devuelve ''
+    ```
+
+* **`[]`**: se puede acceder a un carácter como si fuera un array. Funciona igual que `charAt` pero devuelve `undefined` si no existe.
+
+    ```js
+    'Hola mundo'[2] // devuelve 'l'
+    // OJO: Si la posición no existe devuelve undefined
+    ```
+
+* **`.indexOf(character)`**: devuelve la posición de la primera aparición del carácter indicado. Si no se encuentra devuelve `-1`.
+
+    ```js
+    'Hola mundo'.indexOf('l') // devuelve 2
+    ```
+
+* **`.lastIndexOf(character)`**: devuelve última la posición de carácter indicado. Si no se encuentra devuelve `-1`.
+
+    ```js
+    'Hola mundo'.lastIndexOf('o') // devuelve 9
+    ```
+ 
+* **`.substring(from [, to])`**: devuelve la subcadena desde la posición `from` hasta la posición `to` (sin incluirla). Si no se indica `to` devuelve hasta el final.
+
+    ```js
+    'Hola mundo'.substring(1,3) // devuelve 'ol'
+    'Hola mundo'.substring(2) // devuelve 'la mundo'
+    ```
+
+* **`.substr(from [, length])`**: devuelve la subcadena desde la posición `from` y, de manera opcional, la longitud indicada, si no se indica devuelve hasta el final.
+  
+    ```js
+    'Hola mundo'.substr(2,4) // devuelve 'la m'
+    'Hola mundo'.substr(2) // devuelve 'la mundo'
+    ```
+
+    !!!warning "Obsoleto (_deprecated_)"
+        Este método está deprecado y no se recomienda su uso.
+        [Mas información](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/substr)
+
+* **`.replace(pattern, replacement)`**: reemplaza la primera aparición de `pattern` (un patrón indicado) por `replacement` (el texto que lo reemplaza). Si se quiere reemplazar todas las apariciones se debe usar una expresión regular.
+
+    ```js
+    'Hola mundo'.replace('Hola', 'Adiós') // devuelve 'Adiós mundo'
+    ```
+
+    Si se quiere reemplazar todas las apariciones se debe usar una expresión regular.
+
+    ```js
+    'Hola mundo'.replace(/o/g, 'O') // devuelve 'HOla mundO'
+    ```
+
+    !!!note "Expresiones regulares"
+        Las expresiones regulares son patrones que se utilizan para hacer coincidir combinaciones de caracteres en cadenas. Se pueden usar para validar, buscar y reemplazar texto. Se definen entre barras `/.../`.
+
+        [Más información](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_expressions)
+
+* **`.toLocaleLowerCase()`**: devuelve la cadena en minúsculas.
+
+    ```js
+    'Hola mundo'.toLocaleLowerCase() // devuelve 'hola mundo'
+    ```
+
+* **`.toLocaleUpperCase()`**: devuelve la cadena en mayúsculas.
+
+    ```js
+    'Hola mundo'.toLocaleUpperCase() // devuelve 'HOLA MUNDO'
+    ```
+
+* **`.localeCompare(string)`**: retorna un número que indica si la cadena a que se aplica el método es anterior, posterior o igual a la cadena pasada como argumento.  _`-1`_ si es anterior, _`1`_ si es posterior y _`0`_ si son iguales. Tiene en cuenta caracteres locales como acentos `ñ`, `ç`, `ó`, `à`, `ü`, etc.
+
+Útil para ordenar cadenas de texto alfabéticamente.
+
+    ```js
+    'Hola'.localeCompare('Hola') // devuelve 0
+    'Hola'.localeCompare('Adiós') // devuelve 1
+    'Hola'.localeCompare('Mundo') // devuelve -1
+    ```
+
+* **`.trim(string)`**: elimina los espacios en blanco al principio y al final de la cadena. Los caracteres intermedios no se ven afectados.
+
+Se consideran caracteres en blanco: espacios, tabuladores, saltos de línea, etc.
+
+    ```js
+    '   Hola mundo   '.trim() // devuelve 'Hola mundo'
+    ```
+
+* **`.startsWith(string)`**: devuelve _`true`_ si la cadena comienza con el texto indicado.
+
+    ```js
+    'Hola mundo'.startsWith('Hol') // devuelve true
+    ```
+  
+* **`.endsWith(string)`**: devuelve _`true`_ si la cadena termina con el texto indicado.
+
+    ```js
+    'Hola mundo'.endsWith('Hol') // devuelve false
+    ```
+
+* **`.includes(string)`**: devuelve _`true`_ si la cadena contiene el texto indicado.
+
+    ```js
+    'Hola mundo'.includes('mun') // devuelve true
+    ```
+  
+* **`.repeat(times)`**: repite la cadena el número de veces indicado.
+
+    ```js
+    'Hola mundo'.repeat(3) // devuelve 'Hola mundoHola mundoHola mundo'
+    ```
+
+* **`.split(separator)`**: divide la cadena en un array de subcadenas, usando el separador indicado, y devuelve el array resultante.
+
+    ```js
+    'Hola mundo'.split(' ') // devuelve ['Hola', 'mundo']
+    ```
+
+    Si se le pasa como separador una cadena vacía (`''`), devuelve un array con cada carácter de la cadena.
+
+    ```js
+    'Hola mundo'.split('') // devuelve ['H', 'o', 'l', 'a', ' ', 'm', 'u', 'n', 'd', 'o']
+    ```
+  
 Podemos probar los diferentes métodos en la página de [w3schools](https://www.w3schools.com/jsref/jsref_obj_string.asp).
 
 #### Template literals
