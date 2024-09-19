@@ -40,8 +40,8 @@ Como hemos visto, acceder a un elemento que no existe no provoca un error, devue
 
     ```javascript
     console.log(alumnos?.[0])
-    // si alumnos es un array muestra el valor de su primer
-    // elemento y si no muestra undefined
+    // si alumnos es un array y tiene un elemento en la posición 0, muestra el elemento
+    // y si no muestra undefined
     ```
 
 ### Arrays de objetos
@@ -70,7 +70,7 @@ let alumnos = [
 
 Vamos a ver los principales métodos y propiedades de los arrays.
 
-### length
+### `length`
 
 Esta propiedad devuelve la longitud de un array.
 
@@ -126,7 +126,7 @@ borrado = a.splice(1, 3, 45, 56)   // a = ['Lunes', 45, 56, 6] y borrado = ['Mar
 
 ### `slice()`
 
-Devuelve un _subarray_ con los elementos indicados pero sin modificar el array original (sería como hacer un `substr` pero de un array en vez de una cadena).
+Devuelve un _subarray_ con los elementos indicados pero sin modificar el array original (sería como hacer un `substr` pero de un array en lugar de una cadena).
 
 ```js linenums="1" title="Sintaxis de slice"
 Array.slice(posicion, num. de elementos a devolver)
@@ -168,32 +168,50 @@ let arrayLetras = cadena.split('')       // arrayLetras = ['Q','u','e`,' ','t',a
 
 ### `sort()`
 
-Ordena **alfabéticamente** los elementos del array. Modifica el array original y devuelve el array modificado.
+**Ordena** los elementos del array. Modifica el array original y la referencia del array modificado.
 
 ```js linenums="1" title="Ejemplo de sort"
 let a = ['hola','adios','Bien','Mal',2,5,13,45]
 let b = a.sort()       // b = [13, 2, 45, 5, "Bien", "Mal", "adios", "hola"]
 ```
 
-También podemos pasarle una función que le indique cómo ordenar que devolverá un valor negativo si el primer elemento es mayor, positivo si es mayor el segundo o 0 si son iguales. Ejemplo: ordenar un array de cadenas sin tener en cuenta si son mayúsculas o minúsculas:
+También se puede pasar como **parámetro** una **función** que le decida cómo ordenar los elementos. La función recibe **dos parámetros** que son los **elementos a comparar** y **devuelve un número** que indica cómo se deben ordenar los elementos:
+
+- Si la función devuelve un **número negativo**, el **primer elemento** se coloca antes que el segundo.
+- Si la función devuelve un **número positivo**, el **segundo elemento** se coloca antes que el primero.
+- Si la función devuelve **0**, no se cambia el orden.
 
 ```js linenums="1" title="Ejemplo de sort con función"
 let a = ['hola','adios','Bien','Mal'];
 let test = a.sort(function(elem1, elem2) {
-  if (elem1.toLocaleLowerCase() > elem2.toLocaleLowerCase())
-    return 1
   if (elem1.toLocaleLowerCase() < elem2.toLocaleLowerCase())
     return -1
+  if (elem1.toLocaleLowerCase() > elem2.toLocaleLowerCase())
+    return 1
   return 0
 });       // b = ["adios", "Bien", "hola", "Mal"]
 ```
 
-Como más se utiliza esta función es para ordenar arrays de objetos. Por ejemplo si tenemos un objeto _alumno_ con los campos _name_ y _age_, para ordenar un array de objetos _alumno_ por su edad haremos:
+Como más se utiliza esta función es para ordenar arrays de objetos. Por ejemplo si tenemos un objeto _`alumno`_ con los campos _`name`_ y _`age`_, para ordenar un array de objetos _`alumno`_ por su edad haremos:
 
 ```js linenums="1" title="Ejemplo de sort con objetos"
+let alumnos = [
+  { id: 1, name: 'Javier', age: 21 },
+  { id: 2, name: 'Júlia', age: 23 },
+  { id: 3, name: 'Marc', age: 20 }
+]
+
 let alumnosOrdenado = alumnos.sort(function(alumno1, alumno2) {
   return alumno1.age - alumno2.age
 })
+
+console.log(alumnosOrdenado)
+
+// let alumnos = [
+//   { id: 3, name: 'Marc', age: 20 }
+//   { id: 1, name: 'Javier', age: 21 },
+//   { id: 2, name: 'Júlia', age: 23 },
+// ]
 ```
 
 Otra forma de hacerlo es usando _arrow functions_.
@@ -205,12 +223,26 @@ let alumnosOrdenado = alumnos.sort((alumno1, alumno2)  => alumno1.age - alumno2.
 Si lo que queremos es ordenar por un campo de texto debemos usar la función _toLocaleCompare_.
 
 ```js linenums="1" title="Ejemplo de sort con toLocaleCompare"
+let alumnos = [
+  { id: 1, name: 'Javier', age: 21 },
+  { id: 2, name: 'Júlia', age: 23 },
+  { id: 3, name: 'Marc', age: 20 }
+]
+
 let alumnosOrdenado = alumnos.sort((alumno1, alumno2)  => alumno1.name.localeCompare(alumno2.name))
+
+console.log(alumnosOrdenado)
+
+// alumnosOrdenado = [
+//   { id: 3, name: 'Marc', age: 20 },
+//   { id: 1, name: 'Javier', age: 21 },
+//   { id: 2, name: 'Júlia', age: 23 }
+// ]
 ```
 
 ### `toSorted()`
 
-Es similar a `sort`, pero no modifica el array original, sino que devuelve un nuevo array ordenado.
+Es similar a `sort()`, pero no modifica el array original, sino que devuelve un nuevo array ordenado.
 
 ### `concat()`
 
@@ -233,7 +265,7 @@ let b = a.reverse()       // b = [6, 4, 2]
 
 ### `toReversed()`
 
-Es similar a `reverse`, pero no modifica el array original, sino que devuelve un nuevo array invertido.
+Es similar a `reverse()`, pero no modifica el array original, sino que devuelve un nuevo array invertido.
 
 ### `indexOf()`
 
@@ -355,12 +387,27 @@ let preciosConIVA = precios.map(precio => precio * 1.21) // devuelve [12.1, 24.2
 
 ### `reduce()`
 
-Ejecuta una función reductora sobre cada elemento del array, devolviendo como resultado un único valor. Recibe dos parámetros: una función y un valor inicial.
+Ejecuta una **función reductora** sobre cada elemento del array, **devolviendo** como resultado **un único valor**.
+
+Tiene dos parámetros:
+
+- **Función reductora**: recibe cuatro parámetros: el **acumulador**, el **elemento actual**, el **índice** y el **array**.
+- **Valor inicial del acumulador** (opcional).
+
+```js linenums="1" title="Sintaxis de reduce"
+arr.reduce(callback(acumulador, valorActual[, índice[, array]])[, valorInicial])
+```
+
 
 ```js linenums="1" title="Ejemplo de reduce"
 let precios = [10, 20, 30]
+let valorInicial = 0
 
-let total = precios.reduce((acumulador, precio) => acumulador + precio, 0) // devuelve 60
+let total = precios.reduce(
+  (acumulador, precio) => acumulador + precio,  // función reductora (primer parámetro)
+  valorInicial)                                 // valor inicial del acumulador (segundo parámetro)
+
+// total = 60
 ```
 
 ```js linenums="1"
@@ -371,7 +418,7 @@ let media = notas.reduce((acumulador, nota, index, array) => acumulador + nota /
 
 ### `reduceRight()`
 
-Es similar a `reduce`, pero itera sobre el array de derecha a izquierda.
+Es similar a `reduce()`, pero itera sobre el array de derecha a izquierda.
 
 ```js linenums="1" title="Ejemplo de reduceRight"
 let precios = [10, 20, 30]

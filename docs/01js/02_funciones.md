@@ -12,7 +12,7 @@ Se pueden definir funciones de varias maneras.
 
 Se define la función con la palabra clave `function`, seguida del nombre de la función y paréntesis. Dentro de los paréntesis se pueden incluir parámetros.
 
-```js linenums="1"
+```js linenums="1" title="Declaración de función"
 function nombreFuncion(parametro1, parametro2) {
     // Código a ejecutar
 }
@@ -22,29 +22,67 @@ function nombreFuncion(parametro1, parametro2) {
 
 Se define la función como una expresión, que puede ser anónima o nombrada.
 
-```js linenums="1"
+```js linenums="1" title="Expresión de función"
 const nombreFuncion = function(parametro1, parametro2) {
     // Código a ejecutar
 };
 ```
 
-## Funciones flecha
+## Funciones flecha `() => {}`
 
-Son una forma más concisa de escribir funciones en Javascript, introducidas en ES2015. Se definen utilizando la sintaxis de flecha `=>`.
+Son una forma más concisa de escribir funciones en _Javascript_, introducidas en ES2015. Se definen utilizando la sintaxis de flecha **`=>`**.
 
 También son conocidas como _arrow functions_, funciones anónimas o funciones lambda.
 
-```js linenums="1"
+```js linenums="1" title="Función flecha"
 const nombreFuncion = (parametro1, parametro2) => {
     // Código a ejecutar
 };
+```
+
+Si la función solo tiene una línea de código, se puede omitir el bloque de código y la palabra clave `return`.
+
+```js linenums="1" title="Función flecha abreviada"
+const nombreFuncion = (parametro1, parametro2) => resultado;
+```
+
+Además, si la función **sólo tiene un parámetro**, se pueden omitir los paréntesis.
+
+```js linenums="1" title="Función flecha con un solo parámetro"
+const nombreFuncion = parametro => resultado;
+```
+
+### Comparación de declaración de funciones
+
+En los siguientes ejemplos se muestran diferentes formas de declarar una función que suma dos números. Todas las formas son equivalentes y devuelven el mismo resultado.
+
+```js linenums="1" title="Declaración de función"
+function sumar(a, b) {
+    return a + b;
+}
+```
+
+```js linenums="1" title="Expresión de función"
+const sumar = function(a, b) {
+    return a + b;
+};
+```
+  
+```js linenums="1" title="Función flecha"
+const sumar = (a, b) => {
+  return a + b;
+};
+```
+
+```js linenums="1" title="Función flecha (abreviada). Esta forma es válida si la función solo tiene una línea de código"
+const sumar = (a, b) => a + b;
 ```
 
 ## Llamar a una función
 
 Para ejecutar una función, se utiliza su nombre seguido de paréntesis. Si la función tiene parámetros, se deben pasar los argumentos correspondientes.
 
-```js linenums="1"
+```js linenums="1" title="Llamada a una función"
 nombreFuncion(arg1, arg2);
 ```
 
@@ -84,7 +122,7 @@ function saludar(nombre = 'invitado') {
     console.log(`Hola, ${nombre}!`);
 }
 
-saludar(); // Hola, invitado!
+saludar();      // Hola, invitado!
 saludar('Ana'); // Hola, Ana!
 ```
 
@@ -96,6 +134,8 @@ Las funciones pueden devolver valores utilizando la palabra clave `return`. Cuan
 function sumar(a, b) {
     return a + b;
 }
+
+console.log(sumar(5, 3)); // Salida: 8
 ```
 
 ```js linenums="1" title="Ejemplo de uso del retorno"
@@ -103,7 +143,9 @@ function saludar(nombre) {
     return `Hola, ${nombre}!`;
 }
 
-console.log(saludar('Juan')); // Salida: Hola, Juan!
+let saludo = saludar('Juan');
+
+console.log(saludo); // Salida: Hola, Juan!
 ```
 
 ```js linenums="1" title="Ejemplo de retorno de valores"
@@ -112,6 +154,7 @@ function calcularAreaRectangulo(base, altura) {
 }
 
 const area = calcularAreaRectangulo(5, 10);
+
 console.log(area); // Salida: 50
 ```
 

@@ -1,12 +1,12 @@
 # 1.3 Objetos `{ }`
 
-Em Javascript un objeto es una colección de propiedades, donde cada propiedad es una asociación entre una clave (nombre) y un valor. Los objetos son una de las estructuras de datos más importantes en Javascript y se utilizan para almacenar información relacionada.
+Em _Javascript_ un objeto es una **colección de propiedades**, donde cada propiedad es una asociación entre una **clave** (nombre) y un **valor**. Los objetos son una de las **estructuras de datos** más importantes en _Javascript_ y se utilizan para almacenar información relacionada.
 
-### Creación de objetos
+## Creación de objetos
 
 Existen varias formas de crear objetos en Javascript:
 
-## Notación de objeto literal
+### Notación de objeto literal
 
 La forma más sencilla de crear un objeto es utilizando la notación de objeto literal.
 
@@ -27,7 +27,7 @@ persona.edad = 30;
 persona.ciudad = 'Madrid';
 ```
 
-## Constructor de objetos
+### Constructor de objetos
 
 También puedes crear objetos utilizando la función constructora `Object()`.
 
@@ -38,7 +38,7 @@ persona.edad = 30;
 persona.ciudad = 'Madrid';
 ```
 
-## Constructor de funciones
+### Constructor de funciones
 
 Puedes definir un constructor de funciones para crear múltiples objetos con la misma estructura.
 
@@ -53,13 +53,21 @@ let persona1 = new Persona('Juan', 30, 'Madrid');
 let persona2 = new Persona('Ana', 25, 'Barcelona');
 ```
 
+## Propiedades de objetos
+
+Las propiedades de un objeto son pares clave-valor, donde la clave es una cadena y el valor puede ser cualquier tipo de dato.
+
 ### Acceso a propiedades
 
-Puedes acceder a las propiedades de un objeto utilizando la notación de punto o la notación de corchetes.
+Puedes acceder a las propiedades de un objeto utilizando la notación de punto o la notación de corchetes. La notación de corchetes es útil cuando la clave es una variable o una cadena que no es un identificador válido.
 
 ```js linenums="1" title="Acceso a propiedades"
 console.log(persona.nombre); // Notación de punto
+
 console.log(persona['edad']); // Notación de corchetes
+
+let clave = 'ciudad';
+console.log(persona[clave]); // Acceso con variable
 ```
 
 ### Modificación de propiedades
@@ -73,15 +81,15 @@ persona['ciudad'] = 'Valencia'; // Modificación con notación de corchetes
 
 ### Eliminación de propiedades
 
-Puedes eliminar propiedades de un objeto utilizando la palabra clave `delete`.
+Puedes eliminar propiedades de un objeto utilizando la palabra clave `delete`. Esto elimina la propiedad y su valor asociado.
 
 ```js linenums="1" title="Eliminación de propiedades"
 delete persona.edad; // Eliminar propiedad 'edad'
 ```
 
-### Métodos de objetos
+### Métodos
 
-Los objetos también pueden tener métodos, que son funciones asociadas a un objeto.
+Los objetos también pueden tener métodos, propiedades que contienen funciones.
 
 ```js linenums="1" title="Métodos de objetos"
 let persona = {
@@ -92,7 +100,7 @@ let persona = {
     }
 };
 
-persona.saludar(); // Llamar al método 'saludar'
+persona.saludar(); // Salida: Hola, mi nombre es Juan
 ```
 
 ### Ejemplo completo
@@ -122,7 +130,7 @@ console.log(persona2.ciudad); // undefined
 
 ## .toString() y .valueOf()
 
-Los objetos en JavaScript también tienen métodos incorporados como `.toString()` y `.valueOf()`, que se utilizan para convertir un objeto a una cadena o a un valor primitivo, respectivamente.
+Existen métodos predefinidos como `.toString()` y `.valueOf()`, que se utilizan para convertir un objeto a una cadena o a un valor primitivo, respectivamente.
 
 ```js linenums="1" title="Ejemplo de .toString()"
 let persona = {
@@ -159,12 +167,16 @@ let persona = {
     ciudad: 'Madrid'
 };
 
-let { nombre, edad } = persona;
+let { nombre, edad } = persona; // Destructuración, asigna nombre y edad a variables
+
 console.log(nombre); // Juan
 console.log(edad); // 30
 ```
 
-También puedes asignar un valor predeterminado en caso de que la propiedad no exista o renombrar la variable.
+También puedes asignar un **valor predeterminado** en caso de que la propiedad no exista o **renombrar** la variable.
+
+- El valor predeterminado se asigna si la propiedad no está definida en el objeto.
+- Renombrar la variable se hace con la sintaxis `nombre: nuevoNombre`.
 
 ```js linenums="1" title="Ejemplo de destructuración con renombrado y valor predeterminado"
 let persona = {
@@ -174,13 +186,14 @@ let persona = {
 };
 
 let { nombre: name, edad, pais = 'España' } = persona;
+
 console.log(name); // Juan
 console.log(pais); // España
 ```
 
 ## Reestructuración de objetos
 
-La reestructuración de objetos es el proceso de crear un nuevo objeto a partir de las propiedades de un objeto existente. Esto se puede hacer utilizando el operador de propagación (`...`).
+La reestructuración de objetos es el proceso de crear un nuevo objeto a partir de las propiedades de un objeto existente. Esto se puede hacer utilizando el operador de propagación (**`...`**).
 
 ```js linenums="1" title="Ejemplo de reestructuración"
 let persona = {
@@ -190,7 +203,7 @@ let persona = {
 };
 
 let usuario = {
-    ...persona,
+    ...persona,         // Reestructuración, copia las propiedades de persona
     pais: 'España',
     ocupacion: 'Desarrollador'
 };
@@ -210,12 +223,15 @@ let persona = {
     }
 };
 
-console.log(persona.direccion.ciudad); // Madrid
+console.log(persona.direccion.ciudad); // Salida: Madrid
 ```
 
 ## Serialización de objetos
 
-La serialización es el proceso de convertir un objeto en una cadena de texto, lo que permite almacenar o transmitir el objeto. En JavaScript, puedes usar `JSON.stringify()` para serializar un objeto y `JSON.parse()` para deserializarlo.
+La serialización es el proceso de **convertir un objeto en una cadena de texto**, lo que permite **almacenar** o **transmitir** el objeto. En _JavaScript_, se puede usar **`JSON.stringify(objeto)`** para serializar un objeto y **`JSON.parse(texto)`** para deserializarlo.
+
+!!!note "Parsear"
+    En lenguaje coloquial, "_**parsear**_" o "_**parseo**_" (del inglés _parse_) significa **deserializar**, es decir, convertir una cadena de texto en un objeto.
 
 ```js linenums="1" title="Ejemplo de serialización"
 let persona = {
@@ -224,15 +240,18 @@ let persona = {
 };
 
 let personaString = JSON.stringify(persona); // Serializar
-console.log(personaString); // {"nombre":"Juan","edad":30}
+// personaString = '{"nombre":"Juan","edad":30}'
 
 let personaDeserializada = JSON.parse(personaString); // Deserializar
-console.log(personaDeserializada.nombre); // Juan
+// personaDeserializada = {
+//    nombre: 'Juan',
+//    edad: 30
+// }
 ```
 
 ## Clonación de objetos
 
-En Javascript los objetos se pasan por referencia, lo que significa que si se asigna un objeto a otra variable y se modifica, el objeto original también se verá afectado. Lo mismo ocurre si se pasa un objeto como argumento a una función. Para evitar esto, se puede hacer una copia del objeto.
+En _Javascript_ los objetos se pasan por referencia, lo que significa que si se asigna un objeto a otra variable y se modifica, el objeto original también se verá afectado. Lo mismo ocurre si se pasa un objeto como argumento a una función. Para evitar esto, se puede hacer una copia del objeto.
 
 Se puden hacer dos tipos de clonación: superficial y profunda.
 
