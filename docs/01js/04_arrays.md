@@ -70,6 +70,17 @@ let alumnos = [
 
 Vamos a ver los principales métodos y propiedades de los arrays.
 
+### `Array.isArray()`
+
+Es una función que devuelve `true` si el parámetro pasado es un array y `false` si no lo es.
+
+```js linenums="1" title="Ejemplo de Array.isArray()"
+let a = [2, 4, 6]
+let b = 'Hola'
+console.log(Array.isArray(a))   // imprime true
+console.log(Array.isArray(b))   // imprime false
+```
+
 ### `length`
 
 Esta propiedad devuelve la longitud de un array.
@@ -84,6 +95,25 @@ Podemos reducir el tamaño de un array cambiando esta propiedad.
 ```js linenums="1" title="Ejemplo de cambio de length"
 a.length = 3  // ahora a = ['Lunes', 'Martes', 2]
 ```
+
+### `fill()`
+
+Rellena todos los elementos de un array el valor pasado como parámetro. También se puede especificar el índice de inicio y fin.
+
+```js linenums="1" title="Ejemplo de fill"
+let a = [2, 4, 6, 1]
+a.fill(0)         // a = [0, 0, 0, 0]
+
+a = [2, 4, 6, 1]
+a.fill(0, 1)      // a = [2, 0, 0, 0]
+
+a = [2, 4, 6, 1]
+a.fill(0, 1, 3)   // a = [2, 0, 0, 1]
+
+a = [2, 4, 6, 1]
+a.fill(0, -2)     // a = [2, 4, 0, 0]
+```
+
 
 ### Añadir elementos `push()` y `unshift()`
 
@@ -240,10 +270,6 @@ console.log(alumnosOrdenado)
 // ]
 ```
 
-### `toSorted()`
-
-Es similar a `sort()`, pero no modifica el array original, sino que devuelve un nuevo array ordenado.
-
 ### `concat()`
 
 Permite unir dos o más arrays. Devuelve un nuevo array.
@@ -398,7 +424,6 @@ Tiene dos parámetros:
 arr.reduce(callback(acumulador, valorActual[, índice[, array]])[, valorInicial])
 ```
 
-
 ```js linenums="1" title="Ejemplo de reduce"
 let precios = [10, 20, 30]
 let valorInicial = 0
@@ -413,7 +438,8 @@ let total = precios.reduce(
 ```js linenums="1"
 let notas = [5, 3.9, 6, 9.75, 7.5, 3]
 
-let media = notas.reduce((acumulador, nota, index, array) => acumulador + nota / array.length, 0) // devuelve 5.395833333333333
+let media = notas.reduce((acumulador, nota, index, array) => acumulador + nota / array.length, 0)
+// media = 5.858333333333333
 ```
 
 ### `reduceRight()`
