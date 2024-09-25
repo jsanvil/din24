@@ -189,6 +189,8 @@ La armonía de color se refiere a la disposición de colores de manera que resul
 - **Colores triádicos**: Tres colores equidistantes en el círculo cromático que forman un triángulo equilátero, proporcionando un **equilibrio** de colores.
 - **Colores monocromáticos**: Variaciones de un solo color, utilizando diferentes tonos, matices y saturaciones para crear una **paleta cohesiva y equilibrada**.
 
+![Combinaciones armónicas. Wikipedia](./assets/Combinaciones_Armonicas.png)
+
 La armonía de color es esencial en el diseño de interfaces, ya que influye en la percepción y experiencia del usuario. Un esquema de color bien equilibrado y armonioso puede mejorar la legibilidad, la usabilidad y la estética de una interfaz.
 
 ### Contraste de color
