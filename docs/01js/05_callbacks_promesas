@@ -266,7 +266,7 @@ console.log(sincrona())   // 42
 console.log(asincrona())  // Promise { 42 }
 ```
 
-En el caso de la función `sincrona()` devuelve directamente el valor, sin embargo, en el caso de la función `asincrona()` devuelve una promesa que se ha cumplido inmediatamente, con el valor 42.
+En el caso de la función `sincrona()` devuelve directamente el valor, sin embargo, en el caso de la función `asincrona()` devuelve una promesa que se ha cumplido inmediatamente, con el valor `42`.
 
 Si queremos reescribirlas como _arrow function_, se definiría como vemos a continuación, colocando el `async` justo antes de los parámetros de la _arrow function_:
 
