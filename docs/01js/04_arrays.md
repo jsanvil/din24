@@ -1,4 +1,4 @@
-# 1.4. Arrays `[ ]`
+# 1.4 Arrays `[ ]`
 
 ## Introducción
 
