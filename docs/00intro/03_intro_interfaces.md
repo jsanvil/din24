@@ -173,7 +173,31 @@ Además del grado en la escala monocromática de cada uno de los colores RGB, lo
 
 Estas propiedades nos permiten definir los colores como cromáticos, complementarios o cercanos, así como definir el contraste de color.
 
-### La importancia de los colores
+### Círculo cromático
+
+![Círculo cromático 12 colores. (Wikipedia)](./assets/Rgb-colorwheel.png)
+
+ El término "círculo cromático" se refiere a una representación circular de los colores organizados según su relación cromática. Es una herramienta utilizada en diseño y arte para comprender las relaciones entre colores y crear esquemas de color armoniosos.
+
+
+### Armonía de color
+
+La armonía de color se refiere a la disposición de colores de manera que resulten agradables a la vista y transmitan una sensación de equilibrio y orden. En diseño y arte, se utilizan diferentes combinaciones de colores para lograr armonía, tales como:
+
+- **Colores complementarios**: Colores opuestos en el círculo cromático que, cuando se usan juntos, crean un **contraste** fuerte y vibrante.
+- **Colores análogos**: Colores que están uno al lado del otro en el círculo cromático y que combinan bien entre sí, proporcionando una **transición suave y coherente**.
+- **Colores triádicos**: Tres colores equidistantes en el círculo cromático que forman un triángulo equilátero, proporcionando un **equilibrio** de colores.
+- **Colores monocromáticos**: Variaciones de un solo color, utilizando diferentes tonos, matices y saturaciones para crear una **paleta cohesiva y equilibrada**.
+
+La armonía de color es esencial en el diseño de interfaces, ya que influye en la percepción y experiencia del usuario. Un esquema de color bien equilibrado y armonioso puede mejorar la legibilidad, la usabilidad y la estética de una interfaz.
+
+### Contraste de color
+
+El contraste de color se refiere a la diferencia entre dos colores en términos de luminosidad y saturación. Un alto contraste entre colores crea una **distinción clara** y facilita la **legibilidad** y **visibilidad** de la información en una interfaz.
+
+El contraste de color es importante en el diseño de interfaces para garantizar que el contenido sea **accesible** y **fácil de leer** para todos los usuarios, incluidos aquellos con discapacidades visuales. Se pueden utilizar herramientas de contraste de color para evaluar y ajustar el contraste de color en una interfaz.
+
+### Psicología del color
 
 Según la psicología del color, cada uno evoca una emoción o una acción, por lo tanto, a la hora de diseñar una interfaz es recomendable elegir unos colores acordes.
 
