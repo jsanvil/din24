@@ -1,27 +1,10 @@
-const throwDices = async (iterations) => {
-  const numbers = [];
-
-  for (let i = 0; i < iterations; i++) {
-    const number = 1 + Math.floor(Math.random() * 6)
-    numbers.push(number);
-    if (number === 6) {
-      throw new Error('Se ha sacado un 6')
-    }
+function suma(...numeros) {
+  let total = 0
+  for (let i = 0; i < numeros.length; i++) {
+    total += numeros[i]
   }
-
-  return {
-    error: false,
-    value: numbers
-  };
+  return total
 }
 
-async function consume() {
-  try {
-    const result = await throwDices(10);
-    console.log(`Tiradas correctas: ${result.value}`)
-  } catch (error) {
-    console.error(`Error: ${error.message}`)
-  }
-}
-
-consume()
+let resultado = suma(2, 4, 6)  // resultado = 12
+console.log(resultado)

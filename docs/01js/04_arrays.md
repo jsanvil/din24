@@ -451,3 +451,43 @@ let precios = [10, 20, 30]
 
 let total = precios.reduceRight((acumulador, precio) => acumulador + precio, 0) // devuelve 60
 ```
+
+## spread
+
+El operador **spread** (`...`) se utiliza para **expandir un array** en sus elementos. Se puede usar para crear un nuevo array o para pasar los elementos de un array como argumentos de una función.
+
+```js linenums="1" title="Ejemplo de spread como argumentos de una función"
+let a = [2, 4, 6]
+
+function suma(a, b, c) {
+  return a + b + c
+}
+
+let resultado = suma(...a)  // resultado = 12
+```
+
+También se puede usar para clonar o concatenar arrays.
+
+```js linenums="1" title="Ejemplo de spread para clonar arrays y concatenarlos"
+let a = [2, 4, 6]
+let b = [...a]            // clon de a, b = [2, 4, 6]
+let c = [8, ...b, 15]     // c = [2, 4, 6, 8, 10]
+
+let d = [...a, ...c]      // d = [2, 4, 6, 8, 2, 4, 6, 15]
+```
+
+## rest
+
+El operador **rest** (`...`) hace la operación contraria al **spread**, es decir, **recoge** los **parámetros** de una **función** en un **array**.
+
+```js linenums="1" title="Ejemplo de rest"
+function suma(...numeros) {
+  let total = 0
+  for (let i = 0; i < numeros.length; i++) {
+    total += numeros[i]
+  }
+  return total
+}
+
+let resultado = suma(2, 4, 6)  // resultado = 12
+```

@@ -12,11 +12,11 @@ En el siguiente ejemplo, se muestra cómo se ejecuta el código de forma secuenc
 
 ```js linenums="1" title="callback.js"
 function callback() {
-  console.log("callback() llamado");
+  console.log("callback() llamado")
 }
 
-setTimeout(callback, 2000);
-console.log("Fin?");
+setTimeout(callback, 2000)
+console.log("Fin?")
 ```
 
 Si ejecutamos el ejemplo, veremos que el primer mensaje que aparece es el de "`Fin?`", y pasados dos segundos, aparece el mensaje de "`callback() llamado`". Es decir, hemos llamado a `setTimeout` y el programa ha seguido su curso después, ha escrito "`Fin?`" en la consola y, una vez ha pasado el tiempo estipulado, se ha llamado al _callback_ para hacer su trabajo.
@@ -78,7 +78,7 @@ let promesa = new Promise((resolve, reject) =>
 
 promesa
   .then(mensaje => console.log(`Promise Resolved: ${mensaje}`))
-  .catch(error => console.error(`Promise Rejected: ${error}`));
+  .catch(error => console.error(`Promise Rejected: ${error}`))
 
 // Promise Rejected: ¡Promesa rechazada!
 ```
@@ -103,7 +103,7 @@ promesa
     return '¡Tercera promesa!';
   })
   .then(mensaje => console.log(`Promise Resolved: ${mensaje}`))
-  .catch(error => console.error(`Promise Rejected: ${error}`));
+  .catch(error => console.error(`Promise Rejected: ${error}`))
 ```
 
 Se añade el método `.finally()` para añadir una función de retorno (_callback function_) que se ejecutará tanto si la promesa se cumple o se rechaza, lo que nos ahorrará tener que repetir la función en el `.then()` como en el `.catch()`.
@@ -257,8 +257,8 @@ Uncaught SyntaxError: await is only valid in async functions and the top level b
 Sin embargo, vamos a pararnos un poco a pensar esto desde las bases. Definamos dos funciones básicas exactamente iguales, ambas devuelven lo mismo, pero una es síncrona y otra asíncrona:
 
 ```js
-function sincrona() { return 42; }
-async function asincrona() { return 42; }
+function sincrona() { return 42 }
+async function asincrona() { return 42 }
 
 console.log(sincrona())   // 42
 console.log(asincrona())  // Promise { 42 }
@@ -269,8 +269,8 @@ En el caso de la función `sincrona()` **devuelve el valor**, sin embargo, en el
 Si queremos reescribirlas como _arrow function_, se definiría como vemos a continuación, colocando el `async` justo antes de los parámetros de la _arrow function_:
 
 ```js
-const sincrona = () => 42;
-const asincrona = async () => 42;
+const sincrona = () => 42
+const asincrona = async () => 42
 ```
 
 ### Await/Async + .then()
@@ -295,17 +295,20 @@ En este caso, observa que se utiliza `.then()` para recibir la respuesta de la p
 
 ### Asincronía en async/await
 
-Volvamos al ejemplo de las tiradas de dados. La función `throwDices()` realiza 10 lanzamientos de un dado y nos devuelve los resultados obtenidos o detiene la tarea si se obtiene un 6. La implementación de la función sufre algunos cambios, simplificándose considerablemente.
+Volvamos al ejemplo de las tiradas de dados. La función `throwDices()` realiza 10 lanzamientos de un dado y nos devuelve los resultados obtenidos o detiene la tarea si se obtiene un `6`. La implementación de la función sufre algunos cambios, simplificándose considerablemente.
 
 - En primer lugar, añadimos la palabra clave `async` antes de los parámetros de la _arrow function_.
-- En segundo lugar, desaparece cualquier mención a promesas, se devuelven directamente los objetos, ya que al ser una función `async` se devolverá todo envuelto en una _Promise_:
+- En segundo lugar, desaparece cualquier mención a promesas, se devuelven directamente los objetos, ya que al ser una función `async` se devolverá todo envuelto en una _Promise_.
+
+!!! note "Nombrar funciones asíncronas"
+    Es una buena práctica nombrar las funciones asíncronas con el sufijo `Async`, para que sea más fácil identificarlas.
 
 ```js linenums="1" title="Crear promesa con async/await"
-const throwDices = async (iterations) => {
+const throwDicesAsync = async (iterations) => {
   const numbers = [];
 
   for (let i = 0; i < iterations; i++) {
-    const number = 1 + Math.floor(Math.random() * 6);
+    const number = 1 + Math.floor(Math.random() * 6)
     numbers.push(number);
     if (number === 6) {
       return {
@@ -326,7 +329,7 @@ const throwDices = async (iterations) => {
 Pero donde se introducen cambios considerables es en la forma de consumir la promesa, pues no podemos utilizar `await` fuera de una función `async`:
 
 ```js linenums="1" title="Consumir promesa con async/await"
-const resultado = await throwDices(10)
+const resultado = await throwDicesAsync(10)
 
 // SyntaxError: await is only valid in async functions and the top level bodies of modules
 ```
@@ -334,8 +337,8 @@ const resultado = await throwDices(10)
 Observa que el `await` se utiliza dentro de una función `async`, por lo que la función que lo contenga debe ser asíncrona:
 
 ```js linenums="1" title="Consumir promesa con async/await"
-async function consume() {
-  const result = await throwDices(10);
+async function consumeAsync() {
+  const result = await throwDices(10)
   if (!result.error) {
       console.log(`Tiradas correctas: ${result.value}`)
   } else {
@@ -343,17 +346,17 @@ async function consume() {
   }
 }
 
-consume()
+consumeAsync()
 ```
 
-En este caso, la función `consume()` es asíncrona, y por tanto, puede utilizar `await` para esperar a que se cumpla la promesa.
+En este caso, la función `throwDicesAsync()` es asíncrona, y por tanto, puede utilizar `await` para esperar a que se cumpla la promesa.
 
 ### try/catch en async/await
 
 Otra de las ventajas de `async/await` es que podemos utilizar `try`/`catch` para gestionar los errores de una forma más cómoda. En el siguiente ejemplo, se muestra cómo se puede utilizar `try`/`catch` para gestionar los errores de una forma más cómoda:
 
 ```js linenums="1" title="Consumir promesa con async/await y try/catch"
-const throwDices = async (iterations) => {
+const throwDicesAsync = async (iterations) => {
   const numbers = [];
 
   for (let i = 0; i < iterations; i++) {
@@ -369,14 +372,14 @@ const throwDices = async (iterations) => {
     value: numbers
   };
 }
-async function consume() {
+async function consumeAsync() {
   try {
-    const result = await throwDices(10);
+    const result = await throwDicesAsync(10);
     console.log(`Tiradas correctas: ${result.value}`)
   } catch (error) {
     console.error(`Error: ${error.message}`)
   }
 }
 
-consume()
+consumeAsync()
 ```
