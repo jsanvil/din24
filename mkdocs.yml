@@ -16,7 +16,7 @@ nav:
     - 01js/02_funciones.md
     - 01js/03_objetos.md
     - 01js/04_arrays.md
-    # - 01js/05_callbacks_promesas.md
+    - 01js/05_callbacks_promesas.md
 
 theme:
   name: material
