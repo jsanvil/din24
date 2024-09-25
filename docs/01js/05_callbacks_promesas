@@ -1,0 +1,339 @@
+# 1.5 _Callbacks_ y promesas
+
+## Callbacks
+
+Este concepto es fundamental para dotar a _Node.js_ (y a _Javascript_ en general) de un comportamiento asíncrono.
+
+Por "comportamiento asíncrono" se entiende que, se llama a una función, y se le deja indicado lo que tiene que hacer cuando termine, y mientras tanto el programa continúa ejecutándose.
+
+Un ejemplo lo tenemos con la función `setTimeout()` de _Javascript_. A esta función le podemos indicar una función a la que llamar, y un tiempo (en milisegundos) que esperar antes de llamarla. Ejecutada la línea de la llamada a _setTimeout_, el programa sigue su curso y cuando el tiempo expira, se llama a la función callback indicada.
+
+En el siguiente ejemplo, se muestra cómo se ejecuta el código de forma secuencial, pero la función `callback()` se ejecuta después de 2 segundos:
+
+```js linenums="1" title="callback.js"
+function callback() {
+  console.log("callback() llamado");
+}
+
+setTimeout(callback, 2000);
+console.log("Fin?");
+```
+
+Si ejecutamos el ejemplo, veremos que el primer mensaje que aparece es el de "`Fin?`", y pasados dos segundos, aparece el mensaje de "`callback() llamado`". Es decir, hemos llamado a `setTimeout` y el programa ha seguido su curso después, ha escrito "`Fin?`" en la consola y, una vez ha pasado el tiempo estipulado, se ha llamado al _callback_ para hacer su trabajo.
+Utilizaremos _callbacks_ ampliamente durante este curso. De forma especial para procesar el resultado de algunas promesas que emplearemos (se verán a continuación), o el tratamiento de algunas peticiones de servicios.
+
+## Promesas
+
+Las promesas son un mecanismo para resolver el problema de asincronía de una forma mucho más elegante y práctica que, por ejemplo, utilizando funciones _callback_ directamente.
+
+Las promesas pueden tener varios estados:
+
+- **`pending`**. (Pendiente) Estado inicial de la promesa, antes de ser resuelta o rechazada.
+- **`fulfilled`**. (Resuelta) La promesa se cumple con éxito y se resuelve.
+- **`rejected`**. (Rechazada) La promesa falla y se rechaza.
+
+Con estas sencillas bases, podemos entender el funcionamiento de una promesa en _Javascript_. Antes de empezar, también debemos tener claro que las promesas son objetos, y podemos crearlas y consumirlas.
+
+- **Crearlas**: preparar una función para que use promesas y se puedan consumir.
+- **Consumirlas**: utilizar las promesas que hemos creado.
+
+Las promesas en _Javascript_ se representan a través del objeto **`Promise`**, y cada promesa estará en un estado concreto: `pending`, `fulfilled` o `rejected`. Además, cada promesa tiene los siguientes métodos, que podremos utilizar para trabajar con ellas:
+
+- **`.then(resolve)`**: ejecuta la función _callback_ `resolve` cuando la promesa se cumple.
+- **`.catch(reject)`**: ejecuta la función _callback_ `reject` cuando la promesa se rechaza.
+- **`.then(resolve, reject)`**: Método equivalente a los dos anteriores contenido en un solo método.
+- **`.finally()`**: ejecuta la función _callback_ `finally` cuando la promesa se cumple o si se rechaza.
+
+## Consumir promesas
+
+La forma general de consumir una promesa es utilizando el `.then()` con un sólo parámetro, puesto que muchas veces lo único que nos interesa es realizar una acción cuando la promesa se cumpla:
+
+```js
+fetch("/datos.json").then(function(response) {
+  /* Código a ejecutar cuando se cumpla la promesa */
+});
+```
+
+Lo que vemos en el ejemplo anterior es el uso de la función `fetch()`, la cuál devuelve una promesa que se cumple cuando obtiene respuesta de la petición realizada. De esta forma, estaríamos preparando (de una forma legible) la forma de actuar de nuestro código a la respuesta de la petición realizada, todo ello de forma asíncrona.
+
+Recuerda que podemos hacer uso del método `.catch()` para actuar cuando se rechaza una promesa:
+
+```js
+fetch("/datos.json")
+  .then(function(response) {
+    /* Código a realizar cuando se cumpla la promesa */
+  })
+  .catch(function(error) {
+    /* Código a realizar cuando se rechaza la promesa */
+  });
+```
+
+Observa como hemos indentado los métodos `.then()` y `.catch()`, ya que se suele hacer así para que sea mucho más legible. Además, se pueden encadenar varios `.then()` si se siguen generando promesas y se devuelven con un return:
+
+```js
+fetch("/datos.json")
+  .then(response => {
+    return response.text(); // Devuelve una promesa
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => { /* Código a realizar cuando se rechaza la promesa */ });
+```
+
+Usando _arrow functions_ se puede mejorar aún más la legibilidad de este código, recordando que cuando sólo tenemos una sentencia en el cuerpo de la _arrow function_ hay un return implícito:
+
+```js
+fetch("/datos.json")
+  .then(response => response.text())
+  .then(data => console.log(data))
+  .finally(() => console.log("Terminado."))
+  .catch(error => console.error(data));
+```
+
+Se añade el método `.finally()` para añadir una función de retorno (_callback function_) que se ejecutará tanto si la promesa se cumple o se rechaza, lo que nos ahorrará tener que repetir la función en el `.then()` como en el `.catch()`.
+
+### Código asíncrono
+
+Algo muy importante, pero que quizás hemos pasado por alto es que el código que ejecutamos en el interior de un `.then()` es código asíncrono no bloqueante:
+
+- **Asíncrono**: Porque no se ejecuta inmediatamente, sino cuando la promesa se cumple.
+- **No bloqueante**: Porque mientras espera ser ejecutado, no bloquea el resto del programa.
+
+Cuando llegamos a un `.then()`, el sistema no se bloquea, sino que deja la función en estado `pending` hasta que se cumpla la promesa, pero mientras, continua procesando el resto del programa.
+
+Observa el siguiente ejemplo:
+
+```js
+fetch("/datos.json")
+  .then(response => response.text())
+  .then(data => {
+    console.log("Código asíncrono");
+  });
+
+console.log("Código síncrono")
+```
+
+Aunque el `console.log("Código asíncrono")` aparezca unas líneas antes del `console.log("Código síncrono")`, se mostrará más tarde. Esto ocurre porque el `console.log()` del interior del `.then()` no ocurre inmediatamente, y al no ser bloqueante, se continua con el resto del programa hasta que se ejecute, que lo retomará.
+
+## Crear promesas
+
+Para crear una promesa se utiliza el objeto `Promise`, de la siguiente forma `new Promise((resolve, reject) => { })` se le pasa por parámetro una función anónima con dos parámetros de _callback_:
+
+- **`resolve`**. Lo utilizaremos cuando se cumpla la promesa.
+- **`reject`**. Lo utilizaremos cuando se rechace la promesa.
+
+Ejemplo de creación de una promesa:
+
+```js
+/**
+ * Ejemplo donde se va llenando un array con números aleatorios
+ * simulando lanzamientos de un dado de 6 caras.
+ * 
+ * Si aparece un 6 se rechaza la promesa.
+ * Si se termina el bucle se resuelve la promesa.
+ * 
+ * @param {number} iterations - Número de iteraciones a realizar.
+ * @returns {Promise} Promesa que se resuelve si no aparece un 6.
+ */
+const throwDices = (iterations) => {
+  return new Promise((resolve, reject) => {
+    const numbers = [];
+
+    for (let i = 0; i < iterations; i++) {
+      const number = 1 + Math.floor(Math.random() * 6);
+      numbers.push(number);
+      if (number === 6) {
+        reject({
+          error: true,
+          value: numbers,
+          message: "Se ha sacado un 6"
+        });
+      }
+    }
+
+    resolve({
+      error: false,
+      value: numbers
+    });
+  });  // new Promise
+}; // doTask
+```
+
+Como se puede observar, la función `throwDices()` devuelve una promesa que se rechaza si en algún momento se saca un `6`, y se resuelve si se termina el bucle.
+
+```js
+throwDices(10)
+  .then(result => console.log("Tiradas correctas: ", result.value))
+  .catch(err => console.error("Ha ocurrido algo: ", err.message));
+```
+
+Imagina el caso de que cada lanzamiento del dado (la parte donde genera el número aleatorio) fuera un proceso más costoso que tardara un tiempo considerable, como una petición a un servidor, o una operación de cálculo muy pesada. En ese caso, el código sería bloqueante y la mejor opción sería realizarlo de forma asíncrona, controlada por promesas.
+
+### Ejemplo de promesas
+
+En el siguiente ejemplo, se muestra cómo se puede utilizar una promesa para realizar una petición a un servidor y obtener los datos de un fichero JSON.
+
+Utiliza fetch para realizar una petición a un servidor y obtener los datos de un fichero JSON. Si la petición se realiza correctamente, se muestra el contenido del fichero JSON. Si no, se muestra un mensaje de error.
+
+Se utiliza `performance.now()` para medir el tiempo que tarda en terminar la promesa.
+
+```js linenums="1" title="promise.js"
+const CATFACT_ENDPOINT = "https://catfact.ninja/fact";
+
+console.log(`Esperando respuesta de ${CATFACT_ENDPOINT}...\n`);
+
+const startTime = performance.now();
+
+fetch(CATFACT_ENDPOINT)
+  .then((response) => response.json() )
+  .then((data) => {
+    console.log(JSON.stringify(data, null, 2) + "\n");
+    console.log(`FACT: ${data.fact}`);
+  })
+  .catch((error) => console.error(error))
+  .finally(() => {
+    const endTime = performance.now();
+    console.log(`\nTiempo total de ejecución: ${endTime - startTime} ms`);
+  });
+```
+
+## Async/Await
+
+El uso de promesas es muy útil, pero a veces puede resultar complicado de leer y entender, especialmente cuando se encadenan muchas promesas. Para facilitar la lectura y escritura de código asíncrono, se introdujo en _ECMAScript 2017_ la sintaxis `async/await`.
+
+Con `async`/`await` seguimos manejando promesas, sin embargo, hay ciertos cambios importantes:
+
+- El código se vuelve **más legible**, ya que se parece más a código síncrono.
+- Se puede utilizar `try`/`catch` para gestionar los errores de una forma más cómoda.
+- Se puede utilizar `await` para esperar a que se cumpla una promesa, y así evitar el uso de `.then()`.
+
+### Await
+
+La palabra clave `await` se utiliza para esperar a que se cumpla una promesa, y así evitar el uso de `.then()`.
+
+```js
+const response = await fetch("datos.txt");
+const data = await response.text();
+console.log(data);
+
+console.log("Código síncrono.");
+```
+
+Lo que hace `await` es detener la ejecución y no continuar. Se espera a que se resuelva la promesa, y hasta que no lo haga, no continua. A diferencia del `fetch()`, tenemos un código bloqueante.
+
+Lo normal es que se utilice `await` dentro de una función. Por ejemplo:
+
+```js
+function request() {
+  const response = await fetch("datos.txt");
+  const data = await response.text();
+  return data;
+}
+
+request();
+```
+
+Sin embargo, aquí tenemos un problema. Estamos utilizando `await` (asíncrono) dentro de `request()` (síncrono), por lo que antes de ejecutarla, al intentarla definir, nos aparecerá el siguiente error:
+
+```
+Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules
+```
+
+Para solucionarlo, debemos indicar que la función `request()` es asíncrona, utilizando la palabra clave `async`
+
+### Async
+
+Para resolver el problema anterior y poder utilizar el await dentro de nuestra función, sólo tenemos que definir nuestra función como función asíncrona y al llamarla utilizar nuevamente el `await`:
+
+```js
+async function request() {
+  const response = await fetch("datos.txt");
+  const data = await response.text();
+  return data;
+}
+
+await request();
+```
+
+Sin embargo, vamos a pararnos un poco a pensar esto desde las bases. Definamos dos funciones básicas exactamente iguales, ambas devuelven lo mismo, pero una es síncrona y otra asíncrona:
+
+```js
+function sincrona() { return 42; }
+async function asincrona() { return 42; }
+
+console.log(sincrona())   // 42
+console.log(asincrona())  // Promise { 42 }
+```
+
+En el caso de la función `sincrona()` devuelve directamente el valor, sin embargo, en el caso de la función `asincrona()` devuelve una promesa que se ha cumplido inmediatamente, con el valor 42.
+
+Si queremos reescribirlas como _arrow function_, se definiría como vemos a continuación, colocando el `async` justo antes de los parámetros de la _arrow function_:
+
+```js
+const sincrona = () => 42;
+const asincrona = async () => 42;
+```
+
+### Await/Async + .then()
+
+En algunos casos, como al usar un `fetch()`, donde tenemos que manejar dos promesas, es posible que nos interese utilizar `.then()` para la primera promesa y `await` para la segunda. De esta forma podemos manejarlo todo directamente, sin tener que guardarlo en constantes o variables temporales que no utilizaremos sino una sola vez:
+
+```js
+async function request() {
+  return await fetch("datos.txt")
+      .then(response => response.text());
+}
+
+await request();
+```
+
+En este caso, observa que el `fetch()` devuelve una primera _Promise_ que es manejada por el `.then()`. La segunda _Promise_, devuelta por el método `response.text()` se devuelve hacia fuera y es manejada por el `await`, que espera a que se cumpla, y una vez cumplida, se devuelve como valor de la función `request()`.
+
+### Asincronía en async/await
+
+Volvamos al ejemplo de las tiradas de dados. La función `doTask()` realiza 10 lanzamientos de un dado y nos devuelve los resultados obtenidos o detiene la tarea si se obtiene un 6. La implementación de la función sufre algunos cambios, simplificándose considerablemente.
+
+- En primer lugar, añadimos la palabra clave `async` antes de los parámetros de la _arrow function_.
+- En segundo lugar, desaparece cualquier mención a promesas, se devuelven directamente los objetos, ya que al ser una función `async` se devolverá todo envuelto en una _Promise_:
+
+```js
+const doTask = async (iterations) => {
+  const numbers = [];
+
+  for (let i = 0; i < iterations; i++) {
+    const number = 1 + Math.floor(Math.random() * 6);
+    numbers.push(number);
+    if (number === 6) {
+      return {
+        error: true,
+        message: "Se ha sacado un 6"
+      };
+    }
+  }
+
+  return {
+    error: false,
+    value: numbers
+  };
+}
+```
+
+Pero donde se introducen cambios considerables es a la hora de consumir las promesas con `async`/`await`. No tendríamos que utilizar `.then()`, sino que podemos simplemente utilizar `await` para esperar la resolución de la promesa, obteniendo el valor directamente:
+
+```js
+const resultado = await doTask(10);   // Devuelve un objeto, no una promesa
+```
+
+Observa que el `await` se utiliza dentro de una función `async`, por lo que la función que lo contenga debe ser asíncrona:
+
+```js
+async function consume() {
+  const result = await doTask(10);
+  if (result.error) {
+      console.log("Error: ", result.message);
+  } else {
+      console.log("Los números son: ", result.value);
+  }
+}
+```

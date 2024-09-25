@@ -1,12 +1,12 @@
 # 1.2 Funciones
 
-Al igual que en otros lenguajes de programación, en _Javascript_ las funciones son bloques de código que se pueden reutilizar.
+Al igual que en otros lenguajes de programación, en _Javascript_ las funciones son **bloques de código reutilizable** que se pueden llamar para realizar una tarea específica. Permiten dividir el código en partes más pequeñas y fáciles de manejar, lo que facilita la lectura, el mantenimiento y la depuración del código.
 
-Debemos tener en cuenta que las funciones pueden recibir parámetros de entrada y devolver valores de salida.
+Debemos tener en cuenta que las funciones pueden recibir parámetros de **entrada** y devolver valores de **salida**.
 
-Al ser un lenguaje de tipado dinámico, no es necesario especificar el tipo de los parámetros o el tipo de retorno, por lo que se pueden pasar diferentes tipos de datos a las funciones, lo que las hace muy flexibles pero también puede llevar a errores si no se manejan adecuadamente.
+Al ser un lenguaje de tipado dinámico, no es necesario especificar el tipo de los parámetros o el tipo de retorno, por lo que se pueden pasar diferentes tipos de datos a las funciones, lo que las hace muy **flexibles** pero también puede llevar a errores si no se manejan adecuadamente.
 
-Se pueden definir funciones de varias maneras.
+Se pueden definir funciones de distintas maneras.
 
 ## Declaración de función
 
@@ -30,7 +30,7 @@ const nombreFuncion = function(parametro1, parametro2) {
 
 ## Funciones flecha `() => {}`
 
-Son una forma más concisa de escribir funciones en _Javascript_, introducidas en ES2015. Se definen utilizando la sintaxis de flecha **`=>`**.
+Son una forma más concisa de escribir funciones en _Javascript_, introducidas en _ES2015_. Se definen utilizando la sintaxis de flecha **`=>`**.
 
 También son conocidas como _arrow functions_, funciones anónimas o funciones lambda.
 
@@ -40,7 +40,7 @@ const nombreFuncion = (parametro1, parametro2) => {
 };
 ```
 
-Si la función solo tiene una línea de código, se puede omitir el bloque de código y la palabra clave `return`.
+Si la función solo contiene una línea de código, se puede omitir el bloque `{ }` y la palabra clave `return`.
 
 ```js linenums="1" title="Función flecha abreviada"
 const nombreFuncion = (parametro1, parametro2) => resultado;
@@ -48,7 +48,7 @@ const nombreFuncion = (parametro1, parametro2) => resultado;
 
 Además, si la función **sólo tiene un parámetro**, se pueden omitir los paréntesis.
 
-```js linenums="1" title="Función flecha con un solo parámetro"
+```js linenums="1" title="Función flecha abreviada con un solo parámetro"
 const nombreFuncion = parametro => resultado;
 ```
 
@@ -60,22 +60,41 @@ En los siguientes ejemplos se muestran diferentes formas de declarar una funció
 function sumar(a, b) {
     return a + b;
 }
+
+// uso
+sumar(5, 3); // Devuelve: 8
 ```
 
 ```js linenums="1" title="Expresión de función"
 const sumar = function(a, b) {
     return a + b;
 };
+
+// uso
+sumar(5, 3); // Devuelve: 8
 ```
   
 ```js linenums="1" title="Función flecha"
 const sumar = (a, b) => {
   return a + b;
 };
+
+// uso
+sumar(5, 3); // Devuelve: 8
 ```
 
-```js linenums="1" title="Función flecha (abreviada). Esta forma es válida si la función solo tiene una línea de código"
+```js linenums="1" title="Función flecha abreviada. Esta forma es válida si la función solo tiene una línea de código"
 const sumar = (a, b) => a + b;
+
+// uso
+sumar(5, 3); // Devuelve: 8
+```
+
+```js linenums="1" title="Función flecha abreviada con un solo parámetro"
+const incrementar = a => a + 1;
+
+// uso
+incrementar(5); // Devuelve: 6
 ```
 
 ## Llamar a una función
@@ -184,9 +203,19 @@ console.log(operar(5, 3, restar)); // Salida: 2
 Las funciones anónimas son funciones que no tienen un nombre. Se utilizan comúnmente como argumentos de otras funciones o en expresiones de función.
 
 ```js linenums="1" title="Ejemplo de función anónima"
+// setTimeout() ejecuta la función después de un cierto tiempo
+// se le pasa una función anónima como primer argumento
+// y el tiempo en milisegundos como segundo argumento
+
 setTimeout(function() {
     console.log('Hola después de 2 segundos');
 }, 2000);
+```
+
+```js linenums="1" title="Ejemplo de función anónima con función flecha"
+setTimeout(
+    () => console.log('Hola después de 2 segundos'),
+    2000);
 ```
 
 ## Funciones recursivas
@@ -200,6 +229,14 @@ function factorial(n) {
     }
     return n * factorial(n - 1);
 }
+
+console.log(factorial(5)); // Salida: 120
+```
+
+Como se mencionó anteriormente, las funciones flecha son una forma más concisa de escribir funciones en _Javascript_. A continuación, se muestra el ejemplo anterior utilizando una función flecha. Aunque en este ejemplo puede resultar menos legible.
+
+```js linenums="1" title="Ejemplo de función recursiva abreviada"
+const factorial = n => n === 0 ? 1 : n * factorial(n - 1);
 
 console.log(factorial(5)); // Salida: 120
 ```
