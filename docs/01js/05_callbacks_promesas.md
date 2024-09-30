@@ -31,9 +31,9 @@ Las promesas son un mecanismo para resolver el problema de asincronía de una fo
 
 Las promesas pueden tener varios estados:
 
-- **`pending`**. (Pendiente) Estado inicial de la promesa, antes de ser resuelta o rechazada.
-- **`fulfilled`**. (Resuelta) La promesa se cumple con éxito y se resuelve.
-- **`rejected`**. (Rechazada) La promesa falla y se rechaza.
+- **`pending`**. (Pendiente) **Estado inicial** de la promesa, antes de ser resuelta o rechazada.
+- **`fulfilled`**. (Resuelta) La promesa **se cumple con éxito** y se **resuelve**.
+- **`rejected`**. (Rechazada) La promesa **falla** y se **rechaza**.
 
 Con estas sencillas bases, podemos entender el funcionamiento de una promesa en _Javascript_. Antes de empezar, también debemos tener claro que las promesas son objetos, y podemos crearlas y consumirlas.
 
@@ -351,35 +351,52 @@ consumeAsync()
 
 En este caso, la función `throwDicesAsync()` es asíncrona, y por tanto, puede utilizar `await` para esperar a que se cumpla la promesa.
 
-### try/catch en async/await
+### Manejo de errores
 
-Otra de las ventajas de `async/await` es que podemos utilizar `try`/`catch` para gestionar los errores de una forma más cómoda. En el siguiente ejemplo, se muestra cómo se puede utilizar `try`/`catch` para gestionar los errores de una forma más cómoda:
+Tanto en las promesas como en las funciones `async`/`await`, se pueden manejar los errores `catch()`.
 
-```js linenums="1" title="Consumir promesa con async/await y try/catch"
-const throwDicesAsync = async (iterations) => {
-  const numbers = [];
+En el siguiente ejemplo, se muestra cómo se manejan los errores en una promesa y en una función `async`:
 
-  for (let i = 0; i < iterations; i++) {
-    const number = 1 + Math.floor(Math.random() * 6)
-    numbers.push(number);
-    if (number === 6) {
-      throw new Error('Se ha sacado un 6')
+```js linenums="1" title="Manejo de errores"
+const throwDicesPromise = (iterations) => {
+  return new Promise((resolve, reject) => {
+    const numbers = []
+
+    for (let i = 0; i < iterations; i++) {
+      const number = Math.floor(Math.random() * 6) + 1
+      numbers.push(number)
+
+      if (number === 6) {
+        reject("Se ha sacado un 6")
+      }
     }
-  }
 
-  return {
-    error: false,
-    value: numbers
-  };
-}
-async function consumeAsync() {
-  try {
-    const result = await throwDicesAsync(10);
-    console.log(`Tiradas correctas: ${result.value}`)
-  } catch (error) {
-    console.error(`Error: ${error.message}`)
-  }
+    resolve(numbers)
+  })
 }
 
-consumeAsync()
+const throwDicesAsync = async (iterations) => {
+    const numbers = []
+
+    for (let i = 0; i < iterations; i++) {
+      const number = Math.floor(Math.random() * 6) + 1
+      numbers.push(number)
+
+      if (number === 6) {
+        throw new Error('Se ha sacado un 6')
+      }
+    }
+
+    return numbers
+}
+
+throwDicesPromise(5)
+  .then((data) => console.log(`Tiradas correctas ${data}`))
+  .catch((error) => console.error(`${error}`))
+
+throwDicesAsync(5)
+  .then((data) => console.log(`Tiradas correctas ${data}`))
+  .catch((error) => console.error(`${error}`))
 ```
+
+Se puede observar que el manejo de errores es muy similar en ambos casos, y se realiza con el método `.catch()` tanto si se rechaza la promesa como si se lanza un error.
