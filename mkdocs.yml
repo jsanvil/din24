@@ -17,6 +17,8 @@ nav:
     - 01js/03_objetos.md
     - 01js/04_arrays.md
     - 01js/05_callbacks_promesas.md
+    - 01js/06_poo.md
+    # - 01js/061_actividades.md
 
 theme:
   name: material

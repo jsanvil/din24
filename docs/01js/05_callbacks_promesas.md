@@ -219,6 +219,13 @@ fetch(CATFACT_ENDPOINT)
   })
 ```
 
+<!-- ```json title="[Resultado](https://catfact.ninja/fact)"
+{
+  "fact": "The average lifespan of an outdoor-only cat is about 3 to 5 years while an indoor-only cat can live 16 years or much longer.",
+  "length": 124
+}
+``` -->
+
 ## Async/Await
 
 El uso de promesas es muy útil, pero a veces puede resultar complicado de leer y entender, especialmente cuando se encadenan muchas promesas. Para facilitar la lectura y escritura de código asíncrono, se introdujo en _ECMAScript 2017_ la sintaxis `async/await`.
@@ -245,6 +252,34 @@ fetchUsers()  // no bloqueante
 
 console.log('Fin')
 ```
+
+
+<!-- ```json title="[Resultado](https://jsonplaceholder.typicode.com/users')"
+  [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": {
+          "lat": "-37.3159",
+          "lng": "81.1496"
+        }
+      },
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    },
+``` -->
 
 Lo que hace `await` (dentro de la función) es detener la ejecución y no continuar. Se espera a que se resuelva la promesa, y hasta que no lo haga, no continua.
 
