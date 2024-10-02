@@ -166,11 +166,6 @@ Este método también es el que se usará si queremos ordenar una array de objet
 ```js linenums="1"
 misAlumnos.sort(function(alum1, alum2) {
   return alum1.apellidos.localeCompare(alum2.apellidos)
-    if (alum1.apellidos > alum2.apellidos)
-      return -1
-    if (alum1.apellidos < alum2.apellidos)
-      return 1
-    return 0
 });
 ```
 
@@ -180,11 +175,11 @@ Pero con el método _`toString()`_ que hemos definido antes podemos hacer direct
 misAlumnos.sort() 
 ```
 
-Si las cadenas a comparar pueden tener acentos u otros caracteres propios del idioma ese código no funcionará bien. La forma correcta de comparar cadenas es usando el método `.localeCompare()`. El código anterior debería ser:
+Para ordenar por otro critério distinto de `toString()` debemos indicarlo:
 
 ```js
 misAlumnos.sort(function(alum1, alum2) {
-    return alum1.apellidos.localeCompare(alum2.apellidos)
+    return alum1.edad - alum2.edad
 })
 ```
 
