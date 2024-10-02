@@ -13,6 +13,9 @@ Realiza las actividades en los ficheros indicados y comprueba que funcionan corr
 
     En caso de existir duda ante la copia o el uso de herramientas de generación de código automático, se pedirá una explicación detallada del código por parte del alumnado implicado. En caso de no poder justificarlo, se considerará copia y se considerará la actividad como no realizada para las partes afectadas.
 
+!!! error "Commit"
+    Intenta hacer un **commit** por cada actividad.
+
 ## Actividad 1
 
 Dentro del script **`async.js`**, crea una promesa `twoSecondsPromise` que se resuelva a los entre aleatoriamente entre 0 y 2 segundos, simulando una petición a un servidor. La promesa debe devolver un mensaje de éxito si se resuelve en menos de 1 segundo, y un mensaje de error en caso contrario.
