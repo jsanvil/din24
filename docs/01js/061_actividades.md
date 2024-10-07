@@ -13,7 +13,7 @@ Realiza las actividades en los ficheros indicados y comprueba que funcionan corr
 
     En caso de existir duda ante la copia o el uso de herramientas de generación de código automático, se pedirá una explicación detallada del código por parte del alumnado implicado. En caso de no poder justificarlo, se considerará copia y se considerará la actividad como no realizada para las partes afectadas.
 
-!!! error "Commit"
+!!! danger "Commit"
     Intenta hacer un **commit** por cada actividad.
 
 ## Actividad 1
