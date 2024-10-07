@@ -34,7 +34,7 @@ Consume la función `callbackAsync` y muestra por consola el mensaje de éxito o
 
 Dentro del script **`async.js`**, crea una promesa `weatherPromise` que realice una petición `fetch()` a la url `https://wttr.in/Valencia?format=j1` y devuelva el objeto JSON obtenido.
 
-Consume la función `currentWeather` y muestra por consola el objeto JSON obtenido. Lo puedes formatear con `JSON.stringify(jsonData, null, 2)` para que sea más legible, donde `jsonData` es el objeto JSON obtenido.
+Consume la función `weatherPromise` y muestra por consola el objeto JSON obtenido. Lo puedes formatear con `JSON.stringify(jsonData, null, 2)` para que sea más legible, donde `jsonData` es el objeto JSON obtenido.
 
 ## Actividad 4
 
