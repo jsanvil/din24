@@ -104,7 +104,7 @@ const utilidades = require(__dirname + '/utilidades')
 
 ## Módulos de terceros. NPM
 
-`**npm**` (_Node Package Manager_) es un gestor de paquetes para _Javascript_, y se instala automáticamente al instalar _Node.js_. Podemos comprobar que lo tenemos instalado, y qué versión concreta tenemos, mediante el comando:
+_**npm**_ (_Node Package Manager_) es un gestor de paquetes para _Javascript_, y se instala automáticamente al instalar _Node.js_. Podemos comprobar que lo tenemos instalado, y qué versión concreta tenemos, mediante el comando:
 
 ```bash
 npm -v
