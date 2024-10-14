@@ -22,7 +22,7 @@ Por ejemplo, vamos a crear un archivo llamado **`listado.js`**. En él vamos a h
 const path = 'C:/\Program Files'
 const fs = require('fs')
 
-fs.readdirSync(ruta).forEach(fichero => {
+fs.readdirSync(path).forEach(fichero => {
     console.log(fichero)
 })
 ```

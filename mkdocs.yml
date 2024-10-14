@@ -23,6 +23,9 @@ nav:
   - UD 2 Node.js:
     - 02nodejs/index.md
     - 02nodejs/01_modules.md
+    - 02nodejs/02_events.md
+    - 02nodejs/03_servers_files.md
+    # - 02nodejs/ud2act01.md
 
 theme:
   name: material
