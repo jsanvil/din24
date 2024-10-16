@@ -93,7 +93,7 @@ En este ejemplo, el script `index.js` accede al elemento con el identificador `m
         <li>Kiwi</li>
     </ul>
     <ul id="verduras">
-        <li>Brócoli</li>
+        <li>Brocoli</li>
         <li>Berenjena</li>
     </ul>
     ```
@@ -255,7 +255,7 @@ Los siguientes métodos que se aplican sobre un elemento del árbol DOM:
 
 * **`elemento.childNodes`**
     
-    Devuelve la colección con todos los hijos de _elemento_.
+    Propiedad que contiene la colección con todos los nodos hijos de _elemento_.
     
     **Incluye comentarios y nodos de tipo texto** por lo que no suele utilizarse.
 
@@ -274,24 +274,29 @@ Los siguientes métodos que se aplican sobre un elemento del árbol DOM:
     ```
 
     ```txt title="Consola"
+    "#text", " "
+    "#comment", " nodo padre "
+    "#text", "
+            "
     "P", "Este es el párrafo"
+    "#text", " "
+    "#comment", " elemento hijo "
     "#text", "
-      "
+            "
     "P", "Este es otro párrafo"
+    "#text", " "
+    "#comment", " elemento hijo "
     "#text", "
-      "
-    "#comment", " comentario "
-    "#text", "
-    "
+        "
     ```
 
 * **`elemento.firstElementChild`**
     
-    Devuelve el elemento HTML que es el **primer hijo** de _elemento_ 
+    Devuelve el elemento HTML que es el **primer hijo**.
 
 * **`elemento.firstChild`**
   
-    Devuelve el nodo que es el **primer hijo** de _elemento_.
+    Devuelve el nodo que es el **primer hijo**.
     
     Incluye nodos de tipo texto o comentarios.
 
@@ -323,3 +328,299 @@ Los siguientes métodos que se aplican sobre un elemento del árbol DOM:
 
 !!! warning "IMPORTANTE:"
     A menos que interesen comentarios, saltos de página, etc., **siempre** se deben usar los métodos que sólo devuelven elementos HTML, no todos los nodos.
+
+### Propiedades de un nodo
+
+Las principales propiedades de un nodo son:
+
+* **`elemento.innerHTML`**
+  
+    Todo lo que hay entre la etiqueta que abre _elemento_ y la que lo cierra, incluyendo otras etiquetas HTML.
+    
+    _Ej.:_
+
+    ```html title="html"
+    <div id="txt">
+        <p>primer parrafo hijo de div id="txt"</p>
+        <p>segundo parrafo hijo de id="txt" txt</p>
+    </div>
+    ```
+
+    ```js title="js" hl_lines="2"
+    txt = document.getElementById("txt");
+    console.log(txt.innerHTML);
+
+    /*
+    Mostrará por consola:
+        <p>primer parrafo hijo de div id="txt"</p>
+        <p>segundo parrafo hijo de id="txt" txt</p>
+    */
+    ```
+
+* **`elemento.textContent`**
+
+    Todo lo que hay entre la etiqueta que abre _elemento_ y la que lo cierra, pero ignorando otras etiquetas HTML.
+
+    Podemos usarlo tanto para leer como para escribir el contenido de un nodo.
+    
+    _Ej.:_
+
+    ```html title="html"
+    <p id="texto">Esto <span>es</span>un texto</p>
+    ```
+
+    ```js title="js" hl_lines="2 6"
+    // Lee el contenido:
+    var text = document.getElementById("texto").textContent;
+    // |text| contiene la cadena "Esto es un texto".
+
+    // Escribe el contenido:
+    document.getElementById("texto").textContent = "Nuevo texto";
+
+    // Se ha modificado el HTML en tiempo de ejecución,
+    // ahora contiene una nueva cadena:
+    //     <p id="texto">Nuevo texto</p>
+    ```
+
+* **`elemento.value`**
+    
+    Devuelve la propiedad *`value`* de un `<input>` (en el caso de un `<input>` de tipo text devuelve lo que hay escrito en él).
+    
+    Como los `<input>` no tienen etiqueta de cierre (`</input>`) no podemos usar _`.innerHTML`_ ni _`.textContent`_.
+
+    _Por ejemplo_ si _`elem1`_ es el nodo `<input name="nombre">` y _`elem2`_ es el nodo `<input type="radio" value="H"> Hombre`
+
+    ```html title="html"
+    <form action="#">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <fieldset>
+            <legend>Lenguaje favorito:</legend>
+            <div>
+                <input type="radio" name="fav" id="html" value="HTML">
+                <label for="html">HTML</label>
+            </div>
+            <div>
+                <input type="radio" name="fav" id="css" value="CSS">
+                <label for="css">CSS</label>
+            </div>
+            <div>
+                <input type="radio" name="fav" id="js" value="JavaScript" checked>
+                <label for="js">JavaScript</label>
+            </div>
+        </fieldset>
+    </form>
+    ```
+
+    ```js title="js" hl_lines="2 6"
+    let inputNombre = document.getElementById('nombre');
+    let name = inputNombre.value;
+    // | name | Contiene lo que haya escrito en el <input> en ese momento
+
+    let favChecked = document.querySelector('input[name="fav"]:checked');
+    let favorite = favChecked.value;
+    // | favorite | Contiene "JavaScript"
+    ```
+
+Otras propiedades:
+
+* `elemento.innerText`: Se recomienda no usarlo, es similar a _`textContent`_
+* `elemento.focus`: da el foco a _elemento_ (para inputs, etc.).
+* `elemento.blur`: quita el foco de _elemento_.
+* `elemento.clientHeight` / `elemento.clientWidth`: devuelve el alto / ancho visible del _elemento_
+* `elemento.offsetHeight` / `elemento.offsetWidth`: devuelve el alto / ancho total del _elemento_
+* `elemento.clientLeft` / `elemento.clientTop`: devuelve la distancia de _elemento_ al borde izquierdo / superior
+* `elemento.offsetLeft` / `elemento.offsetTop`: devuelve los píxels que hemos desplazado _elemento_ a la izquierda / abajo
+
+## Manipular el árbol DOM
+
+Vamos a ver qué métodos nos permiten cambiar el árbol DOM, y por tanto modificar el HTML de la página:
+
+* **`document.createElement('etiqueta')`**
+    
+    crea un nuevo elemento HTML con la etiqueta indicada, pero aún no se añade a la página. _Ej.:_
+
+    ```javascript
+    let nuevoLi = document.createElement('li');
+    ```
+
+* **`document.createTextNode('texto')`**
+    
+    crea un nuevo nodo de texto con el texto indicado, que luego tendremos que añadir a un nodo HTML. _Ej.:_
+
+    ```javascript
+    let textoLi = document.createTextNode('Nuevo elemento de lista');
+    ```
+
+* **`elemento.appendChild(nuevoNodo)`**:
+
+    añade _nuevoNodo_ como último hijo de _elemento_. Ahora ya se ha añadido a la página. _Ej.:_
+
+    ```js hl_lines="5 11"
+    let nuevoLi = document.createElement('li');
+    let textoLi = document.createTextNode('Nuevo elemento de lista');
+
+    // añade el texto creado al elemento <li> creado
+    nuevoLi.appendChild(textoLi);
+
+    // selecciona el 1º <ul> de la página
+    let miPrimeraLista = document.getElementsByTagName('ul')[0];
+
+    // añade <li> como último hijo de <ul>, es decir al final de la lista
+    miPrimeraLista.appendChild(nuevoLi);
+    ```
+
+* **`elemento.insertBefore(nuevoNodo, nodo)`**
+    
+    añade _nuevoNodo_ como hijo de _elemento_ antes del hijo _nodo_. _Ej.:_
+
+    ```js hl_lines="8"
+    // selecciona el 1º <ul> de la página
+    let miPrimeraLista = document.getElementsByTagName('ul')[0];
+
+    // selecciona el 1º <li> dentro de miPrimeraLista
+    let primerElementoDeLista = miPrimeraLista.getElementsByTagName('li')[0];
+
+    // añade <li> al principio de la lista
+    miPrimeraLista.insertBefore(nuevoLi, primerElementoDeLista);
+    ```
+
+* **`elemento.removeChild(nodo)`**
+    
+    borra _nodo_ de _elemento_ y por tanto se elimina de la página. _Ej.:_
+
+    ```js hl_lines="8 11"
+    // selecciona el 1º <ul> de la página
+    let miPrimeraLista = document.getElementsByTagName('ul')[0];
+
+    // selecciona el 1º <li> dentro de miPrimeraLista
+    let primerElementoDeLista = miPrimeraLista.getElementsByTagName('li')[0];
+
+    // borra el primer elemento de la lista
+    miPrimeraLista.removeChild(primerElementoDeLista);
+
+    // También podríamos haberlo borrado sin tener el padre con:
+    primerElementoDeLista.parentElement.removeChild(primerElementoDeLista);
+    ```
+
+* **`elemento.replaceChild(nuevoNodo, viejoNodo)`**
+
+    reemplaza _viejoNodo_ con _nuevoNodo_ como hijo de _elemento_. _Ej.:_
+
+    ```js hl_lines="13"
+    // crea el nodo
+    let nuevoLi = document.createElement('li');
+    let textoLi = document.createTextNode('Nuevo elemento de lista');
+    nuevoLi.appendChild(textoLi);
+
+    // selecciona el 1º <ul> de la página
+    let miPrimeraLista = document.getElementsByTagName('ul')[0];
+
+    // selecciona el 1º <li> de miPrimeraLista
+    let primerElementoDeLista = miPrimeraLista.getElementsByTagName('li')[0];
+
+    // reemplaza el 1º elemento de la lista con nuevoLi
+    miPrimeraLista.replaceChild(nuevoLi, primerElementoDeLista);
+    ```
+
+* **`elementoAClonar.cloneNode(boolean)`**
+    
+    devuelve una copia de _elementoAClonar_ o de _elementoAClonar_ con todos sus descendientes según le pasemos como parámetro _`false`_ o _`true`_. Luego podremos insertarlo donde queramos.
+
+    !!! warning "MUCHO CUIDADO"
+        Si añadimos con el método `appendChild` un nodo que estaba en otro sitio **se elimina de donde estaba** para añadirse a su nueva posición.
+        
+        Si queremos que esté en los 2 sitios deberé clonar el nodo y luego añadir la copia y no el nodo original.
+
+**Ejemplo de creación de nuevos nodos**: tenemos un código HTML con un elemento `<div>` que contiene tres párrafos `<p>`.
+
+- Vamos a añadir un nuevo párrafo al final del `<div>` con el texto "`Párrafo añadido al final`"
+- Y otro en la segunda posición del `<div>` con el texto "`Este es el <strong>nuevo</strong> segundo párrafo`".
+
+```html linenums="1" title="index.html"
+<div id="articulos">
+  <p>Este es el primer párrafo que tiene <strong>algo en negrita</strong>.</p>
+  <p>Este era el segundo párrafo pero será desplazado hacia abajo.</p>
+  <p>Y este es el último párrafo pero luego añadiremos otro después</p>
+</div>
+```
+
+```js linenums="1" title="main.js"
+let miDiv = document.getElementById('articulos')
+
+// Pasos para añadir el último párrafo:
+//   <p>Párrafo añadido al final</p>
+//
+// - Crear un nuevo elemento <p>
+// - Crear un nodo de texto con el contenido
+// - Añadir el texto al elemento <p>
+// - Añadir el elemento <p> al final del <div>
+
+let ultimoParrafo = document.createElement('p')
+let ultimoParrafoTexto = document.createTextNode('Párrafo añadido al final')
+ultimoParrafo.appendChild(ultimoParrafoTexto)
+miDiv.appendChild(ultimoParrafo)
+
+// Pasos para añadir el segundo párrafo:
+//   <p>Este es el <strong>nuevo</strong> segundo párrafo</p>
+//
+// - Crear un nuevo elemento <strong>
+// - Crear un nodo de texto con el contenido de la negrita
+// - Añadir el texto al elemento <strong>
+//
+// - Crear un nuevo elemento <p>
+// - Crear un nodo de texto con la primera parte del contenido
+// - Crear un nodo de texto con la segunda parte del contenido
+//
+// - Añadir nodo con la primera parte del contenido al elemento <p>
+// - Añadir el elemento <strong> al elemento <p>
+// - Añadir nodo con la segunda parte del contenido al elemento <p>
+
+let nuevaNegrita = document.createElement('strong')
+nuevaNegritaTexto = document.createTextNode('nuevo')
+nuevaNegrita.appendChild(nuevaNegritaTexto)
+
+let nuevoSegundoParrafo = document.createElement('p')
+let nuevoSegundoParrafoTexto1 = document.createTextNode('Este es el ')
+let nuevoSegundoParrafoTexto2 = document.createTextNode(' segundo párrafo')
+
+nuevoSegundoParrafo.appendChild(nuevoSegundoParrafoTexto1)
+nuevoSegundoParrafo.appendChild(nuevaNegrita)
+nuevoSegundoParrafo.appendChild(nuevoSegundoParrafoTexto2)
+
+let segundoParrafo = miDiv.children[1]
+miDiv.insertBefore(nuevoSegundoParrafo, segundoParrafo)
+```
+
+[Ejemplo en JSFiddle](https://jsfiddle.net/juansegura/qfcdseua/)
+
+Si utilizamos la propiedad **innerHTML** el código a usar es mucho más simple.
+
+```js linenums="1" title="main.js" hl_lines="3 6"
+let miDiv = document.getElementById('articulos')
+
+miDiv.innerHTML += '<p>Párrafo añadido al final</p>'
+
+let nuevoSegundoParrafo = document.createElement('p')
+nuevoSegundoParrafo.innerHTML = 'Este es el <strong>nuevo</strong> segundo párrafo'
+
+let segundoParrafo = miDiv.children[1]
+miDiv.insertBefore(nuevoSegundoParrafo, segundoParrafo)
+```
+
+[Ejemplo en JSFiddle](https://jsfiddle.net/juansegura/x9s7v8kn/)
+
+
+La forma de añadir el último párrafo (línea #3: `miDiv.innerHTML += '<p>Párrafo añadido al final</p>'`) aunque es válida **no es eficiente** ya que obliga al navegador a volver a renderizar todo el contenido de `miDIV`. Una forma más eficiente sería añadir el párrafo con `appendChild`.
+
+```js linenums="1" hl_lines="3"
+let ultimoParrafo = document.createElement('p')
+ultimoParrafo.innerHTML = 'Párrafo añadido al final'
+miDiv.appendChild(ultimoParrafo)
+```
+
+Así sólo debe renderizar el párrafo añadido, conservando todo lo demás que tenga _`miDiv`_.
+
+Podemos ver más ejemplos de creación y eliminación de nodos en [W3Schools](http://www.w3schools.com/js/js_htmldom_nodes.asp).
+
