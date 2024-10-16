@@ -2,7 +2,7 @@
 
 Acepta la tarea en _GitHub Classroom_ y clona el repositorio en tu máquina local.
 
-- [https://classroom.github.com/a/3tPzjQzi](https://classroom.github.com/a/3tPzjQzi)
+- [https://classroom.github.com/a/SpaW-Hl7](https://classroom.github.com/a/SpaW-Hl7)
 
 Realiza las actividades en los ficheros indicados y comprueba que funcionan correctamente.
 
