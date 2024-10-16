@@ -26,6 +26,11 @@ nav:
     - 02nodejs/02_events.md
     - 02nodejs/03_servers_files.md
     - 02nodejs/ud2act01.md
+  - UD 3 Electron:
+    - 03electron/index.md
+    - 03electron/01_intro.md
+    - 03electron/02_dom.md
+    # - 03electron/ud3_act1.md
 
 theme:
   name: material
