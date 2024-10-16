@@ -120,7 +120,7 @@ En este ejemplo, el script `index.js` accede al elemento con el identificador `m
     _Ej.:_
 
     ```html
-    <h2 class="error">Error</h2>
+    <p class="error">Error</p>
     <div>
       <p class="info">No se ha podido cargar la información</p>
       <p class="error">404</p>
@@ -145,7 +145,7 @@ En este ejemplo, el script `index.js` accede al elemento con el identificador `m
     _Ej.:_
   
     ```html
-    <h2 class="error">Error</h2>
+    <p class="error">Error</p>
     <div>
       <p class="info">No se ha podido cargar la información</p>
       <p class="error">404</p>
@@ -216,7 +216,7 @@ Los siguientes métodos que se aplican sobre un elemento del árbol DOM:
 
     ```html title="html"
     <div> <!-- nodo padre -->
-        <p class="elemento">Este es el párrafo</p> <!-- elemento seleccionado -->
+        <p id="elemento">Este es el párrafo</p> <!-- elemento seleccionado -->
     </div>
     ```
 
