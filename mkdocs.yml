@@ -30,7 +30,7 @@ nav:
     - 03electron/index.md
     - 03electron/01_intro.md
     - 03electron/02_dom.md
-    # - 03electron/ud3_act1.md
+    - 03electron/ud3_act1.md
 
 theme:
   name: material
