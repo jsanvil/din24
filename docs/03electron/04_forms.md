@@ -153,9 +153,9 @@ Un ejemplo sencillo de validación de un formulario podría ser:
 
 ```html title="index.html" linenums="1" hl_lines="1"
 <form id="user-form" novalidate>
-  <label for="nombre">Por favor, introduzca su nombre (entre 5 y 50 caracteres): </span>
+  <label for="nombre">Por favor, introduzca su nombre (entre 5 y 50 caracteres): </label>
   <input type="text" id="nombre" name="nombre" required minlength="5" maxlength="50">
-  <span class="error"></label>
+  <span class="error"></span>
   <br />
   <label for="mail">Por favor, introduzca una dirección de correo electrónico: </label>
   <input type="email" id="mail" name="mail" required minlength="8">
@@ -367,7 +367,7 @@ Los usaremos para saber si la cadena coincide con determinada expresión o para 
     ```js title="match.js" linenums="1"
     let str = "I am amazed in America"
     let reg = /am/gi
-    console.log(str.match(reg)) // Imprime ["am", "am", "Am"}
+    console.log(str.match(reg)) // Imprime ["am", "am", "Am"]
     ```
 
 * `cadena.search(expr)`: Devuelve la posición donde se encuentra la coincidencia buscada o `-1` si no aparece.

@@ -473,7 +473,7 @@ Vamos a ver qué métodos nos permiten cambiar el árbol DOM, y por tanto modifi
 
 * **`elemento.insertBefore(nuevoNodo, nodo)`**
     
-    añade _nuevoNodo_ como hijo de _elemento_ antes del hijo _nodo_. _Ej.:_
+    añade _nuevoNodo_ como hijo de _elemento_ antes del _nodo_ indicado. _Ej.:_
 
     ```js hl_lines="8"
     // selecciona el 1º <ul> de la página
