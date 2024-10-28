@@ -33,7 +33,7 @@ nav:
     - 03electron/03_events.md
     - 03electron/04_forms.md
     - 03electron/ud3_act1.md
-    # - 03electron/ud3_act2.md
+    - 03electron/ud3_act2.md
 
 theme:
   name: material
