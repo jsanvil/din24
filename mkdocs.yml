@@ -32,6 +32,7 @@ nav:
     - 03electron/02_dom.md
     - 03electron/03_events.md
     - 03electron/04_forms.md
+    # - 03electron/05_ipc.md
     - 03electron/ud3_act1.md
     - 03electron/ud3_act2.md
 

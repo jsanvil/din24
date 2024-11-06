@@ -1,11 +1,13 @@
 # 0.1 Introducción a Electron
 
-- [Conocimientos previos](#conocimientos-previos)
-- [Herramientas necesarias](#herramientas-necesarias)
-    - [Editor de código](#editor-de-código)
-    - [Línea de comandos](#línea-de-comandos)
-    - [Git y GitHub](#git-y-github)
+- [Requisitos](#requisitos)
+    - [Conocimientos previos](#conocimientos-previos)
+    - [Herramientas necesarias](#herramientas-necesarias)
+        - [Editor de código](#editor-de-código)
+        - [Línea de comandos](#línea-de-comandos)
+        - [Git y GitHub](#git-y-github)
     - [Node.js y npm](#nodejs-y-npm)
+- [Electron reloader](#electron-reloader)
 
 ## Requisitos
 
@@ -68,3 +70,27 @@ $ npm -v
 !!! note "NOTA"
     Aunque es necesario tener *Node.js* instalado localmente para desarrollar un proyecto en *Electron*, el ejecutable final, viene empaquetado con su propio *Node.js*. Esto significa que **los usuarios finales no necesitan instalar *Node.js*** como requisito para ejecutar la aplicación.
 
+## Electron reloader
+
+Para que los cambios en el código se reflejen en la aplicación, se puede utilizar el paquete [electron-reloader](https://www.npmjs.com/package/electron-reloader) que se instala como dependencia de desarrollo.
+
+```bash title="Terminal"
+$ npm install --save-dev electron-reloader
+```
+
+Después, en el archivo `main.js` se añade el siguiente código:
+
+```js title="main.js" linenums="1"
+const { app, BrowserWindow } = require('electron')
+
+try {
+    require('electron-reloader')(module, {
+        debug: true,
+        watchRenderer: true
+    })
+} catch(_) {}
+
+// ...
+```
+
+Ahora, cuando lancemos la aplicación con `npm start` se recargará automáticamente cuando se guarden los cambios en el código.
