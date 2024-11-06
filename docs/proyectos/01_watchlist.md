@@ -17,9 +17,9 @@ El objetivo de este proyecto es crear una aplicación en _Electron_ que permita 
 - **Utilizar clases** para representar los elementos de la colección y la lista.
 - Los **elementos** tendrán los siguientes **atributos**:
     - **`Name`**. **Obligatorio**. Máximo 50 caracteres. 
-    - **`Type`**. `book`, `game`, `movie`, `serie`.
+    - **`Type`**. `book`, `game`, `movie`.
     - **`Status`**. `completed`, `in_progress`, `pending`. Por defecto, `pending`.
-    - **`Rating`**. Calificación del 1 al 5.
+    - **`Rating`**. Calificación del 1 al 5. Si es 0 se considera sin calificar.
     - **`Notes`**. Máximo 200 caracteres.
 - **Funcionalidades**:
     - **Listado de elementos**.
