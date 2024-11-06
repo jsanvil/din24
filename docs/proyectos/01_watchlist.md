@@ -1,6 +1,6 @@
 # Proyecto 1 - Lista de seguimiento
 
-El objetivo de este proyecto es crear una aplicación en _Electron_ que permita gestionar una lista de seguimiento de libros, juegos, películas y series. La aplicación debe permitir añadir, editar, eliminar y filtrar elementos de la lista. Además, se debe poder guardar y cargar la lista en un fichero json.
+El objetivo de este proyecto es crear una aplicación en _Electron_ que permita gestionar una lista de seguimiento de libros, juegos y películas. La aplicación debe permitir añadir, editar, eliminar y filtrar elementos de la lista. Además, se debe poder guardar y cargar la lista en un fichero json.
 
 - Tendrá un peso del **70%** sobre la calificación de la primera evaluación.
 - Fecha límite de entrega **21/11/2024** a las **23:59**.
@@ -39,7 +39,7 @@ El objetivo de este proyecto es crear una aplicación en _Electron_ que permita 
             - Se debe validar el formulario y mostrar todos los errores antes de guardar los cambios.
     - **Añadir** nuevo elemento. Mostrará un formulario vacío con los campos del elemento. Se debe validar el formulario y mostrar todos los errores.
     - **Filtros**. Se deben poder combinar varios filtros.
-        - **Tipo**. `book`, `game`, `movie`, `serie`.
+        - **Tipo**. `book`, `game`, `movie`.
         - **Estado**. `completed`, `in_progress`, `pending`.
         - **Calificación**. Mínimo y máximo (1-5).
         - **Búsqueda**. Campo de texto.
@@ -69,9 +69,9 @@ El objetivo de este proyecto es crear una aplicación en _Electron_ que permita 
 - 10% Añadir nuevo elemento.
 - 20% Lista de elementos y acciones.
 - 15% Editar elemento.
-- 10% Cambiar estado del elemento.
+-  5% Cambiar estado del elemento.
 -  5% Eliminar elemento.
-- 15% Filtros y búsqueda.
+- 20% Filtros y búsqueda.
 -  5% Ordenar elementos.
 - 10% Leer y escribir la lista en un fichero json.
 - 10% Estructura, organización y documentación.

@@ -35,7 +35,7 @@ nav:
     - 03electron/05_ipc.md
     - 03electron/ud3_act1.md
     - 03electron/ud3_act2.md
-  - Proyectos
+  - Proyectos:
     - proyectos/01_watchlist.md
 
 theme:
