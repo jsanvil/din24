@@ -69,20 +69,20 @@ El objetivo de este proyecto es crear una aplicación en _Electron_ que permita 
 
 Para la evaluación del proyecto se tendrán en cuenta los siguientes ponderaciones teniendo en cuenta el alcance de los requisitos:
 
-- 5% Estructura del proyecto
-- 85% Funcionalidades
-    - 25% Listado de elementos
+- **5%** Estructura del proyecto
+- **85%** Funcionalidades
+    - _25%_ Listado de elementos
         - 10% Mostrar
         - 5% Cambiar estado
         - 5% Eliminar
         - 5% Editar
-    - 10% Añadir
-    - 15% Editar
-    - 15% Filtros
-    - 10% Ordenar
-    - 10% Persistencia
-- 5% Documentación
-- 5% Seguimiento
+    - _10%_ Añadir
+    - _15%_ Editar
+    - _15%_ Filtros
+    - _10%_ Ordenar
+    - _10%_ Persistencia
+- **5%** Documentación
+- **5%** Seguimiento
 
 Se evaluará en modo desarrollo y la aplicación debe poder abrirse sin errores de inicio.
 
