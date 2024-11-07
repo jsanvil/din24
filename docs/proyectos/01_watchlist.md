@@ -13,14 +13,14 @@ El objetivo de este proyecto es crear una aplicación en _Electron_ que permita 
     - Separar el código en módulos bien definidos mediante **import** y **export**.
     - En la lógica de la aplicación, no utilizar frameworks o librerías externas a los proporcionados por Node.js y Electron.
     - Se podrán utilizar librerías de estilos. (Bootstrap, Materialize, etc.)
-- **Código estructurado**. Las variables, clases y funciones están bien comentadas. Los nombres de las clases, funciones y variables son descriptivos.
-- **Utilizar clases** para representar los elementos de la colección y la lista.
-- Los **elementos** tendrán los siguientes **atributos**:
-    - **`Name`**. **Obligatorio**. Máximo 50 caracteres. 
-    - **`Type`**. `book`, `game`, `movie`.
-    - **`Status`**. `completed`, `in_progress`, `pending`. Por defecto, `pending`.
-    - **`Rating`**. Calificación del 1 al 5. Si es 0 se considera sin calificar.
-    - **`Notes`**. Máximo 200 caracteres.
+    - **Código estructurado**. Las variables, clases y funciones están bien comentadas. Los nombres de las clases, funciones y variables son descriptivos.
+    - **Utilizar clases** para representar los elementos de la colección y la lista.
+    - Los **elementos** tendrán los siguientes **atributos**:
+        - **`Name`**. **Obligatorio**. Máximo 50 caracteres. 
+        - **`Type`**. `book`, `game`, `movie`.
+        - **`Status`**. `completed`, `in_progress`, `pending`. Por defecto, `pending`.
+        - **`Rating`**. Calificación del 1 al 5. Si es 0 se considera sin calificar.
+        - **`Notes`**. Máximo 200 caracteres.
 - **Funcionalidades**:
     - **Listado de elementos**.
         - El estado se debe representar con **colores** y/o **iconos**.
@@ -31,13 +31,14 @@ El objetivo de este proyecto es crear una aplicación en _Electron_ que permita 
             - **Estado**. Icono o texto.
             - **Calificación**.
         - Los elementos deben tener tres opciones: **editar**, **cambiar estado** y **eliminar**.
-        - **Cambiar estado** del elemento. Se debe actualizar la lista al cambiar el estado.
-        - **Eliminar** elemento. Debe pedir confirmación al usuario. Se debe actualizar la lista al eliminar un elemento.
-        - **Editar** elemento. Mostrará un formulario con los campos del elemento con los valores actuales.
-            - Tendrá una opción para **cancelar** la edición.
-            - Si hay cambios y se cancela la edición, se debe pedir confirmación al usuario.
-            - Se debe validar el formulario y mostrar todos los errores antes de guardar los cambios.
+            - **Cambiar estado**. Se debe actualizar la lista al cambiar el estado.
+            - **Eliminar**. Debe pedir confirmación al usuario. Se debe actualizar la lista al eliminar un elemento.
+            - **Editar**. Mostrará una vista ampliada con todos los atributos del elemento.
     - **Añadir** nuevo elemento. Mostrará un formulario vacío con los campos del elemento. Se debe validar el formulario y mostrar todos los errores.
+    - **Editar** elemento. Mostrará un formulario con los campos del elemento con los valores actuales.
+        - Tendrá una opción para **cancelar** la edición.
+        - Si hay cambios y se cancela la edición, se debe pedir confirmación al usuario.
+        - Se debe validar el formulario y mostrar todos los errores antes de guardar los cambios.
     - **Filtros**. Se deben poder combinar varios filtros.
         - **Tipo**. `book`, `game`, `movie`.
         - **Estado**. `completed`, `in_progress`, `pending`.
@@ -66,12 +67,23 @@ El objetivo de este proyecto es crear una aplicación en _Electron_ que permita 
 
 ## Evaluación
 
-- 10% Añadir nuevo elemento.
-- 20% Lista de elementos y acciones.
-- 15% Editar elemento.
--  5% Cambiar estado del elemento.
--  5% Eliminar elemento.
-- 20% Filtros y búsqueda.
--  5% Ordenar elementos.
-- 10% Leer y escribir la lista en un fichero json.
-- 10% Estructura, organización y documentación.
+Para la evaluación del proyecto se tendrán en cuenta los siguientes ponderaciones teniendo en cuenta el alcance de los requisitos:
+
+- 5% Estructura del proyecto
+- 85% Funcionalidades
+    - 25% Listado de elementos
+        - 10% Mostrar
+        - 5% Cambiar estado
+        - 5% Eliminar
+        - 5% Editar
+    - 10% Añadir
+    - 15% Editar
+    - 15% Filtros
+    - 10% Ordenar
+    - 10% Persistencia
+- 5% Documentación
+- 5% Seguimiento
+
+Se evaluará en modo desarrollo y la aplicación debe poder abrirse sin errores de inicio.
+
+Se aceptarán entregas tardías con una penalización del 10% por día.
