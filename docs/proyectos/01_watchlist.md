@@ -3,7 +3,7 @@
 El objetivo de este proyecto es crear una aplicación en _Electron_ que permita gestionar una lista de seguimiento de libros, juegos y películas. La aplicación debe permitir añadir, editar, eliminar y filtrar elementos de la lista. Además, se debe poder guardar y cargar la lista en un fichero json.
 
 - Tendrá un peso del **70%** sobre la calificación de la primera evaluación.
-- Fecha límite de entrega **21/11/2024** a las **23:59**.
+- Fecha límite de entrega **04/12/2024** a las **23:59**. (modificado)
 - _GitHub Classroom_: [https://classroom.github.com/a/jeAbMzt9](https://classroom.github.com/a/jeAbMzt9)
 
 ## Requisitos
