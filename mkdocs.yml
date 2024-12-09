@@ -37,6 +37,10 @@ nav:
     - 03electron/07_bs_elements.md
     - 03electron/ud3_act1.md
     - 03electron/ud3_act2.md
+  - UD 4 React:
+    - 04electron_react/index.md
+    - 04electron_react/01_intro_react.md
+    # - 04electron_react/ud4_act1.md
   - Proyectos:
     - proyectos/01_watchlist.md
 
