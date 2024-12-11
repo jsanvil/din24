@@ -40,6 +40,8 @@ nav:
   - UD 4 React:
     - 04electron_react/index.md
     - 04electron_react/01_intro_react.md
+    - 04electron_react/02_electron_vite_project.md
+    - 04electron_react/03_react_events.md
     - 04electron_react/ud4_act1.md
   - Proyectos:
     - proyectos/01_watchlist.md
