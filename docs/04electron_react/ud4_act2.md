@@ -18,7 +18,7 @@ Realiza las actividades en los ficheros indicados y comprueba que funcionan corr
 
 ## Actividad, efectos y estados
 
-1. Crea un nuevo proyecto de _React_ con _Vite_.
+1. Crea un nuevo proyecto de _React_ con _electron-vite_.
 2. Crea un componente `<ProductForm>` que tenga un formulario con los campos `name`, `price` y `stock` y un botón para añadir un producto. Utiliza el estado para almacenar los datos del formulario y validar los campos según las siguientes reglas:
     - El campo `name` es obligatorio.
     - El campo `price` es obligatorio y debe ser un número mayor que 0.
