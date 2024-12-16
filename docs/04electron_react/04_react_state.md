@@ -1,4 +1,4 @@
-## 4.4 Reaccionando a cambios de estado con `useState`
+# 4.4 Reaccionando a cambios de estado con `useState`
 
 Los componentes a menudo necesitan cambiar lo que se muestra en pantalla como resultado de una interacción. Escribir dentro de un formulario debería actualizar el campo de texto, hacer clic en «siguiente» en un carrusel de imágenes debería cambiar la imagen que es mostrada; hacer clic en un botón para comprar un producto debería actualizar el carrito de compras. En los ejemplos anteriores los componentes deben «recordar» cosas: el campo de texto, la imagen actual, el carrito de compras. En _React_, a este tipo de memoria de los componentes se le conoce como estado.
 
@@ -64,7 +64,7 @@ export default function Counter() {
 
 `useState` devuelve un array con dos elementos: el estado actual, y una función para actualizar el estado. En este ejemplo, el estado inicial es `0`, y la función para actualizar el estado es `setCounter`. Cuando se llama a `setCounter`, el componente se vuelve a renderizar, y se muestra el nuevo valor del contador.
 
-### Estado inicial
+## Estado inicial
 
 El estado inicial se pasa como argumento a `useState`. En el ejemplo anterior, el estado inicial es `0`:
 
@@ -74,7 +74,7 @@ const [counter, setCounter] = useState(0)
 
 El estado inicial puede ser cualquier valor, como un número, un string, un array, un objeto, etc.
 
-### Actualizar el estado
+## Actualizar el estado
 
 Para actualizar el estado, llamamos a la función que nos devuelve `useState`. En el ejemplo anterior, las funciones para actualizar utilizan `setCounter`:
 
@@ -89,7 +89,7 @@ function handleDecrement() {
 
 La función para actualizar el estado recibe como argumento el nuevo valor del estado. En el ejemplo, el nuevo valor del estado es `counter + 1`.
 
-### Leer el estado
+## Leer el estado
 
 Para leer el estado, utilizamos la variable que nos devuelve `useState`. En el ejemplo anterior, la variable que nos devuelve `useState` es `counter`:
 
@@ -213,7 +213,7 @@ En este ejemplo, la función recibe como parámetro el producto, y el índice de
 
 Es importante definir la propiedad `key`. Es necesaria para que _React_ pueda identificar cada elemento de la lista, y poder actualizarla correctamente cuando se modifique el estado.
 
-### Estados entre componentes
+## Estados entre componentes
 
 Para compartir estados entre componentes, podemos crear un componente que contenga el estado, y pasarlo como `props` a los componentes que lo necesiten.
 
@@ -258,7 +258,7 @@ Y utilizarlo en el componente `GroceryList`:
 
 De esta forma delegamos el comportamiento de cada elemento de la lista a un componente separado, y el componente `GroceryList` se encarga de gestionar el estado general de la lista.
 
-### Diálogo de confirmación
+## Diálogo de confirmación
 
 Para eliminar un elemento de la lista, podemos utilizar un diálogo de confirmación, podemos crear nuestro propio componente, o por ejemplo el `Modal` de _Bootstrap_. Para el ejemplo vamos a utilizar ipcRenderer para enviar un mensaje al proceso principal, y que este muestre el diálogo de confirmación del sistema.
 
