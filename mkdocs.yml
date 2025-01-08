@@ -44,8 +44,10 @@ nav:
     - 04electron_react/03_react_events.md
     - 04electron_react/04_react_state.md
     - 04electron_react/05_react_effect.md
+    - 04electron_react/06_react_router_redux.md
     - 04electron_react/ud4_act1.md
     - 04electron_react/ud4_act2.md
+    - 04electron_react/ud4_act3.md
   - Proyectos:
     - proyectos/01_watchlist.md
 
