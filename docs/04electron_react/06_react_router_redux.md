@@ -1,4 +1,6 @@
-# 4.6 Estado global con Redux
+# 4.6 Estado global y rutas
+
+## Estado global con Redux
 
 El estado global de una aplicación es el conjunto de datos que se comparte entre todos los componentes de la aplicación.
 
@@ -8,7 +10,7 @@ React incluye _Context API_ para compartir datos entre componentes, pero no es s
 
 _Redux_ es una librería de gestión de estado que nos permite almacenar y gestionar el estado de nuestra aplicación de forma centralizada. Redux es muy útil en aplicaciones grandes y complejas, ya que facilita la gestión de los datos y la comunicación entre componentes.
 
-## Conceptos de Redux
+### Conceptos de Redux
 
 - **Almacén** (_**Store**_): El almacén es un **objeto** que contiene **todo el estado de la aplicación**.
     - Es la única fuente para el estado y es **inmutable**.
@@ -36,7 +38,7 @@ flowchart LR
 
 La arquitectura de _Redux_ sigue un flujo de datos unidireccional y predecible. Las acciones se envían a través de los reductores, los cuales actualizan el estado en el almacén. Luego, los componentes conectados reciben actualizaciones del almacén y se vuelven a renderizar según sea necesario.
 
-## Instalación
+### Instalación
 
 Para añadir _Redux_ a nuestra aplicación de _React_, necesitamos instalar las siguientes dependencias:
 
@@ -67,7 +69,7 @@ $ npm install @reduxjs/toolkit react-redux
 - **`useDispatch`**: Un _hook_ que proporciona acceso al _dispatch_ del _store_ de _Redux_.
     - Se utiliza para **enviar acciones que modifican el estado global**.
 
-## Crear un _slice_
+### Crear un _slice_
 
 Vamos a crear tanto el _store_ como los _slices_ dentro de una nueva carpeta llamada `redux/` dentro de nuestro proyecto (`src/renderer/src/redux/`).
 
@@ -108,7 +110,7 @@ Explicación del código:
     
     El _reducer_ se utilizará más tarde para combinarlo con otros reductores y crear el _store_ de _Redux_.
 
-## Crear un nuevo _store_
+### Crear un nuevo _store_
 
 Dentro de la carpeta `redux/` crearemos un nuevo archivo `store.js`
 
@@ -131,7 +133,7 @@ Explicación del código:
 4. Se exporta el _store_ creado utilizando `export const store`. Esto permite que otros archivos de la aplicación accedan y utilicen el _store_.
 5. En la configuración del _store_, se especifica el _reducer_ `counterReducer` bajo el campo `reducer`. Esto establece que el reductor `counterReducer` manejará el estado del _slice_ llamado '`counter`'.
 
-## Integrar el _store_ en la aplicación mediante un _Provider_
+### Integrar el _store_ en la aplicación mediante un _Provider_
 
 Para conectar Redux con _React_, necesitamos envolver nuestra aplicación con el componente `Provider` de `react-redux` y pasarle el _store_ como _prop_.
 
@@ -152,7 +154,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 ```
 
-## Interactuar con el _store_ desde un componente
+### Interactuar con el _store_ desde un componente
 
 Para acceder al estado de _Redux_ en un componente de _React_, podemos utilizar el _hook_ **`useSelector`** de `react-redux`.
 
@@ -186,6 +188,84 @@ Explicación del código:
 5. Se utiliza el _hook_ `useDispatch` para obtener la función de envío de acciones. La función `dispatch` se utilizará para enviar las acciones `increment` y `decrement` al _store_ de _Redux_.
 6. El componente renderiza un título (`<h2>`) que muestra el valor del contador.
 7. Hay dos botones, uno para incrementar y otro para decrementar el contador. Cuando se hace clic en cualquiera de estos botones, se llama a la función `dispatch` con la acción correspondiente (`increment()` o `decrement()`), lo que actualiza el estado global.
+
+## Rutas con _React Router_
+
+[react-router-dom](https://reactrouter.com/en/main) es una librería para crear aplicaciones de una sola página (_SPA_) con _React_. Permite definir rutas para mostrar diferentes componentes y navegar entre ellos.
+
+Esto evita depender del proceso principal de _Electron_ para navegar entre páginas.
+
+### Instalación
+
+Para instalar la librería, ejecutamos el siguiente comando:
+
+```bash
+npm install react-router-dom
+```
+
+### Uso de **HashRouter**
+
+El componente `**HashRouter**` debe envolver a todos los componentes que utilicen rutas.
+
+!!! note "HashRouter vs BrowserRouter"
+    En un proyecto web, normalmente, se utiliza `BrowserRouter`, pero _Electron_, al pasar la aplicación a producción, por seguridad tiene desactivado el historial de navegación, por lo que no funciona correctamente.
+
+```jsx title="src/renderer/src/App.jsx" linenums="1"
+import { HashRouter, Route, Routes } from 'react-router-dom'
+
+import AppList from './AppList'
+import AppEditItem from './AppEditItem'
+
+export default function App() {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<AppList />} />
+        <Route path="/:itemId" element={<AppEditItem />} />
+      </Routes>
+    </HashRouter>
+  )
+}
+```
+
+En el ejemplo, el componente `HashRouter` envuelve a los componentes `AppList` y `AppEditItem`.
+
+El componente `Routes` que contiene las rutas de la aplicación.
+
+Cada ruta se define con el componente `Route`, que tiene dos propiedades: `path` y `element`.
+
+La propiedad `path` define la ruta, y la propiedad `element` define el componente que se mostrará cuando se acceda a la ruta.
+
+Desde un componente se puede navegar a una ruta con el componente `Link` o `useNavigate`:
+
+```js title="src/renderer/src/components/Item.jsx" linenums="1"
+import { Link, useNavigate } from 'react-router-dom'
+
+export default function Item({item}) {
+  const navigate = useNavigate()
+  return (
+    <div>
+      <button onClick={() => navigate(`./${item.id}`)}>Editar</button>
+      <Link to={`./${item.id}`}>Editar</Link>
+    </div>
+  )
+}
+```
+
+Desde el componente que recibe la ruta, se puede obtener el parámetro con el componente `useParams`:
+
+```js title="src/renderer/src/components/Item.jsx" linenums="1"
+import { useParams } from 'react-router-dom'
+
+export default function Item() {
+  const { itemId } = useParams()
+  return (
+    <div>
+      <h1>Item {itemId}</h1>
+    </div>
+  )
+}
+```
 
 ## Referencias
 
