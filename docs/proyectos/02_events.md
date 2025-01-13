@@ -55,10 +55,7 @@ Se plantearán una serie de requisitos y funcionalidades que deberán ser implem
     - **`price`**: Número decimal. Precio del evento, en euros. Por defecto, 0 (gratuito). **Obligatorio**.
     - **`image`**: Cadena de texto con la URL de la imagen.
 - Utiliza **Redux** para gestionar el estado de la aplicación.
-- Utiliza **React Router** para la navegación entre las vistas.
 - Crear los siguientes **componentes** y vistas:
-    - `EventCreate`: **Formulario** para **crear** un evento.
-    - `EventEdit`: **Formulario** para **editar** un evento.
     - `EventDetail`: **Vista detallada** de un evento. Mostrará **todos los atributos** del evento.
     - `EventList`: Muestra la lista de eventos.
         - **Limitar la lista a 10 elementos** y añadir un botón para cargar más eventos.
@@ -71,9 +68,17 @@ Se plantearán una serie de requisitos y funcionalidades que deberán ser implem
                 - Si el evento ha **caducado**, tiene fecha anterior a la actual.
                 - Si el evento está **próximo**, en los próximos 7 días.
 
-        <!-- - `EventListFilter`: **Filtros** para la lista de eventos. Mostrará el número de eventos que cumplen los filtros.
-            - **Buscar por nombre**, case insensitive y que contenga el texto.
-            - Filtrar por **periodo de fechas**. -->
+## Sprint 2 - Editar, detalles, navegación, filtros
+
+(20/01/2025 - 26/01/2025)
+
+- Utiliza **React Router** para la navegación entre las vistas.
+- Nuevos componentes:
+    - `EventCreate`: **Formulario** para **crear** un evento.
+    - `EventEdit`: **Formulario** para **editar** un evento.
+    - `EventListFilter`: **Filtros** para la lista de eventos. Mostrará el número de eventos que cumplen los filtros.
+        - **Buscar por nombre**, case insensitive y que contenga el texto.
+        - Filtrar por **periodo de fechas**.
 
 <!-- - **Funcionalidades**:
     - **Listado de elementos**.
