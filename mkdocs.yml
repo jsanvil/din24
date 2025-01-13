@@ -50,6 +50,7 @@ nav:
     - 04electron_react/ud4_act3.md
   - Proyectos:
     - proyectos/01_watchlist.md
+    - proyectos/02_events.md
 
 theme:
   name: material

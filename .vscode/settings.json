@@ -1,5 +1,22 @@
 {
-  "cSpell.words": [
-    "como"
-  ]
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#31986b",
+    "activityBar.background": "#31986b",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#d2b7e8",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#31986b",
+    "statusBar.background": "#257250",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#31986b",
+    "statusBarItem.remoteBackground": "#257250",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#257250",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#25725099",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#257250"
 }
