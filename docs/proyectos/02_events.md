@@ -80,6 +80,58 @@ Se plantearán una serie de requisitos y funcionalidades que deberán ser implem
         - **Buscar por nombre**, case insensitive y que contenga el texto.
         - Filtrar por **periodo de fechas**.
 
+<!-- 
+## Sprint 3 - Persistencia y preferencias
+
+(27/01/2025 - 02/02/2025)
+
+## Objetivos
+
+- Utilizar **MongoAtlas** para la persistencia de los eventos.
+- Guardar las **preferencias** de usuario de forma local.
+    - **Idioma**.
+    - **Tema**.
+    - **Filtros** aplicados.
+    - **Orden** de la lista de eventos.
+
+## Sprint 4 - Internacionalización y accesibilidad
+
+(03/02/2025 - 09/02/2025)
+
+## Objetivos
+
+- Implementar **internacionalización** en la aplicación.
+- Añadir **accesibilidad** a la aplicación.
+    - **Contraste** de colores.
+    - **Teclado** para la navegación.
+
+## Sprint 5 - Usabilidad y diseño
+
+(10/02/2025 - 16/02/2025)
+
+## Objetivos
+
+- Añadir **estilos** a la aplicación.
+- Realizar un **diseño** de la aplicación.
+    - **Boceto** de las vistas.
+    - **Librerías** de componentes.
+    - **Consistencia** y **atractivo** en el diseño.
+    - **Usabilidad**.
+
+## Sprint 6 - Pruebas y documentación
+
+(17/02/2025 - 21/02/2025)
+
+## Objetivos
+
+- Realizar **pruebas** de la aplicación.
+- **Documentación** del proyecto.
+    - **README.md** con los detalles del proyecto.
+    - **Comentarios** en el código.
+    - **Tags** en los _commits_ de cada _sprint_.
+    - **Repositorio** en _GitHub_.
+    - **Estilo** de código limpio y ordenado. -->
+
 <!-- - **Funcionalidades**:
     - **Listado de elementos**.
         - El estado se debe representar con **colores** y/o **iconos**.
