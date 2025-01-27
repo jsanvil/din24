@@ -80,20 +80,20 @@ Se plantearán una serie de requisitos y funcionalidades que deberán ser implem
         - **Buscar por nombre**, case insensitive y que contenga el texto.
         - Filtrar por **periodo de fechas**.
 
-<!-- 
 ## Sprint 3 - Persistencia y preferencias
 
 (27/01/2025 - 02/02/2025)
 
 ## Objetivos
 
-- Utilizar **MongoAtlas** para la persistencia de los eventos.
+- Persistencia de datos en almacenamiento local.
+    - Guardar y cargar la lista de eventos en un fichero JSON almacenado en el perfil de usuario.
+    - **Operaciones** en segundo plano.
 - Guardar las **preferencias** de usuario de forma local.
-    - **Idioma**.
-    - **Tema**.
     - **Filtros** aplicados.
     - **Orden** de la lista de eventos.
 
+<!--
 ## Sprint 4 - Internacionalización y accesibilidad
 
 (03/02/2025 - 09/02/2025)
