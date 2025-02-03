@@ -43,8 +43,6 @@ Se plantearán una serie de requisitos y funcionalidades que deberán ser implem
 
 (13/01/2025 - 19/01/2025)
 
-### Objetivos
-
 - Crear **nuevo proyecto** utilizando _**electron-vite**_.
 - El modelo de **datos** de un evento (**`EventItem`**) contendrá los siguientes atributos:
     - **`id`**: Cadena de texto única generada automáticamente.
@@ -84,8 +82,6 @@ Se plantearán una serie de requisitos y funcionalidades que deberán ser implem
 
 (27/01/2025 - 02/02/2025)
 
-## Objetivos
-
 - Persistencia de datos en almacenamiento local.
     - Guardar y cargar la lista de eventos en un fichero JSON almacenado en el perfil de usuario.
     - **Operaciones** en segundo plano.
@@ -93,18 +89,116 @@ Se plantearán una serie de requisitos y funcionalidades que deberán ser implem
     - **Filtros** aplicados.
     - **Orden** de la lista de eventos.
 
-<!--
-## Sprint 4 - Internacionalización y accesibilidad
+## Sprint 4 - Integración con API de eventos
 
 (03/02/2025 - 09/02/2025)
 
-## Objetivos
+Integrar llamadas a una **API** de eventos.
 
-- Implementar **internacionalización** en la aplicación.
-- Añadir **accesibilidad** a la aplicación.
-    - **Contraste** de colores.
-    - **Teclado** para la navegación.
+En este punto, puedes migrar la persistencia de datos a la API o mantener la persistencia local y utilizar la API cómo fuente de datos.
 
+Consultar repositorio: [https://github.com/jsanvil/din25-events-api](https://github.com/jsanvil/din25-events-api) para más información. **`API_KEY` en _Aules_**
+
+El repositorio contiene una API de eventos que se puede utilizar para obtener eventos de ejemplo. No hace falta implementar la API, solo consumirla, pero tienes la opción de implementar tu propia API.
+   
+!!!note "API de eventos"
+    La API puede no estar disponible en todo momento y puede tener un límite de peticiones.
+
+Implementar llamadas a la API desde el proceso principal de _Electron_ y almacenar los eventos en el estado de la aplicación para mostrarlos en la lista.
+
+### API URL
+
+- [https://din25-events.jacinto-sanchez.workers.dev/api/v1/events](https://din25-events.jacinto-sanchez.workers.dev/api/v1/events)
+
+### Endpoints
+
+- `GET /api/v1/events`: Obtener lista de eventos. Soporta parámetros de consulta para búsqueda, filtrado por fecha, paginación y ordenación. (Ver abajo)
+- `GET /api/v1/events/:id`: Obtener un evento por id.
+- `POST /api/v1/events`: Crear un nuevo evento.
+- `PUT /api/v1/events/:id`: Actualizar un evento por id.
+- `DELETE /api/v1/events/:id`: Eliminar un evento por id.
+
+### Esquema del evento
+
+```json
+{
+  "id": "EVENT_ID",
+  "title": "Event Title",
+  "description": "Event Description",
+  "location": "Event Location",
+  "date": "2025-01-01 00:00",
+  "price": 0.0,
+  "image": "https://example.com/image.jpg"
+}
+```
+
+### Parámetros de consulta
+
+- Filtros:
+    - `search`: Buscar eventos que contengan la cadena dada en el nombre o descripción.
+    - `min_date`: Filtrar eventos por fecha mínima. (Fecha en formato ISO 8601 o marca de tiempo Unix)
+    - `max_date`: Filtrar eventos por fecha máxima. (Fecha en formato ISO 8601 o marca de tiempo Unix)
+- Paginación:
+    - `limit`: Limitar el número de eventos devueltos. (Entero entre 1 y 10)
+    - `offset`: Desplazar el número de eventos devueltos. (Entero >= 0)
+- Ordenar:
+    - `sort`: Ordenar eventos por un campo. (Cadena) "title" | "location" | "date" | "price"
+    - `order`: Ordenar eventos por un campo. (Cadena) "asc" | "desc"
+
+_Ejemplos:_
+
+- `GET /api/v1/events?search=Event`: Buscar eventos que contengan la cadena "Event".
+- `GET /api/v1/events?min_date=2025-01-01`: Filtrar eventos por fecha mínima.
+- `GET /api/v1/events?max_date=2025-12-31`: Filtrar eventos por fecha máxima.
+- `GET /api/v1/events?min_date=2025-01-01&max_date=2025-12-31`: Filtrar eventos por fecha mínima y máxima.
+- `GET /api/v1/events?search=Event&min_date=2025-01-01`: Buscar eventos que contengan la cadena "Event" y filtrar por fecha mínima.
+- `GET /api/v1/events?limit=10&offset=0`: Limitar el número de eventos devueltos y desplazar los resultados.
+- `GET /api/v1/events?sort=title&order=asc`: Ordenar eventos por título en orden ascendente.
+- `GET /api/v1/events?sort=date&order=desc`: Ordenar eventos por fecha en orden descendente.
+- `GET /api/v1/events?search=Event&min_date=2025-01-01&limit=10&offset=0&sort=title&order=asc`: Buscar eventos que contengan la cadena "Event", filtrar por fecha mínima, limitar el número de eventos devueltos, desplazar los resultados, ordenar por título en orden ascendente.
+
+### Autenticación
+
+Se requiere autenticación mediante token en el **header** para todas las solicitudes.
+
+**`x-api-key`**: Clave API para autenticación.
+
+**🔐 Una `API_KEY` válida estará disponible en el _Moodle_ de los estudiantes.**
+
+_Ejemplo:_
+
+```shell
+curl -X POST https://din25-events.jacinto-sanchez.workers.dev/api/v1/events \
+-H "x-api-key: API_KEY" \
+-H "Content-Type: application/json" \
+-d '{"title": "New Event", "description": "This is a new event.", "location": "New Location", "date": "2025-01-01", "price": 0}'
+```
+
+```js
+fetch(
+  'https://din25-events.jacinto-sanchez.workers.dev/api/v1/events',
+  {
+    method: 'POST',
+    headers: {
+      'x-api-key': 'API-KEY',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      title: 'New Event',
+      description: 'This is a new event.',
+      location: 'New Location',
+      date: '2025-01-01',
+      price: 0
+    })
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+```
+
+
+
+<!--
 ## Sprint 5 - Usabilidad y diseño
 
 (10/02/2025 - 16/02/2025)
@@ -117,6 +211,10 @@ Se plantearán una serie de requisitos y funcionalidades que deberán ser implem
     - **Librerías** de componentes.
     - **Consistencia** y **atractivo** en el diseño.
     - **Usabilidad**.
+- Implementar **internacionalización** en la aplicación.
+- Añadir **accesibilidad** a la aplicación.
+    - **Contraste** de colores.
+    - **Teclado** para la navegación.
 
 ## Sprint 6 - Pruebas y documentación
 

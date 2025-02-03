@@ -48,6 +48,10 @@ nav:
     - 04electron_react/ud4_act1.md
     - 04electron_react/ud4_act2.md
     - 04electron_react/ud4_act3.md
+  - UD 5 Gestión de datos:
+    - 05electron_db/index.md
+    - 05electron_db/01_architecture.md
+    - 05electron_db/02_apirest.md
   - Proyectos:
     - proyectos/01_watchlist.md
     - proyectos/02_events.md
