@@ -196,26 +196,21 @@ fetch(
   .catch(error => console.error(error));
 ```
 
-
-
-<!--
 ## Sprint 5 - Usabilidad y diseño
 
 (10/02/2025 - 16/02/2025)
 
-## Objetivos
-
-- Añadir **estilos** a la aplicación.
-- Realizar un **diseño** de la aplicación.
+- Documentar el **diseño** de la aplicación:
     - **Boceto** de las vistas.
+    - **Flujo de navegación** entre las vistas.
+    - Criterios de **Usabilidad**.
     - **Librerías** de componentes.
-    - **Consistencia** y **atractivo** en el diseño.
-    - **Usabilidad**.
-- Implementar **internacionalización** en la aplicación.
 - Añadir **accesibilidad** a la aplicación.
-    - **Contraste** de colores.
-    - **Teclado** para la navegación.
+    - En las **fuentes de letra** se debe cuidar el **tamaño** y **contraste** de color.
+    - **Atajos de teclado** para "_buscar_" y volver a la "_vista principal_".
+    - Implementar **internacionalización** en la aplicación con al menos dos idiomas.
 
+<!--
 ## Sprint 6 - Pruebas y documentación
 
 (17/02/2025 - 21/02/2025)
