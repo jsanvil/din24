@@ -2,7 +2,7 @@
 
 ## Introducción
 
-Desde ES2015 la POO en Javascript es similar a como se hace en otros lenguajes:
+Desde _ES2015_ la POO en _Javascript_ es similar a como se hace en otros lenguajes:
 
 ```js linenums="1" title="Ejemplo de clase en ES2015"
 class Alumno {
@@ -202,7 +202,7 @@ console.log(alumno1 < alumno2)     // imprime true ya que 19 < 23
 
 ## Propiedades privadas
 
-En ES2019 se añadió el _hastag_ `#` para declarar variables privadas en las clases. Estas variables solo son accesibles desde la clase en la que se declaran.
+En _ES2019_ se añadió el _hastag_ `#` para declarar variables privadas en las clases. Estas variables solo son accesibles desde la clase en la que se declaran.
 
 También se pueden definir _getters_ y _setters_ para acceder a estas variables privadas.
 

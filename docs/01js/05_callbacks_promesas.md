@@ -285,11 +285,11 @@ Lo que hace `await` (dentro de la función) es detener la ejecución y no contin
 
 `await` sólo se puede utilizar dentro de una función `async`, y si se utiliza fuera de ella, se producirá un error.
 
-```
+```txt
 Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules
 ```
 
-Sin embargo, vamos a pararnos un poco a pensar esto desde las bases. Definamos dos funciones básicas exactamente iguales, ambas devuelven lo mismo, pero una es síncrona y otra asíncrona:
+Vamos a analizar un poco más en detalle cómo se comportan las funciones `async` y `await`. En primer lugar, vamos a ver cómo se comportan las funciones síncronas y asíncronas:
 
 ```js
 function sincrona() { return 42 }
@@ -330,7 +330,7 @@ En este caso, observa que se utiliza `.then()` para recibir la respuesta de la p
 
 ### Asincronía en async/await
 
-Volvamos al ejemplo de las tiradas de dados. La función `throwDices()` realiza 10 lanzamientos de un dado y nos devuelve los resultados obtenidos o detiene la tarea si se obtiene un `6`. La implementación de la función sufre algunos cambios, simplificándose considerablemente.
+Volvamos al ejemplo de las tiradas de dados. La función `throwDices()` realiza 10 lanzamientos de un dado de 6 caras y nos devuelve los resultados obtenidos o detiene la tarea si se obtiene un `6`. La implementación de la función sufre algunos cambios, simplificándose considerablemente.
 
 - En primer lugar, añadimos la palabra clave `async` antes de los parámetros de la _arrow function_.
 - En segundo lugar, desaparece cualquier mención a promesas, se devuelven directamente los objetos, ya que al ser una función `async` se devolverá todo envuelto en una _Promise_.

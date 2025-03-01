@@ -4,15 +4,15 @@
 
 **Javascript**, muchas veces abreviado como **JS**, es un lenguaje de programación interpretado de alto nivel, usado principalmente en el lado del cliente (navegador web) y en el servidor (_Node.js_).
 
-Es un lenguaje orientado a objetos, basado en prototipos, de tipado dinámico y devil. *Javascript* tiene una sintaxis similar a _C++_ y _Java_.
+Es un lenguaje orientado a objetos, basado en prototipos, de tipado dinámico y devil. _Javascript_ tiene una sintaxis similar a _C++_ y _Java_.
 
 ## ECMAScript
 
-_**ECMAScript**_ (abreviado como **ES**) es la **especificación** del lenguaje de programación que se basa en *Javascript*. La última versión es la _**ECMAScript 2024**_ (_ES2024_) aunque la más usada es la _**ECMAScript 2015**_ (_ES6_) que introdujo muchas novedades en el lenguaje.
+_**ECMAScript**_ (abreviado como **ES**) es la **especificación** del lenguaje de programación que se basa en _Javascript_. La última versión es la _**ECMAScript 2024**_ (_ES2024_), aunque la más usada es la _**ECMAScript 2015**_ (_ES6_) que introdujo muchas novedades en el lenguaje, como las **constantes**, **let**, **arrow functions**, **clases**, **módulos**, etc.
 
 ## Comentarios
 
-Los comentarios en *Javascript* se pueden hacer de 2 formas:
+Los comentarios en _Javascript_ se pueden hacer de dos formas:
 
 * **`//`**: para comentarios de una línea
 * **`/* ... */`**: para comentarios de varias líneas
@@ -26,12 +26,47 @@ Los comentarios en *Javascript* se pueden hacer de 2 formas:
 
 ## Sentencias
 
-Las sentencias en *Javascript* terminan con un punto y coma **`;`**. Aunque no es obligatorio ponerlo al final de cada sentencia es recomendable hacerlo para evitar errores.
+Las sentencias en _Javascript_ terminan con un punto y coma **`;`**. Aunque no es obligatorio ponerlo al final de cada sentencia es recomendable hacerlo para evitar errores.
 
 ```js linenums="1"
 let x = 5;  // sentencia
 let y = 6;  // sentencia
 let z = x + y;  // sentencia
+```
+
+## Logs
+
+Para mostrar mensajes en la consola del navegador se usa la función **`console.log()`**.
+
+```js linenums="1"
+console.log('Hola mundo');
+```
+
+Existen otras funciones como **`console.error()`**, **`console.warn()`**, **`console.info()`**, **`console.table()`**, **`console.time()`**, **`console.timeEnd()`**, etc.
+
+```js linenums="1"
+console.time('Tiempo');  // Inicia un temporizador, se le pasa un nombre para identificarlo
+console.error('Error');
+console.warn('Advertencia');
+console.info('Información');
+console.table(['Manzana', 'Pera', 'Naranja']); // Muestra una tabla con los datos
+console.timeEnd('Tiempo');  // Finaliza el temporizador y muestra el tiempo transcurrido
+```
+
+El resultado de la ejecución depende de la consola donde se ejecute, y cada tipo de mensaje suele representarse con iconos o colores.
+
+```txt title="Resultado de la ejecución"
+❌ Error
+⚠️ Advertencia
+Información
+┌─────────┬───────────┐
+│ (index) │ Values    │
+├─────────┼───────────┤
+│ 0       │ 'Manzana' │
+│ 1       │ 'Pera'    │
+│ 2       │ 'Naranja' │
+└─────────┴───────────┘
+Tiempo: 5.468ms
 ```
 
 ## Bloques
@@ -51,23 +86,23 @@ Los bloques de código se encierran entre llaves **`{ }`**. Un bloque puede cont
 
 ## Variables
 
-Javascript es un lenguaje con **tipado dinámico**. Esto significa que no se indica de qué tipo es una variable al declararla e incluso puede cambiar su tipo a lo largo de la ejecución del programa.
+_Javascript_ es un lenguaje con **tipado dinámico**. Esto significa que no se indica el tipo de una variable al declararla e incluso puede cambiar su tipo a lo largo de la ejecución del programa.
 
-Esto se conoce como **inferencia de tipos**. *Javascript* intenta adivinar el tipo de una variable en función del valor que se le asigna.
+Esto se conoce como **inferencia de tipos**. _Javascript_ intenta adivinar el tipo de una variable en función del valor que se le asigna.
 
 Ejemplo:
 
 ```js linenums="1"
-let miVariable;          // declaro miVariable y como no se asigno un valor valdrá undefined
+let miVariable;          // declara miVariable y como no se asigno un valor valdrá undefined
 miVariable = 'Hola';     // ahora su valor es 'Hola', por tanto contiene una cadena de texto
-miVariable = 34;         // pero ahora contiene un número
-miVariable = [3, 45, 2]; // y ahora un array
-miVariable = undefined;  // para volver a valer el valor especial undefined
+miVariable = 34;         // ahora contiene un número
+miVariable = [3, 45, 2]; // ahora un objeto array
+miVariable = undefined;  // por último vuelve a valer undefined
 ```
 
 Ni siquiera es obligatorio a declarar una variable antes de usarla, aunque es recomendable para evitar errores.
 
-Las variables de declaran con **`let`** (lo recomendado desde ES2015), aunque también pueden declararse con **`var`**. La diferencia es que con _`let`_ la variable sólo existe en el bloque en que se declara mientras que con _`var`_ la variable es global. Ejemplo:
+Las variables de declaran con **`let`** (lo recomendado desde ES2015), aunque también pueden declararse con **`var`**. La diferencia es que con _`let`_ la variable sólo existe en el bloque en que se declara mientras que con _`var`_ la variable es **global**. Ejemplo:
 
 ```js linenums="1"
 let edad = 25;
@@ -104,6 +139,64 @@ PI = 3.14;              // Error: Assignment to constant variable
 MAXIMO_INTENTOS = 5;    // Error: Assignment to constant variable
 ```
 
+Otro uso común de las constantes es almacenar objetos o arrays que no van a cambiar. Ejemplo:
+
+```js linenums="1"
+const colores = ['rojo', 'verde', 'azul'];
+const persona = {
+    nombre: 'Juan',
+    edad: 25
+};
+```
+
+### Ámbito de las variables
+
+El **ámbito** de una variable es la parte del programa donde se puede acceder a ella. En _Javascript_ las variables declaradas con **`let`** tienen un ámbito de **bloque**. Esto significa que sólo se pueden acceder a ellas dentro del bloque en que se declaran.
+
+```js linenums="1"
+{
+    let x = 5;
+    console.log(x);  // 5
+}
+
+console.log(x);  // Error: x is not defined
+```
+
+Las variables declaradas con **`var`** tienen un ámbito de **función**. Esto significa que sólo se pueden acceder a ellas dentro de la función en que se declaran.
+
+```js linenums="1"
+function miFuncion() {
+    var y = 6;
+    console.log(y);  // 6
+}
+
+console.log(y);  // Error: y is not defined
+```
+
+### Hoisting
+
+El **hoisting** es un comportamiento de _Javascript_ que mueve las declaraciones de variables y funciones al principio del ámbito en que se encuentran. Esto significa que podemos usar una variable o función antes de declararla.
+
+```js linenums="1"
+console.log(miVariable);  // undefined
+var miVariable = 5;
+```
+
+Esto es porque _Javascript_ interpreta el código de la siguiente forma:
+
+```js
+var miVariable;
+console.log(miVariable);
+miVariable = 5;
+```
+
+Esto sólo ocurre con las variables declaradas con **`var`**. Las variables declaradas con **`let`** y **`const`** no tienen hoisting y si intentamos usarlas antes de declararlas se produce un error.
+
+```js linenums="1"
+console.log(miVariable);  // Error: Cannot access 'miVariable' before initialization
+let miVariable = 5;
+```
+
 ## Tipos de datos básicos
 
 En Javascript ES2015 existen 9 tipos de datos:
@@ -119,7 +212,7 @@ En Javascript ES2015 existen 9 tipos de datos:
 - No primitivos:
     - Object (Array, Function, Date, Map, Set, etc.)
 
-Los primitivos son inmutables, es decir, no se pueden modificar. Si se modifica una variable que contiene un valor primitivo se crea una nueva variable con el nuevo valor.
+Los primitivos son **inmutables**, es decir, no se pueden modificar. Si se modifica una variable que contiene un valor primitivo se crea una nueva variable con el nuevo valor.
 
 Para saber de qué tipo es el valor de una variable tenemos el operador **`typeof`**. Ej.:
 
@@ -133,12 +226,12 @@ Existen dos valores especiales:
 
 También hay otros valores especiales relacionados con operaciones con números:
 
-- **NaN** (_Not a Number_): indica que el resultado de la operación no puede ser convertido a un número (ej. `'Hola'*2`, aunque `'2'*2` daría 4 ya que se convierte la cadena '2' al número 2)
-- **Infinity** y **-Infinity**: indica que el resultado es demasiado grande o demasiado pequeño (ej. `1/0` o `-1/0`)
+- **NaN** (_Not a Number_): indica que el resultado de la operación no puede ser convertido a un número (ej. `'Hola' * 2`, aunque `'2' * 2` daría `4` ya que se convierte la cadena `'2'` al número `2`)
+- **Infinity** y **-Infinity**: indica que el resultado es demasiado grande o demasiado pequeño (ej. `1 / 0` o `-1 / 0`)
 
 ### _Casting_ de variables
 
-Como hemos dicho las variables pueden contener cualquier tipo de valor y, en las operaciones, *Javascript* al ser débilmente tipado, realiza **automáticamente** las conversiones necesarias para, si es posible, realizar la operación. Por ejemplo:
+Como hemos dicho las variables pueden contener cualquier tipo de valor y, en las operaciones, _Javascript_ al ser débilmente tipado, realiza **automáticamente** las conversiones necesarias para, si es posible, realizar la operación. Por ejemplo:
 
 * `'4' / 2` devuelve `2` (convierte `'4'` en `4` y realiza la operación)
 * `'23' - null` devuelve `23` (`23 - 0`)
@@ -148,7 +241,7 @@ Como hemos dicho las variables pueden contener cualquier tipo de valor y, en las
 * `23 + 'Hello'` devuelve `'23Hello'` (`+` es el operador de concatenación así que convierte `23` a `'23'` y los concatena)
 * `23 + '23'` devuelve `'2323'` (convierte el número `23` a *string*, no al revés)
 
-Además comentar que en *Javascript* todo son objetos por lo que todo tiene métodos y propiedades. Veamos brevemente los tipos de datos básicos.
+Además comentar que en _Javascript_ todo son objetos por lo que todo tiene métodos y propiedades. Veamos brevemente los tipos de datos básicos.
 
 ### Number
 
@@ -184,13 +277,13 @@ Algunos métodos útiles de los números son:
 
     _Ej.: `23.76.toLocaleString()` devuelve `"23,76"` (convierte el punto decimal en coma)_
 
-Se puede forzar la conversión de una cade de texto a número con la función **Number(valor)**. Ejemplo `Number("23.12")` devuelve `23.12`
+Se puede forzar la conversión de una cadena de texto a número con la función **`Number(valor)`**. Ejemplo `Number("23.12")` devuelve `23.12`
 
 Otras funciones útiles son:
 
-- **isNaN(valor)**: nos dice si el valor pasado es un número (`false`) o no (`true`).
-- **isFinite(valor)**: devuelve _`true`_ si el valor es finito (no es _`Infinity`_ ni _`-Infinity`_). 
-- **parseInt(valor)**: convierte el valor pasado a un número entero. Siempre que comience por un número la conversión se podrá hacer. Ej.:
+- **`isNaN(valor)`**: nos dice si el valor pasado es un número (`false`) o no (`true`).
+- **`isFinite(valor)`**: devuelve _`true`_ si el valor es finito (no es _`Infinity`_ ni _`-Infinity`_). 
+- **`parseInt(valor)`**: convierte el valor pasado a un número entero. Siempre que comience por un número la conversión se podrá hacer. Ej.:
     ```javascript
     parseInt(3.65)      // Devuelve 3
     parseInt('3.65')    // Devuelve 3
@@ -198,7 +291,7 @@ Otras funciones útiles son:
     parseInt('tres')        // Devuelve NaN
     ```
 
-- **parseFloat(valor)**: como la anterior pero conserva los decimales.
+- **`parseFloat(valor)`**: como la anterior pero conserva los decimales.
 
 !!! warning "Precisión"
     al sumar *floats* podemos tener problemas de precisión. Por ejemplo:
@@ -213,7 +306,7 @@ Otras funciones útiles son:
 
 Las cadenas de texto van entre comillas simples o dobles, es indiferente. Podemos escapar un caràcter con `\` (ej. `'Hola \'Mundo\''` devuelve _`Hola 'Mundo'`_).
 
-Para forzar la conversión a cadena se usa la función **`String(value)`** (ej. `String(23)` devuelve '23')
+Para forzar la conversión a cadena se usa la función **`String(value)`** (ej. `String(23)` devuelve `'23'`)
 
 El operador de concatenación de cadenas es **`+`**.
 

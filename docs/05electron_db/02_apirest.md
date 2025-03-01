@@ -16,7 +16,7 @@ Los **métodos** HTTP más comunes utilizados en una API REST son:
 
 ## Endpoints
 
-Un _**endpoint**_ es una URL que se utiliza para acceder a un recurso o a una colección de recursos. Por ejemplo, si tenemos una API REST que gestiona usuarios, podríamos tener los siguientes endpoints:
+Un _**endpoint**_ es una URL que se utiliza para acceder a un recurso o a una colección de recursos. Por ejemplo, si tenemos una API REST que gestiona usuarios, podríamos tener los siguientes _endpoints_:
 
 - `GET /users`: Obtiene todos los usuarios.
 - `GET /users/:id`: Obtiene un usuario por su ID.
@@ -26,24 +26,25 @@ Un _**endpoint**_ es una URL que se utiliza para acceder a un recurso o a una co
 
 ## Autenticación
 
-La autenticación es un aspecto importante en una API REST, ya que permite controlar el acceso a los recursos. Existen diferentes métodos de autenticación, cómo por ejemplo:
+La autenticación es un aspecto importante en una _API REST_, ya que permite controlar el acceso a los recursos. Existen diferentes métodos de autenticación, cómo por ejemplo:
 
-- **Basic Auth**: Se envían las credenciales (usuario y contraseña) en la cabecera de la petición. Es un método sencillo pero menos seguro.
-- **API Key**: Se envía una clave de API en la cabecera de la petición. Se utiliza para identificar a la aplicación que realiza la petición.
-- **Bearer Token**: Se envía un token de acceso en la cabecera de la petición. Asocian un token con un usuario o aplicación.
-- **JWT (JSON Web Token)**: Se envía un token codificado en la cabecera de la petición. Los JWT son tokens que contienen información codificada en formato JSON.
-- **OAuth**: Se utiliza un flujo de autorización para obtener un token de acceso. Se utiliza para delegar la autenticación a un proveedor de identidad externo (Google, Facebook, etc.).
+- **Basic Auth**: Se envían las credenciales (usuario y contraseña) en la cabecera de la petición. Es un método sencillo pero muy poco seguro.
+- **API Key**: Se envía una clave de API en la cabecera de la petición. Se utiliza para identificar a la aplicación que realiza la petición. Debe ser secreta y única para cada aplicación.
+- **Bearer Token**: Se envía un token de acceso en la cabecera de la petición. Se utiliza para identificar a un usuario autenticado. El token se obtiene mediante un proceso de autenticación previo.
+- **JWT (JSON Web Token)**: Se envía un token codificado en la cabecera de la petición. Los JWT son tokens que contienen información codificada en formato JSON. Se utilizan para autenticar y autorizar a los usuarios.
+- **OAuth**: Se utiliza un flujo de autorización para obtener un token de acceso. Se utiliza para delegar la autenticación a un proveedor de identidad externo (_Google_, _Facebook_, etc.).
 
 ## Variables de entorno
 
-Las **variables de entorno** son valores que se utilizan en una aplicación para configurar su comportamiento. Se utilizan para almacenar información sensible, cómo claves de API, tokens de acceso, URLs de servicios, etc. y se acceden desde el código de la aplicación.
+Las **variables de entorno** son valores que se utilizan en una aplicación para configurar su comportamiento. Se utilizan para almacenar información sensible, cómo claves de API (_API keys_), _tokens_ de acceso, URLs de servicios, etc. y se acceden desde el código de la aplicación.
+
+Las variables de entorno se pueden configurar en un archivo **`.env`** en la raíz del proyecto. Este archivo se utiliza para almacenar las variables de entorno y se carga automáticamente en la aplicación. Debemos tener en cuenta que las variables de entorno **no deben ser compartidas ni subidas a un repositorio público**, ya que pueden contener información sensible, para ello se debe añadir el archivo `.env` al archivo **`.gitignore`**.
 
 En nuestro caso, `electron-vite` cargará variables de entorno desde la raíz del proyecto, y usará diferentes prefijos para limitar el alcance disponible.
 
 Por defecto, las variables con el prefijo `MAIN_VITE_` están disponibles para el proceso principal, `PRELOAD_VITE_` para los scripts de precarga, `RENDERER_VITE_` para los renderizadores y `VITE_` para todos.
 
-```env
-# .env
+```env title=".env"
 KEY=123                # no disponible
 MAIN_VITE_KEY=123      # solo disponible para el proceso principal
 PRELOAD_VITE_KEY=123   # solo disponible para los scripts de precarga
@@ -60,7 +61,7 @@ console.log(process.env.VITE_KEY);
 
 ## fetch()
 
-`fetch()` es una función de JavaScript que se utiliza para realizar peticiones HTTP. Es una API moderna que proporciona una interfaz sencilla y potente para realizar solicitudes de red. `fetch()` devuelve una promesa que resuelve la respuesta de la petición.
+`fetch()` es una función de _JavaScript_ que se utiliza para realizar peticiones HTTP. Es una API moderna que proporciona una interfaz sencilla y potente para realizar solicitudes de red. `fetch()` devuelve una promesa que resuelve la respuesta de la petición.
 
 ### Sintaxis
 
@@ -108,7 +109,7 @@ Descripción de los elementos de la sintaxis:
 En el repositorio [https://github.com/jsanvil/din25-events-api](https://github.com/jsanvil/din25-events-api) se encuentra la documentación de una API REST que gestiona eventos. En este repositorio se pueden encontrar los endpoints disponibles, así cómo ejemplos de uso de la API.
 
 !!!note "API de eventos"
-    La API puede no estar disponible en todo momento y puede tener un límite de peticiones.
+    La API puede no estar disponible en todo momento y puede tener un límite de peticiones, por lo que debemos configurar nuestras aplicaciones para manejar errores y reintentar las peticiones en caso de fallo, informando al usuario de la situación.
 
 ### API URL
 
