@@ -18,5 +18,10 @@
     "titleBar.inactiveBackground": "#25725099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "#257250"
+  "peacock.color": "#257250",
+  "cSpell.language": "es-ES,es",
+  "cSpell.enabledFileTypes": {
+    "*": false,
+    "markdown": true
+  }
 }

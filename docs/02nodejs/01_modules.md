@@ -1,28 +1,27 @@
 # 2.1 Módulos en Node.js
 
 ## Introducción
+_Node.js_ es un framework altamente modularizado. Esto significa que está compuesto por numerosos módulos, librerías o paquetes (usaremos estos términos de manera intercambiable). Esta estructura permite que solo agreguemos a nuestros proyectos los módulos que realmente necesitamos.
 
-_Node.js_ es un framework muy modularizado, es decir, está subdividido en numerosos módulos, librerías o paquetes (a lo largo de estos apuntes utilizaremos estos tres términos indistintamente para referirnos al mismo concepto). De esta forma, sólo añadimos a nuestros proyectos aquellos módulos que necesitemos.
-
-El propio núcleo de _Node.js_ ya incorpora algunas librerías de uso habitual. Por ejemplo:
+El núcleo de _Node.js_ incorpora algunas librerías de uso habitual. Por ejemplo:
 
 - **`http`** y **`https`**, para hacer que nuestra aplicación se comporte como un servidor web, o como un servidor web seguro o cifrado, respectivamente.
 - **`fs`** para acceder al sistema de archivos
 - **`utils`**, con algunas funciones de utilidad, tales como formato de cadenas de texto.
 
-Para una lista detallada de módulos, podemos acceder en [https://nodejs.org/api/](https://nodejs.org/api/). Es una API de todos los módulos incorporados en el núcleo de _Node.js_, con documentación sobre todos los métodos disponibles en cada uno.
+Para ver la lista detallada de módulos podemos consultar [https://nodejs.org/api/](https://nodejs.org/api/), donde aparecen todos los módulos incorporados en el núcleo de _Node.js_.
 
 ## Módulos del núcleo de Node.js
 
 Para utilizar cualquier módulo (propio de _Node.js_ o hecho por terceras partes) en una aplicación es necesario incluirlo en nuestro código con la instrucción **`require`**. Recibe como parámetro el nombre del módulo a añadir, como una cadena de texto.
 
-Por ejemplo, vamos a crear un archivo llamado **`listado.js`**. En él vamos a hacer un pequeño programa que utilice el módulo **`fs`** incorporado en el núcleo de _Node.js_ para obtener un listado de todos los archivos y subcarpetas de una carpeta determinada. El código de este archivo puede ser más o menos así:
+Por ejemplo, vamos a crear un archivo llamado **`listado.js`**. En él vamos a hacer un pequeño programa que utilice el módulo **`fs`** incorporado en el núcleo de _Node.js_ para obtener un listado de todos los archivos y subcarpetas de una carpeta determinada:
 
-```js linenums="1"
-const path = 'C:/\Program Files'
+```js linenums="1" title="listado.js" hl_lines="1"
 const fs = require('fs')
+const PATH = 'C:/\Program Files'
 
-fs.readdirSync(path).forEach(fichero => {
+fs.readdirSync(PATH).forEach(fichero => {
     console.log(fichero)
 })
 ```
@@ -35,12 +34,12 @@ Si ejecutamos este programa en el terminal (recordemos que podemos usar el termi
 
 Cuando estamos haciendo un proyecto mediano o grande es conveniente descomponer nuestra aplicación en diferentes módulos.
 
-Para hacer esto podemos crear un módulo que contendrá código independiente (instrucciones que no están dentro de una función) y funciones. El código independiente se ejecutará directamente y las funciones tendrán que ser llamadas.
+Para hacer esto podemos crear un archivo para cada módulo, y en cada uno de ellos definir las funciones y variables que necesitemos. Para poder utilizar estas funciones y variables en otros módulos, es necesario exportarlas. Para ello, _Node.js_ nos proporciona un objeto llamado **`module.exports`**.
 
 Por ejemplo, dentro de una misma carpeta creamos dos ficheros: `utilidades.js` y `principal.js` dentro de la misma carpeta. El fichero utilidades contendrá:
 
 ```js linenums="1" title="utilidades.js" hl_lines="9-12"
-//código independiente, si es necesario
+// código independiente, si es necesario
 console.log('Entrando en utilidades.js')
 
 //funciones
@@ -84,13 +83,13 @@ module.exports = {
 }
 ```
 
-El ejemplo anterior funcionará siempre que ejecutemos la aplicación Node desde su misma carpeta.
+El ejemplo anterior funcionará siempre que ejecutemos la aplicación _NodeJS_ desde su misma carpeta.
 
 ```ps
 C:\ProyectosNode\Pruebas\PruebasRequire> node principal.js
 ```
 
-Pero si estamos en otra carpeta y ejecutamos la aplicación desde allí:
+Pero si estamos en otra carpeta y ejecutamos la aplicación desde allí, no funcionará:
   
 ```ps
 C:\OtraCarpeta> node C:\ProyectosNode\Pruebas\PruebasRequire\principal.js
@@ -104,7 +103,7 @@ const utilidades = require(__dirname + '/utilidades')
 
 ## Módulos de terceros. NPM
 
-_**npm**_ (_Node Package Manager_) es un gestor de paquetes para _Javascript_, y se instala automáticamente al instalar _Node.js_. Podemos comprobar que lo tenemos instalado, y qué versión concreta tenemos, mediante el comando:
+_**npm**_ (_Node Package Manager_) es un gestor de paquetes para _Javascript_, y se instala conjuntamente con _Node.js_. Podemos comprobar si lo tenemos instalado y cuál es su versión con el siguiente comando:
 
 ```bash
 npm -v
@@ -114,7 +113,7 @@ Aunque también nos servirá el comando `npm --version`.
 
 Inicialmente, `npm` se pensó como un gestor para poder instalar módulos en las aplicaciones _Node.js_, pero se ha convertido en mucho más que eso, y a través de él podemos también descargar e instalar en nuestras aplicaciones otros módulos o librerías que no tienen que ver con _Node.js_, como por ejemplo _jQuery_.
 
-El registro de librerías o módulos gestionado por NPM está en la web [https://www.npmjs.com/](https://www.npmjs.com/). En esta web podemos buscar módulos, ver su documentación, y ver ejemplos de uso.
+El registro de librerías o módulos gestionado por NPM está en la web [https://www.npmjs.com/](https://www.npmjs.com/). En esta web podemos buscar módulos, ver su documentación y ver ejemplos de uso.
 
 ## Instalar módulos locales a un proyecto
 
@@ -138,7 +137,7 @@ Vamos a probar con un módulo sencillo y muy utilizado (tiene millones de descar
 npm install lodash
 ```
 
-Tras ejecutar el comando anterior, se habrá añadido el nuevo módulo en una subcarpeta llamada "**`node_modules/`**" dentro de nuestro proyecto.
+Tras ejecutar el comando anterior, se habrá añadido el nuevo módulo en una subcarpeta "**`node_modules/`**" dentro de nuestro proyecto.
 
 Además se modifica el archivo "**`package.json`**" de configuración con el nuevo módulo incluido en el bloque de dependencias:
 
@@ -148,7 +147,7 @@ Además se modifica el archivo "**`package.json`**" de configuración con el nue
 }
 ```
 
-Para poder utilizar el nuevo módulo, procederemos de la misma forma que para utilizar módulos predefinidos de Node: emplearemos la instrucción `require` con el nombre original del módulo, por ejemplo:
+Para poder utilizar el nuevo módulo, procederemos de la misma forma que para utilizar módulos predefinidos de _Node_: emplearemos la instrucción `require` con el nombre original del módulo, por ejemplo:
 
 ```js linenums="1"
 const _ = require('lodash')
@@ -169,7 +168,7 @@ Si decidimos subir nuestro proyecto a algún repositorio en Internet como _Githu
 npm install
 ```
 
-Lo que causará que se regenere la carpeta "`node_modules/`".
+Este comando leerá el archivo "`package.json`" y descargará todos los módulos que se encuentren en él, creando la carpeta "`node_modules/`" y descargando en ella todos los módulos necesarios.
 
 Para desinstalar un módulo (y eliminarlo del archivo "`package.json`", si existe), escribimos el comando siguiente:
 
@@ -179,7 +178,7 @@ npm uninstall nombre_modulo
 
 ## Instalar módulos globales al sistema
 
-Para cierto tipo de módulos, en especial aquellos que se ejecutan desde terminal como _Grunt_ (un gestor y automatizador de tareas _Javascript_) o _JSHint_ (un comprobador de sintaxis _Javascript_), puede ser interesante instalarlos de forma global, para poderlos usar dentro de cualquier proyecto.
+Para cierto tipo de módulos, aquellos que se ejecutan desde terminal como _Nodemon_ un _watcher_ de _Node.js_, _eslint_ para comprobación de código _Javascript_, _Gulp_ para automatización de tareas, _TypeScript_ para trabajar con este lenguaje, _JSHint_ para comprobación de sintaxis _Javascript_, etc., es conveniente instalarlos de forma global en el sistema para poder usarlos en cualquier proyecto.
 
 La forma de hacer esto es similar a la instalación de un módulo en un proyecto concreto, añadiendo algún parámetro adicional, y con la diferencia de que, en este caso, no es necesario un archivo "`package.json`" para gestionar los módulos y dependencias, ya que no son módulos de un proyecto, sino del sistema. La sintaxis general del comando es:
 
@@ -189,4 +188,28 @@ npm install -g nombre_modulo
 
 donde la opción **`-g`** hace referencia a que se quiere hacer una instalación global.
 
-Es importante, además, tener presente que cualquier módulo instalado de forma global en el sistema no podrá importarse con `require` en una aplicación concreta (para hacerlo tendríamos que instalarlo también de forma local a dicha aplicación).
+Es importante tener presente que cualquier módulo instalado de forma global en el sistema no podrá importarse con `require` en una aplicación concreta (para hacerlo tendríamos que instalarlo también de forma local a dicha aplicación).
+
+Por ejemplo, podemos instalar el módulo **`nodemon`**, que es muy útil para el desarrollo, ya que reinicia automáticamente nuestra aplicación cuando detecta cambios en los archivos del proyecto. Para instalarlo globalmente, ejecutamos:
+
+```bash
+npm install -g nodemon
+```
+
+Una vez instalado, podemos usarlo en cualquier proyecto ejecutando:
+
+```bash
+nodemon nombre_archivo.js
+```
+
+Otro ejemplo es el módulo **`typescript`**, que permite trabajar con _TypeScript_ en lugar de _JavaScript_. Para instalarlo globalmente, ejecutamos:
+
+```bash
+npm install -g typescript
+```
+
+Después, podemos compilar archivos _TypeScript_ a _JavaScript_ usando el comando:
+
+```bash
+tsc nombre_archivo.ts
+```

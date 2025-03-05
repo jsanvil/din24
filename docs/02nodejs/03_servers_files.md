@@ -2,15 +2,15 @@
 
 ## Crear un servidor http
 
-Un cliente que realiza una petición a un servidor, que a su vez envía una respuesta, se comunica con el mismo a través de **protocolos**: reglas predefinidas para establecer comunicaciones a través de _sockets_, que son una especie de canal de comunicación mediante TCP o puertos UDP. Cada protocolo de capa de aplicación TCP/IP realiza una función: transmisión de información web, transferencia de archivos, correo electrónico, etc.
+Una aplicación cliente que realiza una petición a un servidor, que a su vez envía una respuesta, se comunica con el mismo a través de **protocolos**: reglas predefinidas para establecer comunicaciones a través de _sockets_, que son un canal de comunicación mediante TCP o puertos UDP. Cada protocolo de capa de aplicación TCP/IP realiza una función: transmisión de información web, transferencia de archivos, correo electrónico, etc.
 
 La información adicional se envía a través de encabezados.
 
 ![Esquema de comunicación cliente-servidor](./assets/client_server.png)
 
-Por ejemplo, en la respuesta, el servidor le dice al cliente el tipo de contenido que envía para saber qué hacer con él, un navegador mostrará la información html como una página web pero no se mostrará un archivo de texto o json. El estado del envío también aparece en los encabezados de respuesta: `200` si todo correcto, error `404`, etc.
+Por ejemplo, en la respuesta, el servidor le dice al cliente el tipo de contenido que envía para saber qué hacer con él, un navegador mostrará la información _html_ como una página web pero no se mostrará un archivo de texto o _json_. El estado del envío también aparece en los encabezados de respuesta: `200` si todo correcto, error `404`, etc.
 
-En Node podemos crear servidores http usando el módulo [_**http**_](https://nodejs.org/api/http.html).
+En _Node_ podemos crear servidores _http_ usando el módulo [_**http**_](https://nodejs.org/api/http.html).
 
 ```js
 const http = require('http')
@@ -26,9 +26,9 @@ var server = http.createServer((req, res) => {
 })
 ```
 
-Vamos a especificar el encabezado de respuesta donde diremos que se envía texto sin formato y crearemos el texto sin formato en sí. También es necesario definir un puerto y la IP, usaremos `3000` y como servidor que creamos ahora es local `127.0.0.1`.
+Vamos a especificar el encabezado de respuesta donde diremos que se envía texto sin formato y crearemos el texto en sí. También es necesario definir un puerto y la IP, usaremos el puerto `3000` y la IP `127.0.0.1` que es la dirección local.
 
-```js linenums="1"
+```js linenums="1" hl_lines="4-5" title="http_server.js"
 const http = require('http')
 
 var server = http.createServer((req, res) => {
@@ -39,7 +39,7 @@ var server = http.createServer((req, res) => {
 server.listen(3000, '127.0.0.1')
 ```
 
-Para probarlo, ejecutamos el archivo con Node y abrimos un navegador en la dirección `http://127.0.0.1:3000/`.
+Para probarlo, ejecutamos el archivo con _`node`_ y abrimos un navegador en la dirección `http://127.0.0.1:3000/`.
 
 Si queremos ver los detalles en el navegador, podemos usar la herramienta de desarrollador, en la pestaña de red, y veremos la respuesta del servidor.
 
@@ -92,7 +92,7 @@ var server = http.createServer((req, res) => {
 })
 ```
 
-Una solicitud JSON puede provenir de algún código javascript que la crea y luego muestra los datos de cierta manera en el front-end de una página web.
+Una solicitud _JSON_ puede provenir de algún código _javascript_ que la crea y luego muestra los datos de cierta manera en el front-end de una página web.
 
 Lo habitual es trabajar con archivos JSON. Podemos combinar los modos asíncrono/sincróno que vimos anteriormente con los métodos que vemos ahora.
 
@@ -159,15 +159,15 @@ fs.readFile('./users.json', (err, data) => {
 
 ## Escribir un archivo JSON
 
-Para escribir un archivo JSON, usamos el método `fs.writeFile()` del módulo `fs`.
+Para escribir un archivo JSON, usamos el método [`fs.writeFile()`](https://nodejs.org/api/fs.html#fswritefilefile-data-options-callback) del módulo [`fs`](https://nodejs.org/api/fs.html).
 
 Sintaxis:
 
 ```js
-fs.writeFile('ruta/a/archivo/nombre de archivo', datos, devolución de llamada)
+fs.writeFile(file, data, callback)
 ```
 
-Ejemplo. Agregar un nuevo usuario al archivo `users.json` existente, creado anteriormente. Esta tarea se completará en tre pasos:
+Ejemplo. Agregar un nuevo usuario al archivo `users.json` existente, creado anteriormente. Esta tarea se completará en tres pasos:
 
 ```js linenums="1" title="index.js"
 const fs = require('fs')

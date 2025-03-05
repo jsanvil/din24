@@ -1,4 +1,4 @@
-# Ejercicio de refuerzo sobre programación asíncrona y orientada a objetos
+# ✍️ Ejercicio de refuerzo sobre programación asíncrona y orientada a objetos
 
 ## 1: Promesa con Retraso Personalizado
 

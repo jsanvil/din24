@@ -2,13 +2,13 @@
 
 ## Introducción
 
-**Javascript**, muchas veces abreviado como **JS**, es un lenguaje de programación interpretado de alto nivel, usado principalmente en el lado del cliente (navegador web) y en el servidor (_Node.js_).
+**Javascript**, muchas veces abreviado como **JS**, es un lenguaje de programación **interpretado** de alto nivel, usado principalmente en el lado del cliente (navegador web) para mejorar la interactividad de las páginas web. También se usa en el lado del servidor (Node.js) y en aplicaciones de escritorio (Electron).
 
-Es un lenguaje orientado a objetos, basado en prototipos, de tipado dinámico y devil. _Javascript_ tiene una sintaxis similar a _C++_ y _Java_.
+Es un lenguaje orientado a objetos, basado en prototipos, de tipado dinámico y débil. _Javascript_ tiene una sintaxis similar a _C++_ y _Java_.
 
 ## ECMAScript
 
-_**ECMAScript**_ (abreviado como **ES**) es la **especificación** del lenguaje de programación que se basa en _Javascript_. La última versión es la _**ECMAScript 2024**_ (_ES2024_), aunque la más usada es la _**ECMAScript 2015**_ (_ES6_) que introdujo muchas novedades en el lenguaje, como las **constantes**, **let**, **arrow functions**, **clases**, **módulos**, etc.
+_**ECMAScript**_, abreviado como **ES**, es la **especificación** del lenguaje de programación que se basa en _Javascript_. La última versión es la _**ECMAScript 2024**_ (_ES2024_), aunque la más usada es la _**ECMAScript 2015**_ (_ES6_) que introdujo muchas novedades en el lenguaje, como las **constantes**, **let**, **arrow functions**, **clases**, **módulos**, etc.
 
 ## Comentarios
 
@@ -88,7 +88,7 @@ Los bloques de código se encierran entre llaves **`{ }`**. Un bloque puede cont
 
 _Javascript_ es un lenguaje con **tipado dinámico**. Esto significa que no se indica el tipo de una variable al declararla e incluso puede cambiar su tipo a lo largo de la ejecución del programa.
 
-Esto se conoce como **inferencia de tipos**. _Javascript_ intenta adivinar el tipo de una variable en función del valor que se le asigna.
+Esto se conoce como **inferencia de tipos**, se asigna el tipo de una variable en función del valor que se le asigna.
 
 Ejemplo:
 
@@ -102,7 +102,7 @@ miVariable = undefined;  // por último vuelve a valer undefined
 
 Ni siquiera es obligatorio a declarar una variable antes de usarla, aunque es recomendable para evitar errores.
 
-Las variables de declaran con **`let`** (lo recomendado desde ES2015), aunque también pueden declararse con **`var`**. La diferencia es que con _`let`_ la variable sólo existe en el bloque en que se declara mientras que con _`var`_ la variable es **global**. Ejemplo:
+Las variables de declaran con **`let`** (lo recomendado desde _ES2015_), aunque también pueden declararse con **`var`**. La diferencia es que con _`let`_ la variable sólo existe en el bloque en que se declara mientras que con _`var`_ la variable es **global**. Ejemplo:
 
 ```js linenums="1"
 let edad = 25;
@@ -119,13 +119,13 @@ console.log(textoLet);  // mostrará undefined porque fuera del if no existe la 
 console.log(textoVar);  // mostrará la cadena 'Eres mayor de edad' porque es global
 ```
 
-Cualquier variable que no se declara dentro de una función (o si se usa sin declarar) es _global_. Debemos siempre intentar **NO usar variables globales**.
+Cualquier variable que no se declara dentro de una función (o si se usa sin declarar) es _global_. Debemos **evitar el uso de variables globales**.
 
 Se recomienda que los nombres de las variables sigan la sintaxis _**camelCase**_ (ej.: _miPrimeraVariable_).
 
 ### Constantes
 
-Desde ES2015 también se pueden declarar constantes con **`const`**. Se les debe dar un valor al declararlas y si intentamos modificarlo posteriorment se produce un error.
+Desde _ES2015_ también se pueden declarar constantes con **`const`**. Se les debe dar un valor al declararlas y si intentamos cambiar su valor se producirá un error.
 
 Se recomienda usar **`const`** siempre que sea posible y sólo usar **`let`** si sabemos que el valor de la variable va a cambiar.
 

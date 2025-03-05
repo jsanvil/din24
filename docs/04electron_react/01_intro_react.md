@@ -1,6 +1,6 @@
 # 4.1 Introducción a React
 
-En esta sección vamos a aprender a crear aplicaciones de Electron con React. React es una biblioteca de JavaScript para construir interfaces de usuario, y es una de las opciones más populares para crear aplicaciones modernas.
+En esta sección vamos a aprender a crear aplicaciones de _Electron_ con _React_. _React_ es una biblioteca de _JavaScript_ para construir interfaces de usuario, y es una de las opciones más populares para crear aplicaciones modernas.
 
 ## ¿Qué es React?
 
@@ -8,19 +8,19 @@ En la página oficial de [React](https://react.dev/) se describe como:
 
 > React: The library for web and native user interfaces
 
-React es una biblioteca de código abierto para construir interfaces de usuario. Desarrollado por Meta, creado en 2011 por Jordan Walke. React es una de las opciones más populares para crear aplicaciones modernas, y es ampliamente utilizado por empresas como Meta, Instagram, Airbnb, Netflix, WhatsApp, Twitter, Reddit, Twitch, entre otros.
+React es una biblioteca de código abierto para construir interfaces de usuario. Desarrollado por Meta, creado en 2011 por Jordan Walke. React es una de las opciones más populares para crear aplicaciones modernas, y es ampliamente utilizado por empresas como _Meta_, _Instagram_, _Airbnb_, _Netflix_, _WhatsApp_, _Twitter_, _Reddit_, _Twitch_, entre otros.
 
-Los frameworks como Angular y Vue proporcionan una estructura y un conjunto de herramientas para desarrollar aplicaciones completas, y también son excelentes opciones para crear aplicaciones de Electron.
+Los frameworks como _Angular_ y _Vue_ proporcionan una estructura y un conjunto de herramientas para desarrollar aplicaciones completas, y también son excelentes opciones para crear aplicaciones con _Electron_.
 
-React, por otro lado, es una biblioteca que se centra en la creación de interfaces de usuario. React es una excelente opción para crear aplicaciones de una sola página (SPA) y aplicaciones de Electron, ya que facilita la creación de interfaces de usuario interactivas y dinámicas.
+_React_, por otro lado, es una biblioteca que se centra en la creación de interfaces de usuario. _React_ es una excelente opción para crear aplicaciones de una sola página (_SPA_) y aplicaciones de _Electron_, ya que facilita la creación de interfaces de usuario interactivas y dinámicas.
 
-Se escoge React para este curso, por su facilidad de uso, su popularidad y su gran comunidad de desarrolladores, y al ser una librería, se puede integrar fácilmente con otras herramientas y bibliotecas, sin imponer una estructura o un flujo de trabajo específico.
+Se escoge _React_ para este curso, por su facilidad de uso, su popularidad y su gran comunidad de desarrolladores, y al ser una librería, se puede integrar fácilmente con otras herramientas y bibliotecas, sin imponer una estructura o un flujo de trabajo específico.
 
-Las desventajas de los frameworks, es que pueden ser más complejos y tener una curva de aprendizaje más pronunciada, además, los cambios de versión pueden requerir una reescritura significativa del código.
+Las desventajas de los _frameworks_, es que pueden ser más complejos y tener una curva de aprendizaje más pronunciada, además, los cambios de versión pueden requerir una reescritura significativa del código.
 
-## Características
+## Características de React
 
-- **Declarativo**: Mediante la extensión de JavaScript llamada JSX, React permite escribir elementos de React como si fueran HTML. JSX es una sintaxis que se compila a JavaScript y permite escribir código más legible y fácil de mantener.r.
+- **Declarativo**: Mediante la extensión de _JavaScript_ llamada _JSX_, _React_ permite escribir elementos como si fueran HTML. _JSX_ es una sintaxis que se compila a _JavaScript_ y permite escribir código más legible y fácil de mantener.
 
   ```jsx title="Ejemplo de un componente de React"
   function App() {
@@ -35,15 +35,15 @@ Las desventajas de los frameworks, es que pueden ser más complejos y tener una 
   document.body.appendChild(button)
   ```
 
-- **Componentes**: React es una biblioteca de componentes. Cada componente tiene su propio estado y propiedades, y puede ser reutilizado en diferentes partes de la aplicación.
+- **Componentes**: Cada componente tiene su propio **estado** y **propiedades**, y puede ser **reutilizado** en diferentes partes de la aplicación.
 
-- **Virtual DOM**: React utiliza un DOM virtual para mejorar el rendimiento. En lugar de actualizar el DOM directamente, React actualiza el DOM virtual y luego compara el DOM virtual con el DOM real para determinar qué elementos deben actualizarse.
+- **Virtual DOM**: El DOM virtual para mejorar el rendimiento. En lugar de actualizar el DOM directamente, _React_ actualiza el DOM virtual y luego compara el DOM virtual con el DOM real para determinar qué elementos deben actualizarse.
 
-- **Hooks**: Los Hooks son funciones que permiten "enganchar" funcionalidades de React en componentes funcionales. El hook más popular es `useState`, que permite añadir estado a un componentes para que pueda reaccionar a los cambios.
+- **Hooks**: Los _Hooks_ son funciones que permiten "enganchar" funcionalidades de _React_ en componentes funcionales. El _hook_ más popular es `useState`, que permite añadir estado a un componentes para que pueda reaccionar a los cambios.
 
 ## Componentes
 
-Un **componente de software** es una **parte** de un sistema más grande que realiza una **función** específica. En React, los componentes son **bloques de construcción** fundamentales. Un componente puede ser una parte de la interfaz de usuario, como un botón o un formulario, o puede ser una parte más grande de la aplicación, como una barra lateral o una página de inicio.
+Un **componente de software** es una **parte** de un sistema más grande que realiza una **función** específica. En _React_, los componentes son **bloques de construcción** fundamentales. Un componente puede ser una parte de la interfaz de usuario, como un botón o un formulario, o puede ser una parte más grande de la aplicación, como una barra lateral o una página de inicio.
 
 Se utilizan para **dividir la interfaz** de usuario en piezas más pequeñas y manejables. Cada componente tiene su propio **estado** y propiedades, puede ser **reutilizado** en diferentes partes de la aplicación y pueden **anidado** dentro de otros componentes.
 
@@ -51,13 +51,13 @@ Se utilizan para **dividir la interfaz** de usuario en piezas más pequeñas y m
 
 Una **aplicación de una sola página** (SPA) es una aplicación web o sitio web que interactúa con el usuario dinámicamente, reescribiendo la página actual en lugar de cargar páginas nuevas desde el servidor. Esto permite que la aplicación sea más rápida y más fluida, ya que solo se carga una vez y luego se actualiza dinámicamente.
 
-React es una excelente opción para crear aplicaciones de una sola página, ya que facilita la creación de interfaces de usuario interactivas y dinámicas, por lo que es ideal para aplicaciones Electron que requieren una interfaz de usuario moderna y atractiva.
+React es una excelente opción para crear aplicaciones de una sola página, ya que facilita la creación de interfaces de usuario interactivas y dinámicas, por lo que es ideal para aplicaciones _Electron_ que requieren una interfaz de usuario moderna y atractiva.
 
 ## Creación de un proyecto de React con Vite
 
-Para utilizar React necesitamos un **empaquetador** que transpile el código a Javascript. En este curso utilizaremos [**_Vite_**](https://vitejs.dev/), un empaquetador de JavaScript moderno que permite utilizar React, Vue y otras bibliotecas en aplicaciones de Electron.
+Para utilizar React necesitamos un **empaquetador** que transpile el código a _Javascript_. En este curso utilizaremos [**_Vite_**](https://vitejs.dev/), un empaquetador de _JavaScript_ moderno que permite utilizar _React_, _Vue_ y otras bibliotecas en aplicaciones de _Electron_.
 
-Para crear un proyecto react utilizaremos el comando `npm create vite@latest nombre_del_proyecto`. Creará una **nueva carpeta** con el `./nombre_del_proyecto` y configurará un proyecto de React con Vite.
+Para crear un proyecto utilizaremos el comando `npm create vite@latest nombre_del_proyecto`. Creará una **nueva carpeta** con el `./nombre_del_proyecto` y configurará un proyecto de _React_ con _Vite_.
 
 - Ejecutar el comando para crear un nuevo proyecto:
 
@@ -146,7 +146,7 @@ Para crear un proyecto react utilizaremos el comando `npm create vite@latest nom
 
         Existen una serie de **atajos de teclado** que permiten realizar acciones de forma rápida.
 
-    Si accedemos a la dirección _**`http://localhost:5173`**_ veremos la aplicación de React en funcionamiento.
+    Si accedemos a la dirección _**`http://localhost:5173`**_ veremos la aplicación de _React_ en funcionamiento.
 
 ## Estructura del proyecto (_scaffolding_)
 
@@ -172,7 +172,7 @@ La estructura del proyecto debe ser similar a la siguiente:
 └── vite.config.js
 ```
 
-Podemos observer varios archivos de configuración, como _**`package.json`**_, _**`vite.config.js`**_, además de un **`.gitignore`**.
+Podemos observar varios archivos de configuración, como _**`package.json`**_, _**`vite.config.js`**_, además de un **`.gitignore`**.
 
 Dentro de `package.json` podemos observar los siguientes scripts:
 
@@ -323,7 +323,7 @@ export default function HolaMundo() {
 }
 ```
 
-Y ahora podemos eliminar la funcion `HolaMundo` del archivo **`App.jsx`** y añadir el import del componente:
+Y ahora podemos eliminar la función `HolaMundo` del archivo **`App.jsx`** y añadir el import del componente:
 
 ```js title="src/App.jsx" linenums="1" hl_lines="2"
 import './App.css'
@@ -360,7 +360,7 @@ export default function NombreCompleto(props) {
     En este caso, el componente recibe dos _props_: `nombre` y `apellido`. Para facilitar el acceso a las _props_, se pueden desestructurar en los argumentos de la función.
 
     ```jsx title="src/App.jsx" linenums="1" hl_lines="1 3"
-    export default function NombreCompleto( {nombre, apellido} ) {
+    export default function NombreCompleto( { nombre, apellido } ) {
         return (
             <p>User: <strong>{nombre}</strong> {apellido}</p>
         )
@@ -424,7 +424,7 @@ export default function TarjetaUsuario({nombre, apellido, email, telefono}) {
 }
 ```
 
-Y ahora podemos añadir el componente al archivo **`App.jsx`** junto a los imports de _Bootstrap_:
+Ahora podemos añadir el componente al archivo **`App.jsx`** junto a los imports de _Bootstrap_:
 
 ```js title="src/App.jsx" linenums="1"
 import 'bootstrap/dist/css/bootstrap.min.css';
