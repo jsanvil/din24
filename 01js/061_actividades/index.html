@@ -1,0 +1,2403 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../011_actividades/">
+      
+      
+        <link rel="next" href="../062_example/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>✍️ Actividades: Programación asíncrona y orientada a objetos - Desarrollo de Interfaces 2024/25</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/bs5_layout.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#actividades-programacion-asincrona-y-orientada-a-objetos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Desarrollo de Interfaces 2024/25" class="md-header__button md-logo" aria-label="Desarrollo de Interfaces 2024/25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo de Interfaces 2024/25
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ✍️ Actividades: Programación asíncrona y orientada a objetos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  Inicio
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../00intro/01_electron_intro/" class="md-tabs__link">
+          
+  
+  0 Intro
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  UD 1 JS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02nodejs/" class="md-tabs__link">
+          
+  
+  UD 2 Node.js
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03electron/" class="md-tabs__link">
+          
+  
+  UD 3 Electron
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04electron_react/" class="md-tabs__link">
+          
+  
+  UD 4 React
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05electron_db/" class="md-tabs__link">
+          
+  
+  UD 5 Gestión de datos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../proyectos/01_watchlist/" class="md-tabs__link">
+          
+  
+  Proyectos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Desarrollo de Interfaces 2024/25" class="md-nav__button md-logo" aria-label="Desarrollo de Interfaces 2024/25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Desarrollo de Interfaces 2024/25
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Inicio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de Interfaces 2024/25
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entorno/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🔧 Entorno de trabajo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    0 Intro
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            0 Intro
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00intro/01_electron_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.1 Introducción a Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00intro/02_electron_firstapp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.2 Creando la primera aplicación en Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00intro/021_actividad/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.2.1 Actividad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../00intro/03_intro_interfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.3 Introducción a la interfaz de usuario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    UD 1 JS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD 1 JS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 Javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_sintaxis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 Sintaxis básica de Javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_funciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 Funciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_objetos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Objetos { }
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_arrays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 Arrays [ ]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_callbacks_promesas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 Callbacks y promesas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_poo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.6 Programación Orientada a Objetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../011_actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ Actividades: sintaxis básica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ✍️ Actividades: Programación asíncrona y orientada a objetos
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ Actividades: Programación asíncrona y orientada a objetos
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 6
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividad 6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clase-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clase Product:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clase-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clase Store
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de uso:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 7
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 8
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../062_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ Ejercicio de refuerzo sobre programación asíncrona y orientada a objetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 2 Node.js
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            UD 2 Node.js
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 NodeJS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/01_modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 Módulos en Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/02_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 Eventos en Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/03_servers_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 Servidores y ficheros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/ud2act01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD2 - Actividad 1: Módulos y eventos en Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 3 Electron
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            UD 3 Electron
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 Electron básico
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/01_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 Introducción a Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/02_dom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 Document Object Model (DOM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/03_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 Eventos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/04_forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4 Formularios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/05_ipc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.5 Comunicación entre procesos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/06_bs_layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.6 Maquetación en Bootstrap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/07_bs_elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.7 Elemento básicos de Bootstrap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/ud3_act1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD3 - Actividad 1: Document Object Model (DOM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/ud3_act2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD3 - Actividad 2: Eventos y formularios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 4 React
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            UD 4 React
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 Electron avanzado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/01_intro_react/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 Introducción a React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/02_electron_vite_project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 Integración de React en Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/03_react_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 Eventos React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/04_react_state/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.4 Reaccionando a cambios de estado con useState
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/05_react_effect/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.5 Responder a cambios externos con useEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/06_react_router_redux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.6 Estado global y rutas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/ud4_act1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD4 - Actividad 1: Introducción a React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/ud4_act2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD4 - Actividad 2: Estados y efectos en React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/ud4_act3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD4 - Actividad 3: Rutas y estado global
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 5 Gestión de datos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            UD 5 Gestión de datos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05electron_db/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 Aplicaciones Electron con Base de Datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05electron_db/01_architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 Arquitectura de datos y servicios en una aplicación Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05electron_db/02_apirest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 API REST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proyectos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Proyectos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyectos/01_watchlist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proyecto 1 - Lista de seguimiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyectos/02_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proyecto 2 - Gestión de eventos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 3
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 6
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actividad 6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clase-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clase Product:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clase-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clase Store
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de uso:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 7
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad 8
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="actividades-programacion-asincrona-y-orientada-a-objetos">✍️ Actividades: Programación asíncrona y orientada a objetos<a class="headerlink" href="#actividades-programacion-asincrona-y-orientada-a-objetos" title="Permanent link">&para;</a></h1>
+<p>Acepta la tarea en <em>GitHub Classroom</em> y clona el repositorio en tu máquina local.</p>
+<ul>
+<li><a href="https://classroom.github.com/a/m96NT8Fj">https://classroom.github.com/a/m96NT8Fj</a></li>
+</ul>
+<p>Realiza las actividades en los ficheros indicados y comprueba que funcionan correctamente.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Es importante evitar el uso de generadores de código automático para realizar las actividades.</p>
+<p>Si tienes dudas, consulta la documentación o pide ayuda al profesor.</p>
+<p>En caso de existir duda ante la copia o el uso de herramientas de generación de código automático, se pedirá una explicación detallada del código por parte del alumnado implicado. En caso de no poder justificarlo, se considerará copia y se considerará la actividad como no realizada para las partes afectadas.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Commit</p>
+<p>Intenta hacer un <strong>commit</strong> por cada actividad.</p>
+</div>
+<h2 id="actividad-1">Actividad 1<a class="headerlink" href="#actividad-1" title="Permanent link">&para;</a></h2>
+<p>Dentro del script <strong><code>async.js</code></strong>, crea una promesa <code>twoSecondsPromise</code> que se resuelva a los entre aleatoriamente entre 0 y 2 segundos, simulando una petición a un servidor. La promesa debe devolver un mensaje de éxito si se resuelve en menos de 1 segundo, y un mensaje de error en caso contrario.</p>
+<p>Consume la promesa y muestra el mensaje de éxito o error por consola según corresponda.</p>
+<h2 id="actividad-2">Actividad 2<a class="headerlink" href="#actividad-2" title="Permanent link">&para;</a></h2>
+<p>Dentro del script <strong><code>async.js</code></strong>, crea la función asíncrona <code>callbackAsync</code> que hará uso que la promesa anterior y reciba una función <em>callback</em> como parámetro, y se ejecute cuando se resuelva la promesa.</p>
+<p>La función <em>callback</em> imprimirá por consola el mensaje <code>La promesa se ha resuelto</code> si la promesa se resuelve.</p>
+<p>Consume la función <code>callbackAsync</code> y muestra por consola el mensaje de éxito o error según corresponda.</p>
+<h2 id="actividad-3">Actividad 3<a class="headerlink" href="#actividad-3" title="Permanent link">&para;</a></h2>
+<p>Dentro del script <strong><code>async.js</code></strong>, crea una promesa <code>weatherPromise</code> que realice una petición <code>fetch()</code> a la url <code>https://wttr.in/Valencia?format=j1</code> y devuelva el objeto JSON obtenido.</p>
+<p>Consume la función <code>weatherPromise</code> y muestra por consola el objeto JSON obtenido. Lo puedes formatear con <code>JSON.stringify(jsonData, null, 2)</code> para que sea más legible, donde <code>jsonData</code> es el objeto JSON obtenido.</p>
+<h2 id="actividad-4">Actividad 4<a class="headerlink" href="#actividad-4" title="Permanent link">&para;</a></h2>
+<p>Dentro del script <strong><code>async.js</code></strong>, crea una función asíncrona <code>currentWeatherAsync</code> que consuma la promesa anterior y muestre por consola la <strong>ciudad</strong>, descripción del <strong>estado</strong> actual (<em>Clear, Cloudy, Light rain, ...</em>), <strong>temperatura</strong> actual en grados Celsius, la <strong>sensación térmica</strong> y la <strong>velocidad del viento</strong> en km/h.</p>
+<p>El mensaje debe ser algo similar a:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Ciudad: Valencia
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Estado: Clear
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Temperatura: 23°C
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Sensación térmica: 25°C
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Viento: 6 km/h
+</code></pre></div>
+<p>Debes analizar el objeto JSON obtenido y extraer los datos necesarios del ejercicio anterior.</p>
+<p>Consume la función <code>currentWeatherAsync</code>, muestra por consola los datos obtenidos y trata los errores que puedan surgir.</p>
+<h2 id="actividad-5">Actividad 5<a class="headerlink" href="#actividad-5" title="Permanent link">&para;</a></h2>
+<p>Dentro del script <strong><code>async.js</code></strong>, crea la función asíncrona <code>weatherAsync</code> que reciba un nombre de <strong>ciudad</strong> (<code>city</code>) como parámetro y devuelva un nuevo <strong>objeto</strong> con la ciudad, estado, temperatura, sensación térmica y velocidad del viento.</p>
+<p>La función debe realizar una petición <code>fetch()</code> a la url <code>https://wttr.in/${city}?format=j1</code> y devolver el objeto JSON obtenido.</p>
+<p>Consume la función <code>weatherAsync</code> con la ciudad de tu elección y muestra por consola los datos obtenidos.</p>
+<div class="highlight"><span class="filename">Ejemplo de objeto devuelto</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nx">city</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Berlin&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Overcast&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nx">temperature</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nx">feelslike</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nx">wind</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="actividad-6">Actividad 6<a class="headerlink" href="#actividad-6" title="Permanent link">&para;</a></h2>
+<p>Dentro del script <strong><code>poo.js</code></strong>, crea las clases <strong><code>Product</code></strong> y <strong><code>Store</code></strong> tal y como se describen a continuación.</p>
+<h3 id="clase-product">Clase <strong><em><code>Product</code></em></strong>:<a class="headerlink" href="#clase-product" title="Permanent link">&para;</a></h3>
+<p>La clase <strong><code>Product</code></strong> representa un <strong>producto</strong> de una tienda. Cada producto tiene un código, un nombre, un precio y un número de unidades.</p>
+<p>Propiedades:</p>
+<ul>
+<li><strong><code>cod</code></strong>: Privada. Código numérico identificativo del producto.</li>
+<li><strong><code>name</code></strong>: Nombre del producto.</li>
+<li><strong><code>price</code></strong>: Privada. Precio unitario del producto.</li>
+<li><strong><code>units</code></strong>: Número de unidades del producto.</li>
+</ul>
+<p>Constructor:</p>
+<ul>
+<li>Recibe el código, nombre, precio y unidades del producto.</li>
+<li>Si no recibe unidades su número por defecto será <code>1</code>.</li>
+</ul>
+<p>Métodos:</p>
+<ul>
+<li><strong><code>getter</code></strong> de <code>cod</code>.</li>
+<li>
+<p><strong><code>getter</code></strong> y <strong><code>setter</code></strong> de <code>price</code>.</p>
+</li>
+<li>
+<p><strong><code>changeUnits</code></strong><em><code>(units)</code></em> : Recibe la cantidad a cambiar (<em>positiva o negativa</em>) e incrementa o decrementa las unidades en la cantidad recibida.</p>
+<ul>
+<li>Devuelve la cantidad de unidades actualizada.</li>
+<li>No se debe permitir que las unidades sean menores de <code>0</code>.</li>
+</ul>
+</li>
+<li><strong><code>getImport</code></strong><code>()</code> : Devuelve el importe total del producto (su precio multiplicado por el nº de unidades).</li>
+<li>
+<p><strong><code>getDescription</code></strong><code>()</code> : Mostrará su descripción, sus unidades entre paréntesis, su precio y el importe total. </p>
+<p><em>Por ejemplo: <code>TV Samsung MP45 (5): 235,95 €/u =&gt; 1179,75 €</code></em></p>
+</li>
+</ul>
+<h3 id="clase-store">Clase <strong><em><code>Store</code></em></strong><a class="headerlink" href="#clase-store" title="Permanent link">&para;</a></h3>
+<p>La clase <strong><code>Store</code></strong> representa un <strong>almacén de productos</strong>. Cada almacén tiene un código y un array de productos.</p>
+<p><strong>Propiedades</strong>:</p>
+<ul>
+<li><strong><code>id</code></strong>: Privada. Código numérico que nos pasan al crear el almacén.</li>
+<li><strong><code>products</code></strong>. Privada. Array de <code>Product</code> que al crearlo estará vacío.</li>
+</ul>
+<p><strong>Constructor</strong>:</p>
+<ul>
+<li>Recibe el código del almacén y lo guarda en la propiedad <code>id</code>.<ul>
+<li>Comprueba que el código es un número positivo. Si no lo es lanza un error.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Métodos</strong>:</p>
+<ul>
+<li><strong><code>getter</code></strong> de <code>id</code> : Devuelve el código del almacén.</li>
+<li><strong><code>getter</code></strong> de <code>products</code> : Devuelve el array de productos.</li>
+<li><strong><code>findProduct</code></strong><code>(cod)</code> : Recibe un código de producto y devuelve el producto que tiene dicho código o <em><code>null</code></em> si ese código no existe en el almacén.</li>
+<li><strong><code>addProduct</code></strong><code>(cod, units, nombre, precio)</code>: Recibe como parámetro el código y unidades a añadir y, <em><strong>opcionalmente</strong></em>, el nombre y precio (si se trata de un producto nuevo) y lo añade al almacén.<ul>
+<li>Las unidades a añadir pueden ser negativas.</li>
+<li>Si existe el código suma al producto las unidades indicadas.</li>
+<li>Si no existe crea un nuevo producto en el array.<ul>
+<li>En caso de nuevo producto, si no se recibe el nombre o el precio se lanzará un error.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><code>delProduct</code></strong><code>(cod, units)</code>: recibe como parámetro el código y las unidades a quitar de un producto y lo resta del almacén.<ul>
+<li>Si el producto no existe lanza un error.</li>
+<li>Si las unidades a quitar son mayores, lanza un aviso pero quita las unidades que pueda (no puede quedar con unidades negativas).</li>
+</ul>
+</li>
+<li><strong><code>totalImport</code></strong><code>()</code>: Devuelve el valor total de los productos del almacén.</li>
+<li><strong><code>orderByDescrip()</code></strong>: devuelve el array de productos ordenado por el nombre.</li>
+<li><strong><code>orderByUnits()</code></strong>: devuelve el array de productos ordenado por unidades descendente.</li>
+<li><strong><code>orderByPrice()</code></strong>: devuelve el array de productos ordenado por precio unitario ascendente.</li>
+<li><strong><code>lowStock()</code></strong>: devuelve un array con los productos que tienen menos de 5 unidades en stock ordenados por unidades descendente.</li>
+<li><strong><code>toString()</code></strong>: Devuelve un string con el código del almacén y el número de productos que tiene.</li>
+<li><strong><code>valueOf()</code></strong>: Devuelve el <code>id</code> del almacén.</li>
+</ul>
+<h3 id="ejemplo-de-uso">Ejemplo de uso:<a class="headerlink" href="#ejemplo-de-uso" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">almacen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Store</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">addProduct</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;TV Samsung MP45&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">345.95</span><span class="p">);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">addProduct</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Portátil Acer Travelmate 200&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">245.95</span><span class="p">);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">addProduct</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Impresora Epson LX-455&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">45.95</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">addProduct</span><span class="p">(</span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;USB Kingston 16GB&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">5.95</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">addProduct</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;USB Kingston 32GB&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">9.95</span><span class="p">);</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">addProduct</span><span class="p">(</span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;USB Kingston 64GB&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">15.95</span><span class="p">);</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;LISTADO DEL ALMACÉN&#39;</span><span class="p">);</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">orderByDescrip</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="w"> </span><span class="nx">prod</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prod</span><span class="p">.</span><span class="nx">getDescription</span><span class="p">())</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">addProduct</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;USB Kingston 64GB&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">15.95</span><span class="p">);</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">delProduct</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">11</span><span class="p">);</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">delProduct</span><span class="p">(</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">7</span><span class="p">);</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">addProduct</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">9</span><span class="p">);</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;LISTADO DEL ALMACÉN ACTUALIZADO&#39;</span><span class="p">);</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">orderByDescrip</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="w"> </span><span class="nx">prod</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prod</span><span class="p">.</span><span class="nx">getDescription</span><span class="p">())</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;IMPORTE TOTAL DEL ALMACÉN&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">almacen</span><span class="p">.</span><span class="nx">totalImport</span><span class="p">())</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ORDENADO POR UNIDADES&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">orderByUnits</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="w"> </span><span class="nx">prod</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prod</span><span class="p">.</span><span class="nx">getDescription</span><span class="p">())</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ORDENADO POR PRECIO&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">orderByPrice</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="w"> </span><span class="nx">prod</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prod</span><span class="p">.</span><span class="nx">getDescription</span><span class="p">())</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;PRODUCTOS CON STOCK BAJO&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="nx">almacen</span><span class="p">.</span><span class="nx">lowStock</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="w"> </span><span class="nx">prod</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">prod</span><span class="p">.</span><span class="nx">getDescription</span><span class="p">())</span><span class="w"> </span><span class="p">)</span>
+</code></pre></div>
+<h2 id="actividad-7">Actividad 7<a class="headerlink" href="#actividad-7" title="Permanent link">&para;</a></h2>
+<p>Dentro del script <strong><code>poo.js</code></strong>, crea la clase <strong><code>Offer</code></strong> que <strong>extienda</strong> la clase <strong><code>Product</code></strong> de la actividad anterior.</p>
+<p>Propiedades:</p>
+<ul>
+<li><strong><code>discount</code></strong> : descuento que se aplica al producto</li>
+<li><strong><code>dateIni</code></strong> : fecha de inicio de la oferta</li>
+<li><strong><code>dateEnd</code></strong> : fecha de fin de la oferta</li>
+</ul>
+<p>Añade los siguientes métodos:</p>
+<ul>
+<li><strong><code>getImport</code></strong><code>()</code> : Devuelve el importe total del producto con el descuento aplicado.</li>
+<li><strong><code>getDescription</code></strong><code>()</code> : Mostrará su descripción, sus unidades entre paréntesis, su precio, el descuento aplicado, el precio con el descuento y las fechas de inicio y fin de la oferta. <em>Por ejemplo: _Por ejemplo: <code>PS5 Pro (5): 799.99 €/u (-10%) =&gt; 719.99 € (21/11/2024 - 30/11/2024)</code></em></li>
+</ul>
+<p>Ejemplo de uso:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;OFERTAS&#39;</span><span class="p">);</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">let</span><span class="w"> </span><span class="nx">oferta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Offer</span><span class="p">(</span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;PS5 Pro&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">799.99</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;21/11/2024&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;30/11/2024&#39;</span><span class="p">);</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">oferta</span><span class="p">.</span><span class="nx">getDescription</span><span class="p">());</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">oferta</span><span class="p">.</span><span class="nx">getImport</span><span class="p">());</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kd">let</span><span class="w"> </span><span class="nx">oferta2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Offer</span><span class="p">(</span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Nintendo Switch 2&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">399.95</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;10/10/2024&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;25/10/2024&#39;</span><span class="p">);</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">oferta2</span><span class="p">.</span><span class="nx">getDescription</span><span class="p">());</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">oferta2</span><span class="p">.</span><span class="nx">getImport</span><span class="p">());</span>
+</code></pre></div>
+<p>Comprueba que se muestra correctamente la descripción del producto con el descuento aplicado.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>OFERTAS
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>PS5 Pro (100): 799.99 €/u (-10%) =&gt; 719.99 € (21/11/2024 - 30/11/2024)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>71999.0
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Nintendo Switch 2 (200): 399.95 €/u (-15%) =&gt; 339.96 € (10/10/2024 - 25/10/2024)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>67992.0
+</code></pre></div>
+<h2 id="actividad-8">Actividad 8<a class="headerlink" href="#actividad-8" title="Permanent link">&para;</a></h2>
+<p>Dentro del script <strong><code>poo.js</code></strong>, crea la clase <strong><code>FilterProducts</code></strong>. Esta clase tendrá un array de productos con los que se va a trabajar.</p>
+<p><strong>Propiedades</strong>:</p>
+<ul>
+<li><strong><code>products</code></strong> : Array de productos.</li>
+</ul>
+<p><strong>Constructor</strong>:</p>
+<ul>
+<li>Recibe un array de productos y lo guarda en la propiedad <code>products</code>.</li>
+</ul>
+<p><strong>Métodos</strong>:</p>
+<ul>
+<li><strong><code>toString</code></strong><code>()</code> : Devuelve un string con la descripción de todos los productos del array. Un producto por línea.</li>
+<li><strong><code>filterByPrice</code></strong><code>(min, max)</code> : Recibe dos valores numéricos que representan el precio mínimo y máximo.<ul>
+<li><code>min</code> por defecto será <code>0</code>.</li>
+<li><code>max</code> por defecto será <code>Infinity</code>.</li>
+<li>Devuelve un nuevo objeto <code>FilterProducts</code> con los productos cuyo precio está entre esos valores.</li>
+</ul>
+</li>
+<li><strong><code>filterByUnits</code></strong><code>(min, max)</code> : Recibe dos valores numéricos que representan el número mínimo y máximo de unidades.<ul>
+<li><code>min</code> por defecto será <code>0</code>.</li>
+<li><code>max</code> por defecto será <code>Infinity</code>.</li>
+<li>Devuelve un nuevo objeto <code>FilterProducts</code> con los productos cuyo número de unidades está entre esos valores.</li>
+</ul>
+</li>
+<li><strong><code>filterByDescription</code></strong><code>(text)</code> : Recibe un texto y devuelve un nuevo objeto <code>FilterProducts</code> con los productos cuya descripción <strong>contiene</strong> ese texto (sin distinguir mayúsculas y minúsculas).<ul>
+<li><code>text</code> por defecto será <code>''</code>.</li>
+<li>Devuelve un nuevo objeto <code>FilterProducts</code> con los productos cuya descripción contiene ese texto.</li>
+</ul>
+</li>
+<li><strong><code>sortByName</code></strong><code>()</code>: Devuelve un nuevo objeto <code>FilterProducts</code> con los productos ordenados por nombre, sin distinguir mayúsculas y minúsculas.</li>
+<li><strong><code>sortByPrice</code></strong><code>()</code>: Devuelve un nuevo objeto <code>FilterProducts</code> con los productos ordenados por precio.</li>
+<li><strong><code>sortByUnits</code></strong><code>()</code>: Devuelve un nuevo objeto <code>FilterProducts</code> con los productos ordenados por unidades.</li>
+</ul>
+<p>Comprueba que se muestran correctamente los productos filtrados.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">let</span><span class="w"> </span><span class="nx">filtroPrecio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FilterProducts</span><span class="p">(</span><span class="nx">almacen</span><span class="p">.</span><span class="nx">products</span><span class="p">);</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;FILTRADO POR PRECIO&#39;</span><span class="p">);</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">// Filtramos los productos cuyo precio está entre 10 y 50 €</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="kd">let</span><span class="w"> </span><span class="nx">filtradoPrecio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">filtroPrecio</span><span class="p">.</span><span class="nx">filterByPrice</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">);</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filtradoPrecio</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;FILTRADO POR UNIDADES&#39;</span><span class="p">);</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1">// Filtramos los productos cuyas unidades están entre 5 y 20</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="kd">let</span><span class="w"> </span><span class="nx">filtradoUnidades</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">filtroPrecio</span><span class="p">.</span><span class="nx">filterByUnits</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filtradoUnidades</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;FILTRADO POR DESCRIPCIÓN&#39;</span><span class="p">);</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1">// Filtramos los productos cuya descripción contiene &#39;TV&#39;</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="kd">let</span><span class="w"> </span><span class="nx">filtradoDescrip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">filtroPrecio</span><span class="p">.</span><span class="nx">filterByDescription</span><span class="p">(</span><span class="s1">&#39;king&#39;</span><span class="p">);</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filtradoDescrip</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;ORDENADO POR NOMBRE&#39;</span><span class="p">);</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="c1">// Ordenamos los productos por nombre</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="kd">let</span><span class="w"> </span><span class="nx">ordenadoNombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">filtroPrecio</span><span class="p">.</span><span class="nx">sortByName</span><span class="p">();</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">ordenadoNombre</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="c1">// Combina varios filtros y ordenaciones</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;FILTRADO Y ORDENADO&#39;</span><span class="p">);</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="c1">// Filtramos los productos cuyo precio está entre 10 y 50 € y sus unidades entre 5 y 20, ordenados por precio</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="kd">let</span><span class="w"> </span><span class="nx">combinacion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">filtroPrecio</span><span class="p">.</span><span class="nx">filterByPrice</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">50</span><span class="p">).</span><span class="nx">filterByUnits</span><span class="p">(</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">).</span><span class="nx">sortByPrice</span><span class="p">();</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">combinacion</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="c1">// De esta forma se pueden encadenar varios métodos</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="c1">// para hacer varias operaciones consecutivas</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="c1">// de filtrado y ordenación sobre el array de productos.</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="c1">//</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="c1">// En aplicaciones reales se suelen hacer varias operaciones de este tipo</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="c1">// según las preferencias del usuario.</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

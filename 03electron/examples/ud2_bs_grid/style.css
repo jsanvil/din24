@@ -1,0 +1,24 @@
+:root {
+    --color1: #D2E0FB;
+    --color2: #F9F3CC;
+    --color3: #D7E5CA;
+    --color4: #8EACCD;
+}
+
+.contenedor-principal {
+    background-color: var(--color1);
+}
+
+.contenedor-navegacion {
+    width: 220px;
+    background-color: var(--color2);
+}
+
+.contenedor-contenido {
+    min-height: 500px;
+    background-color: var(--color3);
+}
+
+.contenedor-pie {
+    background-color: var(--color1);
+}

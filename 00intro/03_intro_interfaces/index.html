@@ -1,0 +1,2388 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../021_actividad/">
+      
+      
+        <link rel="next" href="../../01js/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>0.3 Introducción a la interfaz de usuario - Desarrollo de Interfaces 2024/25</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/bs5_layout.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#03-introduccion-a-la-interfaz-de-usuario" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Desarrollo de Interfaces 2024/25" class="md-header__button md-logo" aria-label="Desarrollo de Interfaces 2024/25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo de Interfaces 2024/25
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              0.3 Introducción a la interfaz de usuario
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  Inicio
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01_electron_intro/" class="md-tabs__link">
+          
+  
+  0 Intro
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01js/" class="md-tabs__link">
+          
+  
+  UD 1 JS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02nodejs/" class="md-tabs__link">
+          
+  
+  UD 2 Node.js
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03electron/" class="md-tabs__link">
+          
+  
+  UD 3 Electron
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04electron_react/" class="md-tabs__link">
+          
+  
+  UD 4 React
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05electron_db/" class="md-tabs__link">
+          
+  
+  UD 5 Gestión de datos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../proyectos/01_watchlist/" class="md-tabs__link">
+          
+  
+  Proyectos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Desarrollo de Interfaces 2024/25" class="md-nav__button md-logo" aria-label="Desarrollo de Interfaces 2024/25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Desarrollo de Interfaces 2024/25
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Inicio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de Interfaces 2024/25
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entorno/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🔧 Entorno de trabajo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    0 Intro
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            0 Intro
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_electron_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.1 Introducción a Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_electron_firstapp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.2 Creando la primera aplicación en Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../021_actividad/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.2.1 Actividad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    0.3 Introducción a la interfaz de usuario
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    0.3 Introducción a la interfaz de usuario
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-diseno-de-una-interfaz-el-diseno-grafico" class="md-nav__link">
+    <span class="md-ellipsis">
+      El diseño de una interfaz. El diseño gráfico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El diseño de una interfaz. El diseño gráfico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-busca-la-interfaz-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué busca la interfaz de usuario?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planteamiento-y-diseno-de-una-interfaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planteamiento y diseño de una interfaz
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elementos-de-una-interfaz-grafica-de-usuario-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elementos de una interfaz gráfica de usuario (GUI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-interfaces-graficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de interfaces gráficas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      El color
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el-sistema-rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      El sistema RGB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matiz-saturacion-y-brillo-hsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matiz, saturación y brillo (HSV)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circulo-cromatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Círculo cromático
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#armonia-de-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Armonía de color
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contraste-de-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contraste de color
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psicologia-del-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Psicología del color
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referencias
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 1 JS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD 1 JS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 Javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/01_sintaxis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 Sintaxis básica de Javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/02_funciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 Funciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/03_objetos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Objetos { }
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/04_arrays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 Arrays [ ]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/05_callbacks_promesas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 Callbacks y promesas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/06_poo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.6 Programación Orientada a Objetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/011_actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ Actividades: sintaxis básica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/061_actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ Actividades: Programación asíncrona y orientada a objetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/062_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ Ejercicio de refuerzo sobre programación asíncrona y orientada a objetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 2 Node.js
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            UD 2 Node.js
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 NodeJS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/01_modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 Módulos en Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/02_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 Eventos en Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/03_servers_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 Servidores y ficheros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/ud2act01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD2 - Actividad 1: Módulos y eventos en Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 3 Electron
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            UD 3 Electron
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 Electron básico
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/01_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 Introducción a Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/02_dom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 Document Object Model (DOM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/03_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 Eventos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/04_forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4 Formularios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/05_ipc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.5 Comunicación entre procesos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/06_bs_layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.6 Maquetación en Bootstrap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/07_bs_elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.7 Elemento básicos de Bootstrap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/ud3_act1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD3 - Actividad 1: Document Object Model (DOM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/ud3_act2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD3 - Actividad 2: Eventos y formularios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 4 React
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            UD 4 React
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 Electron avanzado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/01_intro_react/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 Introducción a React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/02_electron_vite_project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 Integración de React en Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/03_react_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 Eventos React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/04_react_state/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.4 Reaccionando a cambios de estado con useState
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/05_react_effect/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.5 Responder a cambios externos con useEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/06_react_router_redux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.6 Estado global y rutas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/ud4_act1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD4 - Actividad 1: Introducción a React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/ud4_act2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD4 - Actividad 2: Estados y efectos en React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/ud4_act3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD4 - Actividad 3: Rutas y estado global
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 5 Gestión de datos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            UD 5 Gestión de datos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05electron_db/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 Aplicaciones Electron con Base de Datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05electron_db/01_architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 Arquitectura de datos y servicios en una aplicación Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05electron_db/02_apirest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 API REST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proyectos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Proyectos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyectos/01_watchlist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proyecto 1 - Lista de seguimiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyectos/02_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proyecto 2 - Gestión de eventos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#el-diseno-de-una-interfaz-el-diseno-grafico" class="md-nav__link">
+    <span class="md-ellipsis">
+      El diseño de una interfaz. El diseño gráfico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El diseño de una interfaz. El diseño gráfico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-busca-la-interfaz-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué busca la interfaz de usuario?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planteamiento-y-diseno-de-una-interfaz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planteamiento y diseño de una interfaz
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elementos-de-una-interfaz-grafica-de-usuario-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elementos de una interfaz gráfica de usuario (GUI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-interfaces-graficas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de interfaces gráficas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      El color
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="El color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#el-sistema-rgb" class="md-nav__link">
+    <span class="md-ellipsis">
+      El sistema RGB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matiz-saturacion-y-brillo-hsv" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matiz, saturación y brillo (HSV)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circulo-cromatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Círculo cromático
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#armonia-de-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Armonía de color
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contraste-de-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contraste de color
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psicologia-del-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Psicología del color
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      Referencias
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="03-introduccion-a-la-interfaz-de-usuario">0.3 Introducción a la interfaz de usuario<a class="headerlink" href="#03-introduccion-a-la-interfaz-de-usuario" title="Permanent link">&para;</a></h1>
+<h2 id="el-diseno-de-una-interfaz-el-diseno-grafico">El diseño de una interfaz. El diseño gráfico<a class="headerlink" href="#el-diseno-de-una-interfaz-el-diseno-grafico" title="Permanent link">&para;</a></h2>
+<p>Una <strong>interfaz</strong> es el medio por el cual dos sistemas se comunican entre sí. En el caso de las interfaces de usuario, se trata de la comunicación entre el usuario y la computadora.</p>
+<p>El <strong>diseño de interfaces de usuario</strong> busca poner los puntos de contacto entre un <strong>usuario</strong> y una <strong>computadora</strong>, es decir, la forma en la que un usuario interactúa con una aplicación informática o un dispositivo electrónico.</p>
+<p>Generalmente es la forma en la cual se conectan el hardware con el software, que comprende las aplicaciones, programas y herramientas, su finalidad es que un usuario pueda realizar una acción determinada en la forma que se desea, teniendo eficacia, rendimiento y seguridad en cada proceso, lo que involucra que las acciones que se realicen sean las que el usuario desea de forma eficaz y precisa.</p>
+<ul>
+<li>La acción efectuada debería ser la que el usuario tiene intenciones de hacer.</li>
+<li>La acción se debe realizar de forma eficaz y precisa.</li>
+<li>La acción debe afectar solamente al componente de hardware o a la aplicación que se tenía considerada utilizar, esto sin afectar a otros componentes.</li>
+</ul>
+<p>En el caso de las interfaces gráficas de usuario, en inglés <strong>GUI</strong> (<em>Graphical User Interface</em>), se busca que el usuario pueda interactuar con la computadora de forma visual, a través de elementos gráficos como ventanas, botones, menús, etc.</p>
+<p>Así, podemos definir el <strong>diseño gráfico</strong> como la disciplina que se encarga de proyectar y diseñar soluciones visuales para comunicar mensajes específicos a un público determinado. En el caso de las interfaces de usuario, el diseño gráfico busca que el usuario pueda interactuar con la computadora de forma visual.</p>
+<p>Por lo tanto, la interfaz gráfica de usuario será un conjunto de elementos y un diseño donde su distribución que permite una mejor presentación y navegación en la aplicación. Si no existen ambos factores unidos, el resultado final no será óptimo, pudiendo tirar por tierra todo el buen trabajo que lleva en el backend. Ejemplo:</p>
+<p><img alt="Ejemplo de diseño de interfaz intuitiva" src="../assets/ejemplo_interfaz.png" /></p>
+<p>Como se puede apreciar, la figura, las dos imágenes son la misma aplicación. En la izquierda tenemos un mal diseño, ya que los los elementos no aparecen diferenciados, no se puede leer bien el texto, no se aprecian correctamente las imágenes, etc. Mientras que en la imagen de la derecha, la navegación del usuario es mucho más intuitiva, proporcionando un mayor grado de satisfacción al usarla.</p>
+<h3 id="que-busca-la-interfaz-de-usuario">¿Qué busca la interfaz de usuario?<a class="headerlink" href="#que-busca-la-interfaz-de-usuario" title="Permanent link">&para;</a></h3>
+<p>Para responder a esta pregunta debemos recordar la siguiente figura, la cual muestra la relación que existe entre los diferentes elementos que intervienen en un equipo:</p>
+<pre class="mermaid"><code>flowchart
+    A("&lt;font color=black&gt; Usuario") --&gt; B("&lt;font color=black&gt; Interfaz Aplicación")
+    style A fill:#fea,stroke:#888
+    style B fill:#cfa,stroke:#888
+    B --&gt; A
+    B --&gt; C("&lt;font color=black&gt; Interfaz Sistema Operativo")
+    style C fill:#fdd,stroke:#888
+    C --&gt; B
+    C --&gt; D("&lt;font color=black&gt; Hardware")
+    style D fill:#aef,stroke:#888
+    D --&gt; C
+    C --&gt; A</code></pre>
+<p>Con ello, podemos entender que la interfaz de usuario busca establecer una relación entre el usuario que utiliza la aplicación y el hardware del equipo mediante el uso del Sistema Operativo y la aplicación que se está utilizando.</p>
+<p>Las interfaces de usuario son muchas y variadas, tantas como hardware que debemos utilizar, como por ejemplo la siguiente imagen:</p>
+<p><img alt="Interfaz de usuario en un electrodoméstico" src="../assets/interfaz_hardware.png" /></p>
+<h3 id="planteamiento-y-diseno-de-una-interfaz">Planteamiento y diseño de una interfaz<a class="headerlink" href="#planteamiento-y-diseno-de-una-interfaz" title="Permanent link">&para;</a></h3>
+<p><img align="right" alt="La interfaz de usuario es como un chiste, si tienes que explicarla no es buena" src="../assets/user_interface_joke.jpg" width="150px" /></p>
+<p>En la construcción de una aplicación debemos tener en cuenta diferentes fases, desde la definición de los objetivos que persigue nuestro proyecto hasta el diseño visual definitivo, pasando por las especificaciones funcionales. </p>
+<ul>
+<li><strong>Definición de objetivos</strong>: en esta fase se establecen los <strong>objetivos</strong> que se persiguen con la aplicación, así como las <strong>necesidades de los usuarios</strong> a los que va dirigida.</li>
+<li><strong>Especificaciones funcionales</strong>: en esta fase se definen las <strong>funcionalidades</strong> que debe tener la aplicación, así como los <strong>requisitos técnicos</strong> necesarios para su desarrollo.</li>
+<li><strong>Diseño de la interacción</strong>: en esta fase se establece la forma en que los usuarios interactuarán con la aplicación, definiendo los <strong>flujos de navegación</strong> y las <strong>acciones</strong> que podrán realizar.</li>
+<li><strong>Diseño de la interfaz</strong>: en esta fase se establece el <strong>diseño visual</strong> de la aplicación, definiendo la <strong>estructura</strong> de la interfaz, los <strong>elementos</strong> que la componen y su <strong>disposición</strong> en pantalla.</li>
+<li><strong>Desarrollo de la aplicación</strong>: en esta fase se lleva a cabo la <strong>implementación</strong> de la aplicación, siguiendo las <strong>especificaciones</strong> funcionales y el <strong>diseño</strong> de la interfaz previamente establecidos.</li>
+<li><strong>Pruebas y validación</strong>: en esta fase se realizan pruebas para comprobar que la aplicación funciona correctamente y <strong>se valida con los usuarios finales</strong> para asegurar que cumple con sus necesidades y expectativas.</li>
+</ul>
+<h3 id="elementos-de-una-interfaz-grafica-de-usuario-gui">Elementos de una interfaz gráfica de usuario (GUI)<a class="headerlink" href="#elementos-de-una-interfaz-grafica-de-usuario-gui" title="Permanent link">&para;</a></h3>
+<p>Podemos observar la evolución de las GUI ha llegado a ofrecer a los usuarios unas interfaces con una usabilidad óptima. Para conseguir esto se ha establecido que las interfaces tienen que cumplir una serie de características que, entre otras, serán:</p>
+<ul>
+<li><strong>Consistencia</strong>: seguir un mismo diseño y estructura entre ellas y también con otras interfaces de aplicaciones análogas. También tendrán que ser consistente cuando se ejecuten en diferentes entornos.</li>
+<li><strong>Usabilidad</strong>: debe ser fácil de usar y de entender (intuitiva), y tiene que ser eficiente en su uso.</li>
+<li><strong>Accesible</strong>: debe que mostrar con claridad las funcionalidades que ofrece y tiene que facilitar llegar de manera sencilla y clara.</li>
+<li><strong>Aprendizaje y uso fácil:</strong> las interfaces tienen que ser fáciles de usar y también de aprender por parte de los usuarios más noveles.</li>
+<li><strong>Retroalimentación</strong>: la interfaz tiene que ofrecer información al usuario sobre las acciones que ha realizado, si estas han sido correctas o no, y si no lo han sido, tiene que ofrecer una solución para corregirlo.</li>
+<li><strong>Anticipación</strong>: se tendrán que prever los posibles errores que pueda cometer un usuario o las necesidades que pueda demostrar y ofrecer soluciones antes de que aparezcan o controlándoos y ofreciendo soluciones.</li>
+<li><strong>Autonomía</strong>: un usuario no tiene que necesitar más información o ayuda que la que una interfaz le ofrece o, la que puede encontrar a partir de las indicaciones que le indicará esta interfaz.</li>
+<li><strong>Reducir carga de memoria</strong>: para poder usar una interfaz más de una vez no habrá que obligar a los usuarios a <strong>recordar</strong> la ubicación de las funcionalidades, sino que estas tendrán que ser sencillas de <strong>reconocer</strong>. Esto hará que no sea indispensable memorizar muchas informaciones para aprender a usar una interfaz determinada.</li>
+<li><strong>Internacionalización</strong> de la interfaz: según los requisitos, debe que permitir ser entendida y utilizable por usuarios de diferentes culturas e idiomas o bien haciéndola internacional con iconos fácilmente reconocibles o con la posibilidad de seleccionar el idioma con el cual se querrá trabajar.</li>
+<li><strong>Valores iniciales</strong>: también conocidos como valores por defecto o estándar. Son los valores que en las interfaces que llevan un formulario incorporado aparecerán seleccionados inicialmente. Además, tienen que poder ser descartados de manera sencilla.</li>
+</ul>
+<p>Las interfaces gráficas de usuario disponen de una serie de elementos propios, comunes a muchas de las GUI desarrolladas, que dispondrán de unas características y propiedades. Con estos elementos se facilitará el desarrollo de las GUI de las aplicaciones informáticas, cosa que ofrece la posibilidad de cumplir la mayoría de las características definidas.</p>
+<p>Para que el usuario pueda usar estos elementos, tendrá que usar alguno de los dispositivos de entrada/salida. El teclado del ordenador ha sido el dispositivo indispensable, como también lo es el ratón. Pero hay otros como <em>touchpads</em>, tabletas gráficas, <em>gamepads</em>, pantallas táctiles o micrófonos. Por otra parte, en cuanto a dispositivos de salida, además de la pantalla, serán importantes los altavoces, impresoras, leds indicadores, etc.</p>
+<p>Algunos de estos dispositivos serán indispensables para el funcionamiento correcto de algunos de los elementos que ofrecen las GUI. Cada interfaz gráfica usará algunos elementos en función de su entorno de trabajo, y no todas tienen los mismos elementos.</p>
+<p>Algunos de los elementos de las GUI que se pueden encontrar de manera habitual en muchas interfaces son:</p>
+<ul>
+<li>Botones</li>
+<li>Campos de texto</li>
+<li>Listas desplegables</li>
+<li>Menús</li>
+<li>Barras de herramientas</li>
+<li>Barras de estado</li>
+<li>Ventanas</li>
+<li>Paneles</li>
+<li>Pestañas</li>
+<li>Iconos</li>
+<li>Etiquetas</li>
+<li>Cuadros de diálogo</li>
+<li>Barras de desplazamiento</li>
+<li>Barras de progreso</li>
+<li>Cuadros de texto</li>
+</ul>
+<h3 id="tipos-de-interfaces-graficas">Tipos de interfaces gráficas<a class="headerlink" href="#tipos-de-interfaces-graficas" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Command Line Interfaces (CLI)</strong></p>
+<p>Fueron las primeras interfaces, era solo una línea de comandos, un <em>prompt</em> y un cursor parpadeante para mostrar la posición actual o un mensaje, un ejemplo en el caso de los primeros ordenadores personales con MS-DOS. </p>
+<p>Con una interfaz de líneas de comandos o <em>Command Line Interface</em> (CLI), se tecleaban comandos específicos para establecer la comunicación con la computadora, el resultado se mostraba en formato de texto. </p>
+</li>
+<li>
+<p><strong>Text User Interface (TUI)</strong></p>
+<p>En ellas la interacción con el dispositivo también se da por medio del teclado. Las TUI marcan el paso de las interfaces de líneas de comando a interfaces gráficas de usuario. </p>
+</li>
+<li>
+<p><strong>Graphical User Interfaces (GUI)</strong></p>
+<p>Este software se aplica con elementos gráficos de control e imágenes que se toman como referencia de objetos de la realidad. </p>
+<p>En este sentido, se suele recurrir al ratón y al teclado como dispositivos de control, aunque también ya es muy común que entren pantallas táctiles.Aquí los iconos también se introducen en el mundo digital, al igual que el escritorio o la papelera.</p>
+</li>
+<li>
+<p><strong>Voice User Interface (VUI)</strong></p>
+<p>La <em>Voice User Interface</em> también permite la interacción con las computadoras por medio del control por voz, un ejemplo es Apple con  Siri, Amazon con <em>Alexa</em>, Microsoft con <em>Cortana</em> o la búsqueda de <em>Google</em> mediante voz.</p>
+<p>De esta forma, se puede acceder a algunas aplicaciones de un modo más efectivo y garantizando una mayor accesibilidad.</p>
+</li>
+<li>
+<p><strong>Natural User Interface (NUI)</strong></p>
+<p>Con <em>Natural User Interface</em>, la comunicación con el dispositivo se da de forma más intuitiva, puede ser considerada como una evolución de la interfaz gráfica de usuario y de la <em>Voice User Interface</em>. </p>
+<p>Los diferentes sensores, cámaras y micrófonos permiten una comunicación versátil, la interfaz de usuario interactiva reacciona a los gestos, a los movimientos y al lenguaje, siendo capaz de reconocer rostros y objetos. </p>
+</li>
+</ul>
+<div style="page-break-after: always"></div>
+
+<h2 id="el-color">El color<a class="headerlink" href="#el-color" title="Permanent link">&para;</a></h2>
+<p>El ojo humano solo es capaz de percibir los denominados colores aditivos; a través de la combinación de éstos es posible obtener el resto de los colores, estos son:</p>
+<ul>
+<li>Rojo (R - Red) </li>
+<li>Verde (G - Green)</li>
+<li>Azul (B - Blue)</li>
+</ul>
+<h3 id="el-sistema-rgb">El sistema RGB<a class="headerlink" href="#el-sistema-rgb" title="Permanent link">&para;</a></h3>
+<p>De la misma forma, un ordenador es capaz de obtener la representación de todos los colores utilizando el sistema RGB (<em>Red Green Blue</em>), indicando la proporción de cada color dentro de dicha combinación, dando lugar a toda la paleta de colores.</p>
+<p>Para representar cada color de forma que pueda ser traducido por el ordenador se suelen utilizar 8 bits para codificar cada uno de los colores aditivos, es decir, se establece la proporción de cada color que va a formar parte de los tres. La escala monocromática de un color tendrá 256 valores posibles, desde 0 hasta 255.</p>
+<p>A la hora de representar cada uno de los colores, es posible utilizar tanto el sistema hexadecimal, donde se representan los valores de cada color en una escala de <code>00</code> a <code>FF</code> (0 a 255 en decimal).</p>
+<p>El número de combinación de colores se calcula multiplicando el número máximo de grados en la escala monocromática de cada color: 256x256x256, obteniendo 16.777.256 colores.</p>
+<p><em>Por ejemplo, el color <strong>amarillo</strong> estaría formado por:</em></p>
+<p><img align="right" alt="Modelo aditivo de colores rojo, verde, azul" src="../assets/rgb.jpg" width="200" /></p>
+<table>
+<thead>
+<tr>
+<th>Color</th>
+<th>Valor decimal</th>
+<th>Valor binario</th>
+<th>Valor hexadecimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rojo</td>
+<td>255</td>
+<td>1111 1111</td>
+<td>FF</td>
+</tr>
+<tr>
+<td>Verde</td>
+<td>255</td>
+<td>1111 1111</td>
+<td>FF</td>
+</tr>
+<tr>
+<td>Azul</td>
+<td>0</td>
+<td>0000 0000</td>
+<td>00</td>
+</tr>
+</tbody>
+</table>
+<p><em>En hexadecimal quedaría expresado: <code>#FFFF00</code></em></p>
+<h3 id="matiz-saturacion-y-brillo-hsv">Matiz, saturación y brillo <em>(HSV)</em><a class="headerlink" href="#matiz-saturacion-y-brillo-hsv" title="Permanent link">&para;</a></h3>
+<p>Además del grado en la escala monocromática de cada uno de los colores RGB, los colores representan 3 propiedades que permiten distinguirse unos de otros:</p>
+<p><img align="right" alt="Modelo de color HSV" src="../assets/hsb.png" width="200" /></p>
+<ul>
+<li><strong>Matiz (<em>Hue</em>)</strong>. Atributo que permite distinguir un color de otro. Los tres matices primarios son los colores aditivos, verde, rojo y azul. El resto de los colores se obtiene mezclando estos tres. El matiz permite definir dos colores como complementarios cuando están uno frente al otro en el círculo cromático.</li>
+<li><strong>Saturación (<em>Saturation</em>)</strong>. Este atributo define la intensidad de un color. Pueden relacionarse con el ancho de banda de luz que estamos visualizando, por tanto, queda condicionado por el nivel de gris presente en un color: cuando mayor sea el nivel de gris, menos saturado será un color, y será menos intenso.</li>
+<li><strong>Valor o Brillo (<em>Value</em>, <em>Brightness</em>)</strong>. Atributo que define la cantidad de luz de un color. Representa lo oscuro (si se le añade negro) o claro (si se le añade blanco) que es un color respecto de su patrón, es decir, respecto del color puro sin modificar el brillo. En una composición de colores en diseño gráfico, cuanto más brillante sea un color, más cerca parece estar.</li>
+</ul>
+<p>Estas propiedades nos permiten definir los colores como cromáticos, complementarios o cercanos, así como definir el contraste de color.</p>
+<h3 id="circulo-cromatico">Círculo cromático<a class="headerlink" href="#circulo-cromatico" title="Permanent link">&para;</a></h3>
+<p><img alt="Círculo cromático 12 colores. (Wikipedia)" src="../assets/Rgb-colorwheel.png" /></p>
+<p>El término "círculo cromático" se refiere a una representación circular de los colores organizados según su relación cromática. Es una herramienta utilizada en diseño y arte para comprender las relaciones entre colores y crear esquemas de color armoniosos.</p>
+<h3 id="armonia-de-color">Armonía de color<a class="headerlink" href="#armonia-de-color" title="Permanent link">&para;</a></h3>
+<p>La armonía de color se refiere a la disposición de colores de manera que resulten agradables a la vista y transmitan una sensación de equilibrio y orden. En diseño y arte, se utilizan diferentes combinaciones de colores para lograr armonía, tales como:</p>
+<ul>
+<li><strong>Colores complementarios</strong>: Colores opuestos en el círculo cromático que, cuando se usan juntos, crean un <strong>contraste</strong> fuerte y vibrante.</li>
+<li><strong>Colores análogos</strong>: Colores que están uno al lado del otro en el círculo cromático y que combinan bien entre sí, proporcionando una <strong>transición suave y coherente</strong>.</li>
+<li><strong>Colores triádicos</strong>: Tres colores equidistantes en el círculo cromático que forman un triángulo equilátero, proporcionando un <strong>equilibrio</strong> de colores.</li>
+<li><strong>Colores monocromáticos</strong>: Variaciones de un solo color, utilizando diferentes tonos, matices y saturaciones para crear una <strong>paleta cohesiva y equilibrada</strong>.</li>
+</ul>
+<p><img alt="Combinaciones armónicas. Wikipedia" src="../assets/Combinaciones_Armonicas.png" /></p>
+<p>La armonía de color es esencial en el diseño de interfaces, ya que influye en la percepción y experiencia del usuario. Un esquema de color bien equilibrado y armonioso puede mejorar la legibilidad, la usabilidad y la estética de una interfaz.</p>
+<h3 id="contraste-de-color">Contraste de color<a class="headerlink" href="#contraste-de-color" title="Permanent link">&para;</a></h3>
+<p>El contraste de color se refiere a la diferencia entre dos colores en términos de luminosidad y saturación. Un alto contraste entre colores crea una <strong>distinción clara</strong> y facilita la <strong>legibilidad</strong> y <strong>visibilidad</strong> de la información en una interfaz.</p>
+<p>El contraste de color es importante en el diseño de interfaces para garantizar que el contenido sea <strong>accesible</strong> y <strong>fácil de leer</strong> para todos los usuarios, incluidos aquellos con discapacidades visuales. Se pueden utilizar herramientas de contraste de color para evaluar y ajustar el contraste de color en una interfaz.</p>
+<h3 id="psicologia-del-color">Psicología del color<a class="headerlink" href="#psicologia-del-color" title="Permanent link">&para;</a></h3>
+<p>Según la psicología del color, cada uno evoca una emoción o una acción, por lo tanto, a la hora de diseñar una interfaz es recomendable elegir unos colores acordes.</p>
+<p><em>Por ejemplo:</em></p>
+<ul>
+<li><span style="color:red; font-size: large; text-shadow: 1px 0 1px white, 0 1px 1px white, -1px 0 1px white, 0 -1px 1px white;"><strong>Rojo</strong></span>: Peligro, Lujuria, Poder, Emoción, Amor, Velocidad, Ira</li>
+<li><span style="color:yellow; font-size: large; text-shadow: 1px 0 1px black, 0 1px 1px black, -1px 0 1px black, 0 -1px 1px black;"><strong>Amarillo</strong></span>: Advertencia, Competencia, Felicidad, Barato, Baja calidad</li>
+<li><span style="color:green; font-size: large; text-shadow: 1px 0 1px white, 0 1px 1px white, -1px 0 1px white, 0 -1px 1px white;"><strong>Verde</strong></span>: Buen Gusto, Envidia, Ecológico, Salud, Dinero</li>
+<li><span style="color:blue; font-size: large; text-shadow: 1px 0 1px white, 0 1px 1px white, -1px 0 1px white, 0 -1px 1px white;"><strong>Azul</strong></span>: Sofisticación, Competencia, Alta calidad, Corporativo, Fiabilidad</li>
+<li><span style="color:pink; font-size: large; text-shadow: 1px 0 1px black, 0 1px 1px black, -1px 0 1px black, 0 -1px 1px black;"><strong>Rosa</strong></span>: Autoridad, Sinceridad, Femenino y Coqueto</li>
+<li><span style="color:purple; font-size: large; text-shadow: 1px 0 1px white, 0 1px 1px white, -1px 0 1px white, 0 -1px 1px white;"><strong>Violeta/Morado</strong></span>: Calidez, Sofisticación, Poder</li>
+<li><span style="color:orange; font-size: large; text-shadow: 1px 0 1px black, 0 1px 1px black, -1px 0 1px black, 0 -1px 1px black;"><strong>Naranja</strong></span>: Robustez, Emoción, Atracción, Peligro</li>
+<li><span style="color:brown; font-size: large; text-shadow: 1px 0 1px white, 0 1px 1px white, -1px 0 1px white, 0 -1px 1px white;"><strong>Marrón</strong></span>: Dolor, Tierra, Estabilidad</li>
+<li><span style="color:black; font-size: large; text-shadow: 1px 0 1px white, 0 1px 1px white, -1px 0 1px white, 0 -1px 1px white;"><strong>Negro</strong></span>: Felicidad, Sofisticación, Caro, Miedo</li>
+<li><span style="color:white; font-size: large; text-shadow: 1px 0 1px black, 0 1px 1px black, -1px 0 1px black, 0 -1px 1px black;"><strong>Blanco</strong></span>: Pureza, Limpieza, Espacio</li>
+</ul>
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<ul>
+<li>García-Miguel, D; García-Miguel, B; Fernández, A. Diseño de interfaces. Editorial síntesi. 2021</li>
+<li>Disseny d’interficies al IOC.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

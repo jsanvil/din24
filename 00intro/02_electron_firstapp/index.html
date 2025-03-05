@@ -1,0 +1,2666 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../01_electron_intro/">
+      
+      
+        <link rel="next" href="../021_actividad/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>0.2 Creando la primera aplicación en Electron - Desarrollo de Interfaces 2024/25</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/bs5_layout.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#02-creando-la-primera-aplicacion-en-electron" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Desarrollo de Interfaces 2024/25" class="md-header__button md-logo" aria-label="Desarrollo de Interfaces 2024/25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Desarrollo de Interfaces 2024/25
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              0.2 Creando la primera aplicación en Electron
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  Inicio
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01_electron_intro/" class="md-tabs__link">
+          
+  
+  0 Intro
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01js/" class="md-tabs__link">
+          
+  
+  UD 1 JS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02nodejs/" class="md-tabs__link">
+          
+  
+  UD 2 Node.js
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03electron/" class="md-tabs__link">
+          
+  
+  UD 3 Electron
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04electron_react/" class="md-tabs__link">
+          
+  
+  UD 4 React
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05electron_db/" class="md-tabs__link">
+          
+  
+  UD 5 Gestión de datos
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../proyectos/01_watchlist/" class="md-tabs__link">
+          
+  
+  Proyectos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Desarrollo de Interfaces 2024/25" class="md-nav__button md-logo" aria-label="Desarrollo de Interfaces 2024/25" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Desarrollo de Interfaces 2024/25
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Inicio
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Desarrollo de Interfaces 2024/25
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../entorno/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🔧 Entorno de trabajo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    0 Intro
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            0 Intro
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_electron_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.1 Introducción a Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    0.2 Creando la primera aplicación en Electron
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    0.2 Creando la primera aplicación en Electron
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurando-tu-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurando tu Proyecto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iniciando-el-proyecto-con-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iniciando el proyecto con npm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agregando-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agregando .gitignore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejecutar-una-aplicacion-electron" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejecutar una aplicación Electron
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cargar-una-html-en-un-browserwindow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cargar una html en un BrowserWindow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cargar una html en un BrowserWindow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importando-modulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importando módulos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escribir-una-funcion-reutilizable-para-instanciar-ventanas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escribir una función reutilizable para instanciar ventanas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llamar-a-su-funcion-cuando-la-aplicacion-este-lista" class="md-nav__link">
+    <span class="md-ellipsis">
+      Llamar a su función cuando la aplicación esté lista
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administrar-el-ciclo-de-vida-de-la-ventana-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administrar el ciclo de vida de la ventana de la aplicación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Administrar el ciclo de vida de la ventana de la aplicación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#salir-de-la-aplicacion-cuando-todas-las-ventanas-esten-cerradas-windows-y-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salir de la aplicación cuando todas las ventanas estén cerradas (Windows y Linux)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abra-una-ventana-si-no-hay-ninguna-abierta-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abra una ventana si no hay ninguna abierta (macOS)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigo-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código final
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depurando-en-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Depurando en VS Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resumen
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../021_actividad/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.2.1 Actividad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_intro_interfaces/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0.3 Introducción a la interfaz de usuario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 1 JS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            UD 1 JS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 Javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/01_sintaxis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.1 Sintaxis básica de Javascript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/02_funciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.2 Funciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/03_objetos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.3 Objetos { }
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/04_arrays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.4 Arrays [ ]
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/05_callbacks_promesas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.5 Callbacks y promesas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/06_poo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1.6 Programación Orientada a Objetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/011_actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ Actividades: sintaxis básica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/061_actividades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ Actividades: Programación asíncrona y orientada a objetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01js/062_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ Ejercicio de refuerzo sobre programación asíncrona y orientada a objetos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 2 Node.js
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            UD 2 Node.js
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 NodeJS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/01_modules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.1 Módulos en Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/02_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.2 Eventos en Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/03_servers_files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2.3 Servidores y ficheros
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02nodejs/ud2act01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD2 - Actividad 1: Módulos y eventos en Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 3 Electron
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            UD 3 Electron
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 Electron básico
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/01_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.1 Introducción a Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/02_dom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.2 Document Object Model (DOM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/03_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.3 Eventos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/04_forms/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.4 Formularios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/05_ipc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.5 Comunicación entre procesos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/06_bs_layout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.6 Maquetación en Bootstrap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/07_bs_elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3.7 Elemento básicos de Bootstrap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/ud3_act1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD3 - Actividad 1: Document Object Model (DOM)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03electron/ud3_act2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD3 - Actividad 2: Eventos y formularios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 4 React
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            UD 4 React
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 Electron avanzado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/01_intro_react/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.1 Introducción a React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/02_electron_vite_project/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.2 Integración de React en Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/03_react_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.3 Eventos React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/04_react_state/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.4 Reaccionando a cambios de estado con useState
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/05_react_effect/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.5 Responder a cambios externos con useEffect
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/06_react_router_redux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4.6 Estado global y rutas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/ud4_act1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD4 - Actividad 1: Introducción a React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/ud4_act2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD4 - Actividad 2: Estados y efectos en React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04electron_react/ud4_act3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ✍️ UD4 - Actividad 3: Rutas y estado global
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UD 5 Gestión de datos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            UD 5 Gestión de datos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05electron_db/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 Aplicaciones Electron con Base de Datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05electron_db/01_architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.1 Arquitectura de datos y servicios en una aplicación Electron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05electron_db/02_apirest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5.2 API REST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proyectos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Proyectos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyectos/01_watchlist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proyecto 1 - Lista de seguimiento
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyectos/02_events/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proyecto 2 - Gestión de eventos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurando-tu-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurando tu Proyecto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iniciando-el-proyecto-con-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iniciando el proyecto con npm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agregando-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agregando .gitignore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejecutar-una-aplicacion-electron" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejecutar una aplicación Electron
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cargar-una-html-en-un-browserwindow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cargar una html en un BrowserWindow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cargar una html en un BrowserWindow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importando-modulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importando módulos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escribir-una-funcion-reutilizable-para-instanciar-ventanas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Escribir una función reutilizable para instanciar ventanas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llamar-a-su-funcion-cuando-la-aplicacion-este-lista" class="md-nav__link">
+    <span class="md-ellipsis">
+      Llamar a su función cuando la aplicación esté lista
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administrar-el-ciclo-de-vida-de-la-ventana-de-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Administrar el ciclo de vida de la ventana de la aplicación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Administrar el ciclo de vida de la ventana de la aplicación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#salir-de-la-aplicacion-cuando-todas-las-ventanas-esten-cerradas-windows-y-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salir de la aplicación cuando todas las ventanas estén cerradas (Windows y Linux)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abra-una-ventana-si-no-hay-ninguna-abierta-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abra una ventana si no hay ninguna abierta (macOS)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigo-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código final
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depurando-en-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Depurando en VS Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resumen
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="02-creando-la-primera-aplicacion-en-electron">0.2 Creando la primera aplicación en Electron<a class="headerlink" href="#02-creando-la-primera-aplicacion-en-electron" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="#objetivos">Objetivos</a></li>
+<li><a href="#configurando-tu-proyecto">Configurando tu Proyecto</a></li>
+<li><a href="#iniciando-el-proyecto-con-npm">Iniciando el proyecto con <code>npm</code></a></li>
+<li><a href="#agregando-gitignore">Agregando <code>.gitignore</code></a></li>
+<li><a href="#ejecutar-una-aplicacion-electron">Ejecutar una aplicación Electron</a></li>
+<li><a href="#cargar-una-html-en-un-browserwindow">Cargar una html en un <em><code>BrowserWindow</code></em></a><ul>
+<li><a href="#importando-modulos">Importando módulos</a></li>
+<li><a href="#escribir-una-función-reutilizable-para-instanciar-ventanas">Escribir una función reutilizable para instanciar ventanas</a></li>
+<li><a href="#llamar-a-su-funcion-cuando-la-aplicacion-este-lista">Llamar a su función cuando la aplicación esté lista</a></li>
+</ul>
+</li>
+<li><a href="#administrar-el-ciclo-de-vida-de-la-ventana-de-la-aplicacion">Administrar el ciclo de vida de la ventana de la aplicación</a><ul>
+<li><a href="#salir-de-la-aplicacion-cuando-todas-las-ventanas-esten-cerradas-windows-y-linux">Salir de la aplicación cuando todas las ventanas estén cerradas (<em>Windows y Linux</em>)</a></li>
+</ul>
+</li>
+<li><a href="#abra-una-ventana-si-no-hay-ninguna-abierta-macos">Abra una ventana si no hay ninguna abierta (<em>macOS</em>)</a></li>
+<li><a href="#codigo-final">Código final</a></li>
+<li><a href="#depurando-en-vs-code">Depurando en VS Code</a></li>
+<li><a href="#resumen">Resumen</a></li>
+</ul>
+<h2 id="objetivos">Objetivos<a class="headerlink" href="#objetivos" title="Permanent link">&para;</a></h2>
+<p>En esta parte se enseñará a configurar un proyecto <em>Electron</em> y escribir una aplicación inicial sencilla. Al final de esta sección, se podrá ejecutar una aplicación <em>Electron</em> en modo de desarrollo desde el terminal.</p>
+<h2 id="configurando-tu-proyecto">Configurando tu Proyecto<a class="headerlink" href="#configurando-tu-proyecto" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">EVITA WSL</p>
+<p>Si se utiliza un sistema <em>Windows</em>, no se debe utilizar el <a href="https://learn.microsoft.com/en-us/windows/wsl/about#what-is-wsl-2">Subsistema de Windows para Linux</a> (<em>WSL</em>), ya que surgirán problemas al intentar ejecutar la aplicación.</p>
+</div>
+<h2 id="iniciando-el-proyecto-con-npm">Iniciando el proyecto con <code>npm</code><a class="headerlink" href="#iniciando-el-proyecto-con-npm" title="Permanent link">&para;</a></h2>
+<p>Las aplicaciones <em>Electron</em> se organizan usando <strong><em>npm</em></strong>, con el archivo <strong><em><code>package.json</code></em></strong> como punto de entrada. Comienza creando una carpeta e inicializando un paquete <strong><em>npm</em></strong> dentro de ella con el comando <code>npm init</code>.</p>
+<div class="highlight"><span class="filename">Terminal</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>my-electron-app
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>my-electron-app
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>npm<span class="w"> </span>init
+</code></pre></div>
+<p>Este comando pedirá que configures algunos atributos del <strong><code>package.json</code></strong>. Hay algunas reglas que seguir en esta guía:</p>
+<ul>
+<li>El punto de entrada de la aplicación debe ser el archivo <strong><code>main.js</code></strong>.</li>
+<li><em>"author"</em>, <em>"license"</em> y <em>"description"</em> pueden tener cualquier valor, pero serán necesarios para el empaquetado más adelante.</li>
+<li>Se puede aceptar la configuración por defecto, normalmente indicada entre paréntesis, pulsando la tecla <code>intro</code>.</li>
+</ul>
+<div class="highlight"><span class="filename">Ejemplo del proceso de configuración de `package.json` con `npm init`</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>This utility will walk you through creating a package.json file.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>It only covers the most common items, and tries to guess sensible defaults.
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>See `npm help init` for definitive documentation on these fields
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>and exactly what they do.
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Use `npm install &lt;pkg&gt;` afterwards to install a package and
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>save it as a dependency in the package.json file.
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Press ^C at any time to quit.
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>package name: (my-electron-app) 
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>version: (1.0.0) 
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>description: 
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="hll">entry point: (index.js) main.js
+</span><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>test command: 
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>git repository: 
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>keywords: 
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>author: 
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>license: (ISC) 
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>About to write to /home/user/my-electron-app/package.json:
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>{
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>  &quot;name&quot;: &quot;my-electron-app&quot;,
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>  &quot;version&quot;: &quot;1.0.0&quot;,
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>  &quot;description&quot;: &quot;&quot;,
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>  &quot;main&quot;: &quot;main.js&quot;,
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>  &quot;scripts&quot;: {
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>  },
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>  &quot;author&quot;: &quot;&quot;,
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>  &quot;license&quot;: &quot;ISC&quot;
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>}
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>Is this OK? (yes) 
+</code></pre></div>
+<p>Ahora, instala <em>Electron</em> en las <strong><em><code>devDependencies</code></em></strong> de la aplicación, que es la lista de dependencias de paquetes externos de desarrollo exclusivo que no se requieren en producción.</p>
+<div class="highlight"><span class="filename">Terminal</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>npm<span class="w"> </span>install<span class="w"> </span>electron<span class="w"> </span>--save-dev
+</code></pre></div>
+<div class="admonition nota">
+<p class="admonition-title">¿Por qué Electron es una dependencia?</p>
+<p>Esto puede parecer poco intuitivo ya que el código de producción ejecuta API de Electron. Sin embargo, las aplicaciones finales incluirán el binario de <em>Electron</em>, eliminando la necesidad de especificarlo como una dependencia de la aplicación binaria final a distribuir en producción.</p>
+</div>
+<p>El archivo <code>package.json</code> debería verse así después de inicializar su paquete e instalar <em>Electron</em>. </p>
+<div class="highlight"><span class="filename">package.json</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-electron-app&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main.js&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&quot;test&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ISC&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">  </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="nt">&quot;electron&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^32.0.2&quot;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>También debe aparecer la carpeta <strong><code>node_modules/</code></strong> que contiene el ejecutable de <em>Electron</em>, así como un archivo de bloqueo <strong><code>package-lock.json</code></strong> que especifica las versiones de dependencia exactas que se instalarán.</p>
+<div class="admonition note">
+<p class="admonition-title">Instrucciones de instalación avanzadas</p>
+<p>Si la instalación de <em>Electron</em> falla, se puede consultar la documentación de <a href="https://www.electronjs.org/es/docs/latest/tutorial/installation">Instalación avanzada</a> para obtener instrucciones sobre cómo descargar <em>mirrors</em>, servidores <em>proxy</em> y solución de problemas.</p>
+</div>
+<h2 id="agregando-gitignore">Agregando <code>.gitignore</code><a class="headerlink" href="#agregando-gitignore" title="Permanent link">&para;</a></h2>
+<p>El archivo <strong><code>.gitignore</code></strong> especifica qué archivos y directorios evitar en el seguimiento con Gi*t. Se debe colocar una copia de la plantilla <a href="https://github.com/github/gitignore/blob/main/Node.gitignore">GitHub's Node.js gitignore template</a> en la carpeta raíz de tu proyecto para evitar el seguimiento la carpeta <em><code>node_modules/</code></em> del proyecto.</p>
+<h2 id="ejecutar-una-aplicacion-electron">Ejecutar una aplicación Electron<a class="headerlink" href="#ejecutar-una-aplicacion-electron" title="Permanent link">&para;</a></h2>
+<p>El script <strong><code>main</code></strong> que definiste en <strong><code>package.json</code></strong> es el punto de inicio de cualquier aplicación. Este script controla el proceso principal, que se ejecuta en un entorno <em>Node.js</em> y es responsable de controlar el ciclo de vida de su aplicación, mostrar interfaces nativas, realizar operaciones con privilegios y administrar los procesos de renderizado.</p>
+<p>Antes de crear la primera aplicación, primero utilizará un script para asegurar de que el punto de entrada del proceso principal está configurado correctamente. Crea un archivo <strong><code>main.js</code></strong> en la carpeta raíz del proyecto con una sola línea de código:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hola desde Electron 👋&#39;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Debido a que el proceso principal es un intérprete de <em>Node.js</em>, se puede ejecutar código con el comando <code>electron</code>. Para ejecutar este script, agrega <strong><code>"electron ."</code></strong> al comando de inicio (<code>"start"</code>) en el atributo <code>"scripts"</code> del archivo <code>paquete.json</code>. Este comando le indicará al ejecutable que busque el script principal en el directorio actual y lo ejecute en modo de desarrollo.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">package.json</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-electron-app&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;main.js&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="hll"><span class="w">    </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;electron .&quot;</span><span class="p">,</span>
+</span><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="nt">&quot;test&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ISC&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">  </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">    </span><span class="nt">&quot;electron&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^32.0.2&quot;</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">Terminal</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>npm<span class="w"> </span>run<span class="w"> </span>start
+</code></pre></div>
+<p>El terminal debería mostrar "Hola desde Electron 👋." ¡Enhorabuena, has ejecutado tu primera línea de código en Electron! A continuación, veremos como crear interfaces de usuario en HTML y cargarlas en una ventana nativa.</p>
+<h2 id="cargar-una-html-en-un-browserwindow">Cargar una html en un <em><code>BrowserWindow</code></em><a class="headerlink" href="#cargar-una-html-en-un-browserwindow" title="Permanent link">&para;</a></h2>
+<p>Cada ventana muestra una página web que se puede cargar desde un archivo <strong>HTML</strong> local o desde una dirección web remota. Para este ejemplo, se cargará desde un archivo local. Comienza creando una página web básica en un archivo <strong><code>index.html</code></strong> en la carpeta raíz del proyecto:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">index.html</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="p">&lt;</span><span class="nt">meta</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>      <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;Content-Security-Policy&quot;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>      <span class="na">content</span><span class="o">=</span><span class="s">&quot;default-src &#39;self&#39;; script-src &#39;self&#39;&quot;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="p">/&gt;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span class="p">&lt;</span><span class="nt">meta</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>      <span class="na">http-equiv</span><span class="o">=</span><span class="s">&quot;X-Content-Security-Policy&quot;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>      <span class="na">content</span><span class="o">=</span><span class="s">&quot;default-src &#39;self&#39;; script-src &#39;self&#39;&quot;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>    <span class="p">/&gt;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Hello from Electron renderer!<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hello from Electron renderer!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>👋<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ahora que tenemos una página web, se puede cargar en una ventana del navegador Electron. Reemplaza el contenido del archivo <code>main.js</code> con el siguiente código. Se explicará cada bloque resaltado por separado.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="hll"><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="nx">BrowserWindow</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
+</span><a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="hll"><span class="kd">const</span><span class="w"> </span><span class="nx">createWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="hll"><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BrowserWindow</span><span class="p">({</span>
+</span><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="hll"><span class="w">    </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">800</span><span class="p">,</span>
+</span><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="hll"><span class="w">    </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">600</span>
+</span><a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="hll"><span class="w">  </span><span class="p">})</span>
+</span><a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="hll">
+</span><a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="hll"><span class="w">  </span><span class="nx">win</span><span class="p">.</span><span class="nx">loadFile</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+</span><a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="hll"><span class="p">}</span>
+</span><a id="__codelineno-8-11" name="__codelineno-8-11"></a>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="hll"><span class="nx">app</span><span class="p">.</span><span class="nx">whenReady</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="hll"><span class="w">  </span><span class="nx">createWindow</span><span class="p">()</span>
+</span><a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="hll"><span class="p">})</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="importando-modulos">Importando módulos<a class="headerlink" href="#importando-modulos" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.js (línea 1)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="hll"><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="nx">BrowserWindow</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
+</span><a id="__codelineno-9-2" name="__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<p>En la primera línea, estamos importando dos módulos Electron con la sintaxis del módulo <em>CommonJS</em>:</p>
+<ul>
+<li><strong><code>app</code></strong>, controla el ciclo de vida del evento de su aplicación.</li>
+<li><strong><code>BrowserWindow</code></strong>, que crea y administra ventanas de aplicaciones.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Convenciones de capitalización de nombres</p>
+<p>Es posible que hayas notado la diferencia de mayúsculas entre <strong>a</strong>pp y los módulos de <strong>B</strong>rowser<strong>W</strong>indow. Electron sigue las convenciones típicas de <em>JavaScript</em>, donde los módulos se indican en <strong><em>PascalCase</em></strong> y son constructores de clases instanciables (por ejemplo, <code>BrowserWindow</code>, <code>Tray</code>, <code>Notification</code>) mientras que los módulos <strong><em>camelCase</em></strong> no son instanciables (por ejemplo, <code>app</code>, <code>ipcRenderer</code>, <code>webContents</code>).</p>
+</div>
+<h3 id="escribir-una-funcion-reutilizable-para-instanciar-ventanas">Escribir una función reutilizable para instanciar ventanas<a class="headerlink" href="#escribir-una-funcion-reutilizable-para-instanciar-ventanas" title="Permanent link">&para;</a></h3>
+<p>La función <code>createWindow()</code> carga la página web en una nueva instancia de <code>BrowserWindow</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.js (líneas 3-10)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="p">...</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="hll"><span class="kd">const</span><span class="w"> </span><span class="nx">createWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="hll"><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BrowserWindow</span><span class="p">({</span>
+</span><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="hll"><span class="w">    </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">800</span><span class="p">,</span>
+</span><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="hll"><span class="w">    </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">600</span>
+</span><a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="hll"><span class="w">  </span><span class="p">})</span>
+</span><a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="hll">
+</span><a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="hll"><span class="w">  </span><span class="nx">win</span><span class="p">.</span><span class="nx">loadFile</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+</span><a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="hll"><span class="p">}</span>
+</span><a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="p">...</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="llamar-a-su-funcion-cuando-la-aplicacion-este-lista">Llamar a su función cuando la aplicación esté lista<a class="headerlink" href="#llamar-a-su-funcion-cuando-la-aplicacion-este-lista" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.js (líneas 12-14)</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="p">...</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="hll"><span class="nx">app</span><span class="p">.</span><span class="nx">whenReady</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="hll"><span class="w">  </span><span class="nx">createWindow</span><span class="p">()</span>
+</span><a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="hll"><span class="p">})</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Muchos de los módulos principales de son emisores de eventos de <em>Node.js</em> que se adhieren a la arquitectura asincrónica basada en eventos de Node. El módulo de aplicación es uno de estos emisores.</p>
+<p><code>BrowserWindows</code> solo se puede crear después de que se del evento <code>ready</code> del módulo de la aplicación. Puede esperar este evento utilizando la API <code>app.whenReady()</code> y llamando a <code>createWindow()</code> una vez que se cumpla su promesa.</p>
+<div class="admonition info">
+<p class="admonition-title">evento <code>ready</code></p>
+<p>Normalmente los eventos de <em>Node.js</em> se escuchan utilizando la función <code>.on</code> de un emisor.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ready&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1">// app.whenReady().then(() =&gt; {</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nx">createWindow</span><span class="p">()</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">})</span>
+</code></pre></div>
+<p>Sin embargo, <em>Electron</em> expone <strong><code>app.whenReady()</code></strong> para evitar problemas al escuchar directamente el evento <code>ready</code>.</p>
+</div>
+<p>En este momento, al ejecutar el comando de <code>start</code> de la aplicación debería abrir con una ventana que muestre la página web.</p>
+<p>Cada página web que la aplicación muestra en una ventana se ejecutará en un proceso separado llamado <em><strong>renderer</strong> process</em> (proceso de renderizado) (o simplemente <strong><em>renderer</em></strong> para abreviar). Los procesos de renderizado tienen acceso a las mismas API de JavaScript y herramientas que se utilizan para el desarrollo web <em>front-end</em> típico, como el uso de <strong><em>webpack</em></strong> para agrupar y minimizar su código o <strong><em>React</em></strong> para crear interfaces de usuario.</p>
+<h2 id="administrar-el-ciclo-de-vida-de-la-ventana-de-la-aplicacion">Administrar el ciclo de vida de la ventana de la aplicación<a class="headerlink" href="#administrar-el-ciclo-de-vida-de-la-ventana-de-la-aplicacion" title="Permanent link">&para;</a></h2>
+<p>Las ventanas de las aplicaciones se comportan de manera diferente en cada sistema operativo. En lugar de hacer cumplir estas convenciones de forma predeterminada, <em>Electron</em> ofrece la opción de implementarlas en el código de su aplicación si desea seguirlas. Puede implementar convenciones básicas de ventana escuchando los eventos emitidos por la aplicación y los módulos de <code>BrowserWindow</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Flujo de control específico</p>
+<p>La verificación con la variable <strong><code>process.platform</code></strong> de <em>Node</em> puede ayudar a ejecutar código de manera condicional en ciertas plataformas. Se debe tener en cuenta que sólo hay tres plataformas posibles en las que <em>Electron</em> puede ejecutarse: <code>win32</code> (Windows), <code>linux</code> (Linux) y <code>darwin</code> (macOS).</p>
+</div>
+<h3 id="salir-de-la-aplicacion-cuando-todas-las-ventanas-esten-cerradas-windows-y-linux">Salir de la aplicación cuando todas las ventanas estén cerradas (<em>Windows y Linux</em>)<a class="headerlink" href="#salir-de-la-aplicacion-cuando-todas-las-ventanas-esten-cerradas-windows-y-linux" title="Permanent link">&para;</a></h3>
+<p>En <em>Windows</em> y <em>Linux</em>, cerrar todas las ventanas generalmente cerrará una aplicación por completo. Para implementar este patrón en <em>Electron</em>, se debe escuchar el evento <strong><code>window-all-closed</code></strong> del módulo de la aplicación y llama a <strong><code>app.quit()</code></strong> para salir de la aplicación si el usuario no está en <em>macOS</em>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;window-all-closed&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;darwin&#39;</span><span class="p">)</span><span class="w"> </span><span class="nx">app</span><span class="p">.</span><span class="nx">quit</span><span class="p">()</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">})</span>
+</code></pre></div>
+<h2 id="abra-una-ventana-si-no-hay-ninguna-abierta-macos">Abra una ventana si no hay ninguna abierta (<em>macOS</em>)<a class="headerlink" href="#abra-una-ventana-si-no-hay-ninguna-abierta-macos" title="Permanent link">&para;</a></h2>
+<p>Por el contrario, el comportamiento por defecto de las aplicaciones de <em>macOS</em> es que generalmente continúan ejecutándose incluso sin ninguna ventana abierta. Activar la aplicación cuando no hay ventanas disponibles debería abrir una nueva.</p>
+<p>Para implementar esta característica, escuchar el evento <strong><code>activate</code></strong> del módulo de la aplicación y llamar a su método <strong><code>createWindow()</code></strong> existente si no hay ningún <code>BrowserWindows</code> abierto.</p>
+<p>Debido a que las ventanas no se pueden crear antes del evento <code>ready</code>, solo debería escuchar el evento <code>activate</code> después de inicializar la aplicación. Haz esto escuchando solo los eventos de activación dentro del <code>callback</code> de <code>whenReady()</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nx">app</span><span class="p">.</span><span class="nx">whenReady</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nx">createWindow</span><span class="p">()</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;activate&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">BrowserWindow</span><span class="p">.</span><span class="nx">getAllWindows</span><span class="p">().</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="nx">createWindow</span><span class="p">()</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="p">})</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">})</span>
+</code></pre></div>
+<h2 id="codigo-final">Código final<a class="headerlink" href="#codigo-final" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span>
+<span class="normal"><a href="#__codelineno-15-12">12</a></span>
+<span class="normal"><a href="#__codelineno-15-13">13</a></span>
+<span class="normal"><a href="#__codelineno-15-14">14</a></span>
+<span class="normal"><a href="#__codelineno-15-15">15</a></span>
+<span class="normal"><a href="#__codelineno-15-16">16</a></span>
+<span class="normal"><a href="#__codelineno-15-17">17</a></span>
+<span class="normal"><a href="#__codelineno-15-18">18</a></span>
+<span class="normal"><a href="#__codelineno-15-19">19</a></span>
+<span class="normal"><a href="#__codelineno-15-20">20</a></span>
+<span class="normal"><a href="#__codelineno-15-21">21</a></span>
+<span class="normal"><a href="#__codelineno-15-22">22</a></span>
+<span class="normal"><a href="#__codelineno-15-23">23</a></span>
+<span class="normal"><a href="#__codelineno-15-24">24</a></span>
+<span class="normal"><a href="#__codelineno-15-25">25</a></span>
+<span class="normal"><a href="#__codelineno-15-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">app</span><span class="p">,</span><span class="w"> </span><span class="nx">BrowserWindow</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;electron&#39;</span><span class="p">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">createWindow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">win</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BrowserWindow</span><span class="p">({</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">    </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="mf">800</span><span class="p">,</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="nx">height</span><span class="o">:</span><span class="w"> </span><span class="mf">600</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">  </span><span class="p">})</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="w">  </span><span class="nx">win</span><span class="p">.</span><span class="nx">loadFile</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="p">}</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="nx">app</span><span class="p">.</span><span class="nx">whenReady</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">  </span><span class="nx">createWindow</span><span class="p">()</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a>
+<a id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="w">  </span><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;activate&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">BrowserWindow</span><span class="p">.</span><span class="nx">getAllWindows</span><span class="p">().</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="w">      </span><span class="nx">createWindow</span><span class="p">()</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="w">  </span><span class="p">})</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20"></a><span class="p">})</span>
+<a id="__codelineno-15-21" name="__codelineno-15-21"></a>
+<a id="__codelineno-15-22" name="__codelineno-15-22"></a><span class="nx">app</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;window-all-closed&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;darwin&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="w">    </span><span class="nx">app</span><span class="p">.</span><span class="nx">quit</span><span class="p">()</span>
+<a id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">index.html</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span>
+<span class="normal"><a href="#__codelineno-16-17">17</a></span>
+<span class="normal"><a href="#__codelineno-16-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="o">&lt;!</span><span class="nx">DOCTYPE</span><span class="w"> </span><span class="nx">html</span><span class="o">&gt;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">meta</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">meta</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">      </span><span class="nx">http</span><span class="o">-</span><span class="nx">equiv</span><span class="o">=</span><span class="s2">&quot;Content-Security-Policy&quot;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="w">      </span><span class="nx">content</span><span class="o">=</span><span class="s2">&quot;default-src &#39;self&#39;; script-src &#39;self&#39;&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">meta</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">      </span><span class="nx">http</span><span class="o">-</span><span class="nx">equiv</span><span class="o">=</span><span class="s2">&quot;X-Content-Security-Policy&quot;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w">      </span><span class="nx">content</span><span class="o">=</span><span class="s2">&quot;default-src &#39;self&#39;; script-src &#39;self&#39;&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Hola</span><span class="w"> </span><span class="nx">desde</span><span class="w"> </span><span class="nx">Electron</span><span class="w"> </span><span class="nx">renderer</span><span class="o">!&lt;</span><span class="err">/title&gt;</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="w">  </span><span class="o">&lt;</span><span class="err">/head&gt;</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="w">  </span><span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hola</span><span class="w"> </span><span class="nx">desde</span><span class="w"> </span><span class="nx">Electron</span><span class="w"> </span><span class="nx">renderer</span><span class="o">!&lt;</span><span class="err">/h1&gt;</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="err">👋</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="w">    </span><span class="o">&lt;</span><span class="nx">p</span><span class="w"> </span><span class="nx">id</span><span class="o">=</span><span class="s2">&quot;info&quot;</span><span class="o">&gt;&lt;</span><span class="err">/p&gt;</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="w">  </span><span class="o">&lt;</span><span class="err">/body&gt;</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="o">&lt;</span><span class="err">/html&gt;</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="depurando-en-vs-code">Depurando en VS Code<a class="headerlink" href="#depurando-en-vs-code" title="Permanent link">&para;</a></h2>
+<p>Para depurar la aplicación usando <em>VS Code</em>, se debe adjuntar VS code para ambos procesos tanto el principal y los renderizadores. Aquí un ejemplo de configuración. Crea un nuevo archivo <strong><code>launch.json</code></strong> en el directorio <strong><code>.vscode\</code></strong> del proyecto:</p>
+<div class="highlight"><span class="filename">.vscode/launch.json</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;compounds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Main + renderer&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">      </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Main&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Renderer&quot;</span><span class="p">],</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">      </span><span class="nt">&quot;stopAll&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">  </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Renderer&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">      </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9222</span><span class="p">,</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">      </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attach&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chrome&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">      </span><span class="nt">&quot;webRoot&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Main&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">      </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">      </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">      </span><span class="nt">&quot;runtimeExecutable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/node_modules/.bin/electron&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">      </span><span class="nt">&quot;windows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">        </span><span class="nt">&quot;runtimeExecutable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${workspaceFolder}/node_modules/.bin/electron.cmd&quot;</span>
+<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--remote-debugging-port=9222&quot;</span><span class="p">],</span>
+<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="w">      </span><span class="nt">&quot;outputCapture&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;std&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="w">      </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span>
+<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="p">}</span>
+</code></pre></div>
+<p>La opción "Main + renderer" aparecerá cuando selecciones "Run and debug" en la barra lateral, lo que le permitirá establecer puntos de interrupción e inspeccionar todas las variables, entre otras cosas, tanto en el proceso principal como en el renderizador.</p>
+<p>Lo que hemos hecho en el archivo <code>launch.json</code> es crear 3 configuraciones:</p>
+<ul>
+<li><code>Main</code> se utiliza para iniciar el proceso principal y también exponer el puerto 9222 para la depuración remota (<code>--remote-debugging-port=9222</code>). Este es el puerto que usaremos para adjuntar el depurador del <code>Renderer</code>. Debido a que el proceso principal es un proceso de <em>Node.js</em>, el tipo se establece en <code>node</code>.</li>
+<li><code>Renderer</code> se utiliza para depurar el proceso de renderizado. Debido a que el proceso principal es el que crea el proceso, tenemos que adjuntarlo (<code>"request": "attach"</code>) en lugar de crear uno nuevo. El proceso de renderizado es web, por lo que el depurador que debemos usar es <code>chrome</code>.</li>
+<li><code>Main + renderer</code> es una tarea compuesta que ejecuta las anteriores simultáneamente.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">ADVERTENCIA</p>
+<p>Debido a que estamos adjuntando un proceso en <code>Renderer</code>, es posible que las primeras líneas de su código se omitan ya que el depurador no habrá tenido tiempo suficiente para conectarse antes de que se ejecuten. Puede solucionar este problema actualizando la página o estableciendo un tiempo de espera antes de ejecutar el código en modo de desarrollo.</p>
+</div>
+<h2 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">&para;</a></h2>
+<p>Las aplicaciones <em>Electron</em> se configuran mediante paquetes <strong><em>npm</em></strong>. El ejecutable debe instalarse en las <code>devDependencies</code> de su proyecto y puede ejecutarse en modo de desarrollo usando un script en el archivo <strong><code>package.json</code></strong>.</p>
+<p>El ejecutable toma el punto de entrada de <em>JavaScript</em> que se encuentra en la propiedad <code>main</code> de <code>paquete.json</code>. Este archivo controla el <strong>proceso principal</strong>, que ejecuta una instancia de <em>Node.js</em> y es responsable del ciclo de vida de su aplicación, mostrando interfaces nativas, realizando operaciones privilegiadas y administrando procesos de renderizado.</p>
+<p>Los <strong>procesos de renderizado</strong> (o <strong><em>renderers</em></strong>) son responsables de mostrar contenido gráfico. Puedes cargar una página web en un <em>renderer</em> apuntándola a una dirección web o a un archivo HTML local. Los <em>renderers</em> se comportan de manera muy similar a las páginas web normales y tienen acceso a las mismas API web.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

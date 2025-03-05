@@ -1,0 +1,40 @@
+:root {
+    --ccyan: #D2E0FB;
+    --cyellow: #F9F3CC;
+    --cgreen: #D7E5CA;
+    --cblue: #8EACCD;
+    --clight: #F9F9F9;
+}
+
+.contenedor-principal {
+    background-color: var(--ccyan);
+    transition: all 0.5s;
+}
+
+.contenedor-cabecera {
+    background-color: var(--cblue);
+    height: 60px;
+}
+
+.contenedor-navegacion {
+    width: 220px;
+    background-color: var(--cgreen);
+}
+
+.contenedor-contenido {
+    background-color: var(--clight);
+}
+
+.contenedor-pie {
+    background-color: var(--cblue);
+}
+
+.item1 {
+    border: 1px solid var(--cblue);
+    background-color: var(--ccyan);
+}
+
+.item2 {
+    border: 1px solid var(--cblue);
+    background-color: var(--cgreen);
+}
